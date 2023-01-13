@@ -1,1 +1,1 @@
-/AIBuilder/Resource/
+AIBuilder/Resource/
