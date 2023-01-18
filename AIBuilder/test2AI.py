@@ -34,8 +34,6 @@ import os
 import requests
 import cv2
 
-
-
 import tensorflow as tf
 
 
@@ -87,7 +85,6 @@ def RemoveBackground(file_path):
     
     #백그라운드 제거
     result = remove_bg(orig_img)
-       
     #이전 이미지 확인용 
     fig.add_subplot(1, 2, 2)
     plt.imshow(result)
@@ -115,4 +112,3 @@ for (root, directories, files) in os.walk(dir_path):
         file_path = os.path.join(root, file)
         #배경 제거 프로세스
         IMG = RemoveBackground(file_path)
-        Simplification(IMG)
