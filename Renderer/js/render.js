@@ -24,7 +24,6 @@ init()
 animate()
 
 function init(){
-
   
   const material = new THREE.LineBasicMaterial( { color: 0x0000ff } );
 
@@ -46,7 +45,6 @@ function init(){
   controls.panSpeed = 0.8; // 패닝 속도 입니다. 기본값(Float)은 1입니다.
   controls.minDistance = 100; // 마우스 휠로 카메라 거리 조작시 최소 값. 기본값(Float)은 0 입니다.
   controls.maxDistance = 100; // 마우스 휠로 카메라 거리 조작시 최대 값. 기본값(Float)은 무제한 입니다.
-
 }
 
 
