@@ -36,7 +36,7 @@ page = 'https://www.musinsa.com/search/musinsa/goods?q='
 searchKeyword = ['코트' , '패딩', '자켓', '원피스', '티셔츠', '니트', '바지','반바지', '스커트']
 dataA = '&list_kind=small&sortCode=pop&sub_sort=&page='
 dataB = '&display_cnt=0&saleGoods=&includeSoldOut=&setupGoods=&popular=&category1DepthCode=&category2DepthCodes=&category3DepthCodes=&selectedFilters=&category1DepthName=&category2DepthName=&brandIds=&price=&colorCodes=&contentType=&styleTypes=&includeKeywords=&excludeKeywords=&originalYn=N&tags=&campaignId=&serviceType=&eventType=&type=popular&season=&measure=&openFilterLayout=N&selectedOrderMeasure=&shoeSizeOption=&groupSale=&d_cat_cd=&attribute='
-path = './resource/TestIMG/'    
+path = '../resource/AIInputIMG/'    
 
 
 def findIMG(keyword):
