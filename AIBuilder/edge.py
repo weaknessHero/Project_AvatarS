@@ -22,13 +22,13 @@ imgray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 ret, imthres = cv2.threshold(imgray, 127, 255, cv2.THRESH_BINARY_INV)
 
 # 가장 바깥 컨투어만 수집   --- ①
-im2, contour, hierarchy = cv2.findContours(imthres, cv2.RETR_EXTERNAL, \
+contour, hierarchy = cv2.findContours(imthres, cv2.RETR_EXTERNAL, \
                                                 cv2.CHAIN_APPROX_NONE)
 # 컨투어 갯수와 계층 트리 출력 --- ②
 print(len(contour), hierarchy)
 
 # 모든 컨투어를 트리 계층 으로 수집 ---③
-im2, contour2, hierarchy = cv2.findContours(imthres, cv2.RETR_TREE, \
+contour2, hierarchy = cv2.findContours(imthres, cv2.RETR_TREE, \
                                             cv2.CHAIN_APPROX_SIMPLE)
 # 컨투어 갯수와 계층 트리 출력 ---④
 print(len(contour2), hierarchy)
