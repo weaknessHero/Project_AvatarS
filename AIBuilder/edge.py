@@ -15,7 +15,7 @@ Created on Wed Jan 18 02:59:24 2023
 import cv2
 import numpy as np
 
-img = cv2.imread("../Resource/AIInputIMG/티셔츠/2071212_1_220.jpg")
+img = cv2.imread("../Resource/AIInputIMG/티셔츠/903340_7_220.jpg")
 img2 = img.copy()
 # 바이너리 이미지로 변환
 imgray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
