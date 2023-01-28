@@ -4,7 +4,7 @@
       <!-- When Uses is Not Logged In -->
       <div class="card-body" *ngIf="!userDetails">
         <div class="form-group text-center">
-          <button (click) = googleLogin()>google 로그인</button>
+          <button (click) = googleLogin()>구글 로그인</button>
         </div>
       </div>
       <!-- When Uses is Logged In using Email or Google Account -->
@@ -12,10 +12,10 @@
         <div class="row">
           <div class="col-sm-12">
             <ul class="list-group">
-              <li class="list-group-item">Display Name:
+              <li class="list-group-item">이름:
                 {{userDetails['displayName']}}</li>
-              <li class="list-group-item">Email: {{userDetails['email']}}</li>
-              <li class="list-group-item">Is Email Varified:
+              <li class="list-group-item">이메일: {{userDetails['email']}}</li>
+              <li class="list-group-item">이메일 검증 여부:
                 {{userDetails['emailVerified']}}</li>
               <li class="list-group-item">
                 <button type="button" class="btn btn-danger"

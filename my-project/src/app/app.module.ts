@@ -6,9 +6,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { FormsModule } from "@angular/forms";
-import { LoginComponent } from './login/login.component';
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import { LoginComponent } from './page/admin/login/login.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC-30NLxccpMplYTcMtmga2e9zk030279E",
@@ -23,7 +25,9 @@ const firebaseConfig = {
   declarations: [
     AppComponent,
     MainComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

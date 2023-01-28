@@ -1,53 +1,54 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from "../service/auth.service";
+import {AuthService} from "../../../service/auth.service";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
-
+export class LoginComponent implements OnInit {
   userDetails: any;
   responseMessageType = '';
   responseMessage = '';
 
+
   constructor(private authService: AuthService) {
   }
 
-  showMessage(type, msg){
+  showMessage(type, msg) {
     this.responseMessageType = type;
     this.responseMessage = msg;
-    setTimeout(() =>{
+    setTimeout(() => {
       this.responseMessage = '';
     }, 2000);
   }
 
-  isUserLogin(){
+  isUserLogin() {
     this.userDetails = this.authService.isUserLoggedIn();
   }
 
-  googleLogin(){
-    this.authService.loginWithGoogle()
-      .then(res=>{
-        console.log(res);
-        this.isUserLogin();
-      }, err =>{
-        this.showMessage('danger', '오류 발생: ' + err.message);
-      });
-  }
-
-  logoutUser(){
+  logoutUser() {
     this.authService.logout()
-      .then(res=>{
+      .then(res => {
         console.log(res);
         this.userDetails = undefined;
         localStorage.removeItem('user');
-      }, err=>{
-        this.showMessage('dnager', err.message);
+      }, err => {
+        this.showMessage('danger', err.message);
+      });
+  }
+
+  googleLogin() {
+    this.authService.loginWithGoogle()
+      .then(res => {
+        console.log(res);
+        this.isUserLogin();
+      }, err => {
+        this.showMessage('danger', err.message);
       });
   }
 
   ngOnInit() {
   }
+
 }
