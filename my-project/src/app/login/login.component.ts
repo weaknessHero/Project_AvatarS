@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit{
         console.log(res);
         this.isUserLogin();
       }, err =>{
-        this.showMessage('danger', err.message);
+        this.showMessage('danger', '오류 발생: ' + err.message);
       });
   }
 
