@@ -11,6 +11,10 @@ import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import { LoginComponent } from './page/admin/login/login.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
+import { UserinfoComponent } from './userinfo/userinfo.component';
+import {HttpClientModule} from "@angular/common/http";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC-30NLxccpMplYTcMtmga2e9zk030279E",
@@ -27,14 +31,18 @@ const firebaseConfig = {
     MainComponent,
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SigninComponent,
+    SignupComponent,
+    UserinfoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
