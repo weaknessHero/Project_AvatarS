@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="396109b6-98c0-41e1-a776-d27dde5a892c" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/back/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-project/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-project/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-project/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-project/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-project/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-project/src/app/main/main.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/src/app/main/main.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-project/src/app/signin/signin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/src/app/signin/signin.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,31 +27,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/hwangsedong/Desktop/Project_AvatarS/my-project",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "프로젝트",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "ts.external.directory.path": "/Users/hwangsedong/Desktop/Project_AvatarS/my-project/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/hwangsedong/Desktop/Project_AvatarS/my-project&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;프로젝트&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/hwangsedong/Desktop/Project_AvatarS/my-project/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/my-project" />
       <recent name="$PROJECT_DIR$/my-project/src" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript 디버그.Angular Application">
+  <component name="RunManager" selected="npm.Angular CLI Server">
     <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
       <method v="2" />
     </configuration>
@@ -78,7 +75,9 @@
       <option name="presentableId" value="Default" />
       <updated>1674492797304</updated>
       <workItem from="1674492798896" duration="89000" />
-      <workItem from="1675001975573" duration="4188000" />
+      <workItem from="1675001975573" duration="5873000" />
+      <workItem from="1675077028878" duration="30000" />
+      <workItem from="1675078051312" duration="4378000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,14 @@
+<div class="card" *ngFor="let product of products">
+  <div class="card-block">
+    <h4>
+      <a href="/Product/{{product.pid}}">{{product.pname}}</a><br>
+      {{product.pname}}&nbsp;
+      {{product.price}}<br>
+      {{product.brand}}
+      <div class="style">
+        <span *ngFor="let style of product.style" class="badge">{{style}}</span>
+      </div>
+    </h4>
+    <br>
+  </div>
+</div>

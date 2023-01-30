@@ -15,6 +15,7 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserinfoComponent } from './userinfo/userinfo.component';
 import {HttpClientModule} from "@angular/common/http";
+import { ProductListComponent } from './product-list/product-list.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC-30NLxccpMplYTcMtmga2e9zk030279E",
@@ -34,7 +35,8 @@ const firebaseConfig = {
     FooterComponent,
     SigninComponent,
     SignupComponent,
-    UserinfoComponent
+    UserinfoComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
