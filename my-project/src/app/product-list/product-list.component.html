@@ -1,0 +1,20 @@
+<div class="card" *ngFor="let product of products">
+  <div class="card-block">
+    <h5>
+      <img src="{{product.image}}" alt="err" width="30%"><br>
+      <a href="/Product/{{product.pid}}">{{product.pname}}</a><br>
+      <h5>
+        {{product.brand | uppercase}}
+        <div>{{ product.price | currency: "KRW"}}</div>
+        <div class="style">
+          <span *ngFor="let style of product.style" class="badge">{{style}} </span>
+        </div>
+      </h5>
+    </h5>
+    <br>
+  </div>
+</div>
+
+<script>
+
+</script>

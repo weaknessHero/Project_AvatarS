@@ -1,0 +1,15 @@
+<h2>카테고리</h2>
+<ul class="category">
+  <li *ngFor="let category of categories">
+    <button type="button">
+      <span class="name" (click)="$event">{{category.name}}</span>
+    </button>
+  </li>
+</ul>
+<!--<div>
+  <label for="name"> name: </label>
+  <input id="name" [ngModel]="main.name" placeholder="name">
+</div>
+
+ (click)="onSelect(categries)"
+-->
