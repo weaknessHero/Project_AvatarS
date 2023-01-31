@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="396109b6-98c0-41e1-a776-d27dde5a892c" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/AIBuilder/RemoveBG.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Project_AvatarS.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIBuilder/crawling.py" beforeDir="false" afterPath="$PROJECT_DIR$/AIBuilder/crawling.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIBuilder/edge.py" beforeDir="false" afterPath="$PROJECT_DIR$/AIBuilder/edge.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIBuilder/test2AI.py" beforeDir="false" afterPath="$PROJECT_DIR$/AIBuilder/test2AI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Renderer/testRenderer.html" beforeDir="false" afterPath="$PROJECT_DIR$/Renderer/testRenderer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resource/AIInputIMG/frame" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-project/package.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +50,7 @@
     &quot;project.structure.last.edited&quot;: &quot;프로젝트&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/hwangsedong/Desktop/Project_AvatarS/my-project/node_modules/typescript/lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -74,7 +87,9 @@
       <workItem from="1675001975573" duration="5873000" />
       <workItem from="1675077028878" duration="30000" />
       <workItem from="1675078051312" duration="10876000" />
-      <workItem from="1675141322689" duration="2436000" />
+      <workItem from="1675141322689" duration="2929000" />
+      <workItem from="1675146789371" duration="27000" />
+      <workItem from="1675146819491" duration="8000" />
     </task>
     <servers />
   </component>
