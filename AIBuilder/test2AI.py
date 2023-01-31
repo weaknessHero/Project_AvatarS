@@ -12,9 +12,6 @@
 4번 받아온 값을 통해서 옷에 재배치 실시 
 5번 렌더링 실시
 
-
-
-
 """
 
 
@@ -22,32 +19,6 @@
 선행작업
 pip install [numpy, opencv-python, matplotlib ]
 """
-
-
-
-
-import time
-import io
-import numpy as np
-import matplotlib.pyplot as plt
-import os
-import requests
-import cv2
-
-import tensorflow as tf
-
-
-import tensorflow_datasets as tfds
-from tensorflow_examples.models.pix2pix import pix2pix
-
-import os
-import time
-import matplotlib.pyplot as plt
-from IPython.display import clear_output
-
-AUTOTUNE = tf.data.AUTOTUNE
-
-
 
 """
 cycleGAN
@@ -64,51 +35,3 @@ X 도메인 데이터와 Y 도메인 데이터를 통해서
   
 """
 
-
-from PIL import Image, ImageFile
-ImageFile.LOAD_TRUNCATED_IMAGES = True
-from rembg.bg import remove as remove_bg
-
-
-
-#배경 제거
-def RemoveBackground(file_path):
-    orig_img = Image.open(file_path)
-      
-    #이미지 확인용
-    fig = plt.figure(figsize=(10, 10))
-    fig.add_subplot(1, 2, 1)
-    plt.imshow(orig_img)
-
-    #이간 측정
-    started = time.time()
-    
-    #백그라운드 제거
-    result = remove_bg(orig_img)
-    #이전 이미지 확인용 
-    fig.add_subplot(1, 2, 2)
-    plt.imshow(result)
-    plt.show()
-
-    #시간 측정
-    elapsed = time.time() - started
-    print(f'it takes {elapsed} seconds for removing bg.')
-
-    return np.asarray(result) # a는 읽기 전용입니다. 
-    
-"""
-단순화
-그림자 주름등의 렌더링에 불필요한 데이터 제거
-""" 
-
-
-
-dir_path="./Resource/TestIMG"
-
-#재귀탐색 폴더 내부의 폴더와 이미지 색인
-for (root, directories, files) in os.walk(dir_path):
-    for file in files:
-        #이미지 주소 받기
-        file_path = os.path.join(root, file)
-        #배경 제거 프로세스
-        IMG = RemoveBackground(file_path)

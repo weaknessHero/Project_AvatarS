@@ -19,7 +19,7 @@ pip install [beautifulsoup4]
 멀티시 --- 324.3662214279175 seconds ---
 
 받아오기 + 확인
-멀티시 --- 27.65297770500183 seconds ---
+멀티시 --- 191.65297770500183 seconds ---
 '''
 
 
@@ -36,10 +36,10 @@ page = 'https://www.musinsa.com/search/musinsa/goods?q='
 searchKeyword = ['코트' , '패딩', '자켓', '원피스', '티셔츠', '니트', '바지','반바지', '스커트']
 dataA = '&list_kind=small&sortCode=pop&sub_sort=&page='
 dataB = '&display_cnt=0&saleGoods=&includeSoldOut=&setupGoods=&popular=&category1DepthCode=&category2DepthCodes=&category3DepthCodes=&selectedFilters=&category1DepthName=&category2DepthName=&brandIds=&price=&colorCodes=&contentType=&styleTypes=&includeKeywords=&excludeKeywords=&originalYn=N&tags=&campaignId=&serviceType=&eventType=&type=popular&season=&measure=&openFilterLayout=N&selectedOrderMeasure=&shoeSizeOption=&groupSale=&d_cat_cd=&attribute='
-path = '../resource/AIInputIMG/'    
+pathA = '../resource/AIInputIMG/'    
+pathB = '../resource/RemoveBGIMG/' 
 
-
-def findIMG(keyword):
+def CrawlingIMG(keyword):
 
     for pageNum in range(1,16):
         encodingKeyword = urllib.parse.quote_plus(keyword)
@@ -52,7 +52,7 @@ def findIMG(keyword):
 
         for code in codes: #한 페이지 내의 다중 이미지 처리
             fileName = code.attrs['data-original'].split('/')[-1]
-            filepath = path + keyword+'/'+ fileName
+            filepath = pathA + keyword+'/'+ fileName
             
             #존재할경우 저장하지 않음
             if not os.path.exists(filepath) :
@@ -84,8 +84,8 @@ if __name__=='__main__':
     
     #폴더 제작
     for keyword in searchKeyword:
-        createFolder(path+keyword)
-        
+        createFolder(pathA+keyword)
+        createFolder(pathB+keyword)
         
         
     #시간측정용
@@ -95,7 +95,7 @@ if __name__=='__main__':
     pool = Pool(processes=4)#4코어
 
     #리스트의 값을 함수에 매핑해 멀티프로세스로 실행
-    pool.map(findIMG, searchKeyword)
+    pool.map(CrawlingIMG, searchKeyword)
         
     pool.close()
     pool.join()
