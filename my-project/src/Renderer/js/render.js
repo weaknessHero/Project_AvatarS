@@ -1,5 +1,5 @@
-import * as THREE from './three.module.js';
-import { OrbitControls } from "https://threejs.org/examples/jsm/controls/OrbitControls.js";
+import * as THREE from 'three';
+import { OrbitControls } from "OrbitControls";
 
 //초기 설정 렌더러 사이즈 포지션
 const renderer = new THREE.WebGLRenderer();
