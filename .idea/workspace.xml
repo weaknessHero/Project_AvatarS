@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="396109b6-98c0-41e1-a776-d27dde5a892c" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Project_AvatarS.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-project/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-project/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="396109b6-98c0-41e1-a776-d27dde5a892c" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +83,7 @@
       <workItem from="1675141322689" duration="2929000" />
       <workItem from="1675146789371" duration="27000" />
       <workItem from="1675146819491" duration="8000" />
-      <workItem from="1675271038168" duration="1186000" />
+      <workItem from="1675271038168" duration="1730000" />
     </task>
     <servers />
   </component>
