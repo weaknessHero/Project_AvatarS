@@ -87,9 +87,10 @@ if __name__=='__main__':
         createFolder(pathA+keyword)
         createFolder(pathB+keyword)
         
-        
+  
     #시간측정용
     start_time = time.time()
+    
     
     freeze_support() #윈도우 멀티 프로세싱시 필요작
     pool = Pool(processes=4)#4코어
@@ -101,4 +102,3 @@ if __name__=='__main__':
     pool.join()
     print("--- %s seconds ---" % (time.time() - start_time))
     
-
