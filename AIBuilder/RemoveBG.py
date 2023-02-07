@@ -31,11 +31,9 @@ def RemoveBackground(path, DirName):
     save_path= save_dir + '/'+DirName+'/'+file_Name+'.jpg'
     
     if not os.path.exists(save_path) :
-        with open(file_path, 'rb') as i:
-            with open(save_path, 'wb') as o:
-                input = i.read()
-                output = remove(input)
-                o.write(output)
+        input = cv2.imread(file_path)
+        output = remove(input)
+        cv2.imwrite(save_path, output)
             
             
 """
