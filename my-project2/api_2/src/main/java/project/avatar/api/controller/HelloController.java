@@ -5,31 +5,36 @@ import lombok.Setter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class HelloController {
 
-    @GetMapping(value = "/helloworld/string")
+    /* 화면에 helloworld 출력 */
+    @GetMapping(value="/helloworld/string")
     @ResponseBody
     public String helloworldString(){
         return "helloworld";
     }
 
-    @GetMapping(value = "/helloworld/json")
+    /*화면에 message: "helloworld" 출력*/
+    @GetMapping(value="/helloworld/json")
     @ResponseBody
-    public Hello helloworldJson(){
+    public Hello helloworldJson() {
         Hello hello = new Hello();
         hello.message = "helloworld";
         return hello;
     }
 
+    /* 화면에 helloworld.ftl 출력 */
     @GetMapping(value = "/helloworld/page")
-    public String HelloWorldPage(){
+    //@ResponseBody
+    public String helloworld(){
         return "helloworld";
     }
 
-    @Getter
     @Setter
+    @Getter
     public static class Hello{
         private String message;
     }
