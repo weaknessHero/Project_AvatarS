@@ -13,3 +13,5 @@ spring.datasource.username=sa
 spring.jpa.database-platform=org.hibernate.dialect.H2dialect\
   properties.hibernate.hbm2ddl.auto: update
 spring.jpa.show-sql=true
+
+spring.datasource
