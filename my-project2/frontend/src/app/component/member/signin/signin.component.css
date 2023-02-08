@@ -1,0 +1,30 @@
+*{
+  box-sizing: border-box;
+}
+
+.wrapper{
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+}
+
+.mat-form-field{
+  width: 100%;
+  min-width: 300px;
+}
+
+.error{
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: red;
+}
+
+.button{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button button{
+  margin-right: 8px;
+}

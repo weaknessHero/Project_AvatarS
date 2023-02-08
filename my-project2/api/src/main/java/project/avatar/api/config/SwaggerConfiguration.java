@@ -25,6 +25,9 @@ public class SwaggerConfiguration {
     private ApiInfo swaggerInfo(){
         return new ApiInfoBuilder().title("Spring API Documentation")
                 .description("앱 개발시 사용되는 서버 API 연동 문서")
-                .license("AvatarS").licenseUrl("http://www.naver.com").version("1").build();
+                .license("AvatarS")
+                .licenseUrl("www.naver.com")
+                .version("1")
+                .build();
     }
 }

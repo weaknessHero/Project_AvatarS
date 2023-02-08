@@ -26,11 +26,11 @@ public class UserController {
     @ApiOperation(value = "회원 입력", notes = "회원 입력")
     @PostMapping(value = "/user")
     public Users save(@ApiParam(value = "회원아이디", required = true) @RequestParam String uid,
-                        @ApiParam(value = "회원이름", required = true) @RequestParam String name){
-        Users user = Users.builder()
+                      @ApiParam(value = "회원이름", required = true) @RequestParam String name){
+        Users users = Users.builder()
                 .uid(uid)
                 .name(name)
                 .build();
-        return userJpaRepo.save(user);
+        return userJpaRepo.save(users);
     }
 }
