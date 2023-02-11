@@ -1,13 +1,11 @@
 package project.avatar.api.entity;
 
 
-//import jakarta.persistence.*;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
 
 @Builder
 @Entity

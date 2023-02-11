@@ -21,4 +21,6 @@
       show-sql: true
     server:
     port: 8080
-
+    mvc:
+      pathmatch:
+        matching-strategy: ant_path_matcher
