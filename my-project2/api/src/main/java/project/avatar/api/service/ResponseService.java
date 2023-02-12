@@ -50,7 +50,7 @@ public class ResponseService {
         return result;
     }
     //실패 결과만 처리하는 메소드
-    public CommonResult getFailResult(){
+    public CommonResult getFailResult(Integer integer, String message){
         CommonResult result = new CommonResult();
         result.setSuccess(false);
         result.setCode(CommonResponse.FAIL.getCode());

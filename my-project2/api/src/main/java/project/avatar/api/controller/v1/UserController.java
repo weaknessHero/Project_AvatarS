@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 //import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.web.bind.annotation.*;
+import project.avatar.api.advice.Exception.CUserNotFoundException;
 import project.avatar.api.entity.User;
 import project.avatar.api.model.response.CommonResult;
 import project.avatar.api.model.response.ListResult;
@@ -31,10 +32,17 @@ public class UserController {
         return responseService.getListResult(userJpaRepo.findAll());
     }
 
-    @ApiOperation(value = "회원 단일 조회", notes = "userId를 통한 회원 조회")
+    @ApiOperation(value = "회원 단일 조회", notes = "msrl를 통한 회원 조회")
     @GetMapping(value = "/user/{msrl}")
     public SingleResult<User> findUserById(@ApiParam(value = "회원ID", required = true) @PathVariable long msrl){
         return responseService.getSingleResult(userJpaRepo.findById(msrl).orElse(null));
+    }
+
+    @ApiOperation(value = "회원 단일 조회", notes = "userId를 통한 회원 조회")
+    @GetMapping(value = "/user/{userId}")
+    public SingleResult<User> findUserById(@ApiParam(value = "회원ID", required = true) @PathVariable int userId,
+                                           @ApiParam(value = "언어", defaultValue = "ko") @RequestParam String lang){
+        return responseService.getSingleResult(userJpaRepo.findById((long) userId).orElseThrow(CUserNotFoundException::new));
     }
 
     @ApiOperation(value = "회원 입력", notes = "회원을 입력한다.")
