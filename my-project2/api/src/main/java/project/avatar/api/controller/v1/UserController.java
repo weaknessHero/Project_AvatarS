@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import project.avatar.api.entity.Users;
+import project.avatar.api.entity.User;
 import project.avatar.api.repo.UserJpaRepo;
 
 import java.util.List;
@@ -19,18 +19,18 @@ public class UserController {
 
     @ApiOperation(value = "회원 조회", notes = "모든 회원 정보 조회")
     @GetMapping(value = "/user")
-    public List<Users> findAllUser(){
+    public List<User> findAllUser(){
         return userJpaRepo.findAll();
     }
 
     @ApiOperation(value = "회원 입력", notes = "회원 입력")
     @PostMapping(value = "/user")
-    public Users save(@ApiParam(value = "회원아이디", required = true) @RequestParam String uid,
-                      @ApiParam(value = "회원이름", required = true) @RequestParam String name){
-        Users users = Users.builder()
+    public User save(@ApiParam(value = "회원아이디", required = true) @RequestParam String uid,
+                     @ApiParam(value = "회원이름", required = true) @RequestParam String name){
+        User user = User.builder()
                 .uid(uid)
                 .name(name)
                 .build();
-        return userJpaRepo.save(users);
+        return userJpaRepo.save(user);
     }
 }

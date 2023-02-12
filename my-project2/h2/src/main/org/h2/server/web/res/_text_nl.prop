@@ -161,4 +161,4 @@ tree.indexes=Indices
 tree.nonUnique=Niet uniek
 tree.sequences=Sequenties
 tree.unique=Uniek
-tree.users=Gebruikers
+tree.user=Gebruikers

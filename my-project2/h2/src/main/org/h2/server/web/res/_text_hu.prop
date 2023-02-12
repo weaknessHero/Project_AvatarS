@@ -161,4 +161,4 @@ tree.indexes=Indexek
 tree.nonUnique=Nem egyedi
 tree.sequences=Szekvencia
 tree.unique=Egyedi
-tree.users=Felhasználók
+tree.user=Felhasználók

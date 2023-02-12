@@ -161,4 +161,4 @@ tree.indexes=Index
 tree.nonUnique=Non unique
 tree.sequences=Séquences
 tree.unique=Unique
-tree.users=Utilisateurs
+tree.user=Utilisateurs

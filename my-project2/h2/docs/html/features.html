@@ -218,7 +218,7 @@ translate -->
     DISTINCT / DISTINCT ON (...)
 </li><li>Window functions
 </li><li>Collation support, including support for the ICU4J library
-</li><li>Support for users and roles
+</li><li>Support for user and roles
 </li><li>Compatibility modes for IBM DB2, Apache Derby, HSQLDB,
     MS SQL Server, MySQL, Oracle, and PostgreSQL.
 </li></ul>
@@ -1865,7 +1865,7 @@ is listed.
 <h2 id="external_authentication">External authentication (Experimental)</h2>
 <p>
 External authentication allows to optionally validate user credentials externally (JAAS,LDAP,custom classes).
-Is also possible to temporary assign roles to externally authenticated users.  <b>This feature is experimental and subject to change</b>
+Is also possible to temporary assign roles to externally authenticated user.  <b>This feature is experimental and subject to change</b>
 </p>
 <p>Master user cannot be externally authenticated</p>
 <p>
@@ -1896,7 +1896,7 @@ JVM argument <code>-Dh2auth.configurationFile={urlOfH2Auth.xml}</code>. Here an 
 <pre>
 &lt;h2Auth allowUserRegistration="false" createMissingRoles="true"&gt;
 
-    &lt;!-- realm: DUMMY authenticate users named DUMMY[0-9] with a static password --&gt;
+    &lt;!-- realm: DUMMY authenticate user named DUMMY[0-9] with a static password --&gt;
     &lt;realm name="DUMMY"
     validatorClass="org.h2.security.auth.impl.FixedPasswordCredentialsValidator"&gt;
         &lt;property name="userNamePattern" value="DUMMY[0-9]" /&gt;

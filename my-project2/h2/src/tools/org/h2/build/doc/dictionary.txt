@@ -690,7 +690,7 @@ unwrap unwrapped unwritten unzip upc upd updatable update updated updates
 updating upgrade upgraded upgrader upgrades upgrading upload uploaded upon upper
 uppercase uppercased uppermost ups upsert upset upside upsih upsilon urgent urgently
 uri url urls usa usable usage usd use used useful user userbyid username userpwd
-users uses using usr usual usually utc ute utf util utilities utility utilization
+user uses using usr usual usually utc ute utf util utilities utility utilization
 utilize utilizes utils uui uuid uuml vacancy vacuum vacuuming val valid validate
 validated validates validating validation validities validity validly valign
 valuable value values van var varargs varbinary varchar variable variables

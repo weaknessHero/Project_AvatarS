@@ -161,4 +161,4 @@ tree.indexes=Индексы
 tree.nonUnique=Неуникальное
 tree.sequences=Последовательности
 tree.unique=Уникальное
-tree.users=Пользователи
+tree.user=Пользователи

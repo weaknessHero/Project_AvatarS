@@ -1139,7 +1139,7 @@ the schema of the database. This file can be executed using the <code>RunScript<
 <a href="https://h2database.com/html/commands.html#runscript"><code>RUNSCRIPT</code></a> SQL statement.
 The script includes at least one
 <code>CREATE USER</code> statement. If you run the script against a database that was created with the same
-user, or if there are conflicting users, running the script will fail. Consider running the script
+user, or if there are conflicting user, running the script will fail. Consider running the script
 against a database that was created with a user name that is not in the script.
 </p>
 <p>
@@ -1457,7 +1457,7 @@ options <code>-webAllowOthers, -tcpAllowOthers, -pgAllowOthers</code>.
 If you enable remote access using
 <code>-tcpAllowOthers</code> or <code>-pgAllowOthers</code>,
 please also consider using the options <code>-baseDir</code>,
-so that remote users can not create new databases
+so that remote user can not create new databases
 or access existing databases with weak passwords.
 When using the option <code>-baseDir</code>, only databases within that directory may be accessed.
 Ensure the existing accessible databases are protected using strong passwords.
@@ -1485,7 +1485,7 @@ CREATE ALIAS GET_PROPERTY FOR "java.lang.System.getProperty";
 CALL GET_PROPERTY('abc');
 </pre>
 <p>
-To restrict users (including admins) from loading classes and executing code,
+To restrict user (including admins) from loading classes and executing code,
 the list of allowed classes can be set in the system property
 <code>h2.allowedClasses</code>
 in the form of a comma separated list of classes or patterns (items ending with <code>*</code>).
