@@ -28,6 +28,55 @@ import java.util.List;
 
 @Configuration
 @EnableSwagger2
+public class SwaggerConfiguration{
+    @Bean
+    public Docket swaggerApi(){
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(swaggerInfo()).select()
+                .apis(RequestHandlerSelectors.basePackage("project.avatar.api.controller"))
+                .paths(PathSelectors.any())
+                .build()
+                .useDefaultResponseMessages(false);
+    }
+
+    private ApiInfo swaggerInfo(){
+        return new ApiInfoBuilder().title("AvatarS API 문서")
+                .description("AvatarS API 연동 문서")
+                .license("AvatarS")
+                .version("1")
+                .build();
+    }
+
+    @Bean
+    public WebMvcEndpointHandlerMapping webEndpointServletHandlerMapping(WebEndpointsSupplier webEndpointsSupplier
+            , ServletEndpointsSupplier servletEndpointsSupplier
+            , ControllerEndpointsSupplier controllerEndpointsSupplier
+            , EndpointMediaTypes endpointMediaTypes
+            , CorsEndpointProperties corsProperties
+            , WebEndpointProperties webEndpointProperties
+            , Environment environment) {
+        List<ExposableEndpoint<?>> allEndpoints = new ArrayList();
+        Collection<ExposableWebEndpoint> webEndpoints = webEndpointsSupplier.getEndpoints();
+        allEndpoints.addAll(webEndpoints);
+        allEndpoints.addAll(servletEndpointsSupplier.getEndpoints());
+        allEndpoints.addAll(controllerEndpointsSupplier.getEndpoints());
+        String basePath = webEndpointProperties.getBasePath();
+        EndpointMapping endpointMapping = new EndpointMapping(basePath);
+        boolean shouldRegisterLinksMapping = this.shouldRegisterLinksMapping(webEndpointProperties, environment, basePath);
+        return new WebMvcEndpointHandlerMapping(endpointMapping, webEndpoints, endpointMediaTypes, corsProperties.toCorsConfiguration()
+                , new EndpointLinksResolver(allEndpoints, basePath), shouldRegisterLinksMapping, null);
+    }
+
+
+    private boolean shouldRegisterLinksMapping(WebEndpointProperties webEndpointProperties, Environment environment, String basePath) {
+        return webEndpointProperties.getDiscovery().isEnabled() && (StringUtils.hasText(basePath) || ManagementPortType
+                .get(environment).equals(ManagementPortType.DIFFERENT));
+    }
+
+
+}
+
+/*@Configuration
+@EnableSwagger2
 public class SwaggerConfiguration implements WebMvcConfigurer {
 
 
@@ -94,6 +143,6 @@ public class SwaggerConfiguration implements WebMvcConfigurer {
                 .get(environment).equals(ManagementPortType.DIFFERENT));
     }
 
-}
+}*/
 
 
