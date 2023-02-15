@@ -4,19 +4,25 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image, ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
-from rembg.bg import remove as remove_bg
 
 import cv2
 
 
-def show_rembg(path):
+def show_contour(path):
+    image = cv2.imread(path)
+    img_raw = np.ones(image.shape) - image
+    img = img_raw.copy().astype('uint8')
 
-    with open(path, 'rb') as i:
-        with open('BBB.jpg', 'wb') as o:
-            input = i.read()
-            output = remove_bg(input)
-            o.write(output)
-            
-            
+    images, contours, hierachy = cv2.findContours(img, cv2.RETR_TREE,cv2.CHAIN_APPROX_TC89_KCOS )
+    x0, y0 = zip(*np.squeeze(contours[0]))
+    plt.plot(x0, y0, c="b")
+    plt.show()
+
+
+
+
+
+
+
 # Usage
-show_rembg('../Resource/AIInputIMG/니트/1139100_5_220.jpg')
+show_contour('../Resource/RemoveBGIMG/니트/1139100_5_220.jpg')

@@ -7,8 +7,6 @@
 """
 
 import os
-
-
 from rembg import remove
 import cv2
 
