@@ -13,6 +13,15 @@
             <input type="password" matInput placeholder="비밀번호를 입력해주세요" formControlName="password">
           </mat-form-field>
         </p>
+        <p *ngIf="id.touched &&id.invalid&&id.errors.required" class="error">
+          아이디를 입력해주세요.
+        </p>
+        <p *ngIf="id.touched&&id.invalid&&id.errors.email" class="error">
+          유효한 이메일 형식의 아이디를 입력해주세요.
+        </p>
+        <p *ngIf="password.touched&&password.invalid&&password.errors.required" class="error">
+          비밀번호를 입력해주세요.
+        </p>
         <div class="button">
           <button type="submit" mat-stroked-button [disabled]="!signInForm.valid">Login</button>
           <button mat-raised-button color="primary" routerLink="/signup">SignUp</button>

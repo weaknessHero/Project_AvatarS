@@ -11,13 +11,16 @@ import { SigninComponent } from './component/member/signin/signin.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { SignupComponent } from './component/member/signup/signup.component';
+import {SignService} from "./service/rest-api/sign.service";
+import { LogoutComponent } from './component/logout/logout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,9 @@ import { SignupComponent } from './component/member/signup/signup.component';
   exports: [
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    SignService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

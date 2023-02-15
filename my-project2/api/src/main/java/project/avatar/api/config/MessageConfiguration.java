@@ -38,7 +38,7 @@ public class MessageConfiguration implements WebMvcConfigurer {
         registry.addInterceptor(localeChangeInterceptor());
     }
 
-    @Bean
+    @Bean //yml을 참조하는 messagesource 선언
     public MessageSource messageSource(
             @Value("${spring.messages.basename") String basename,
             @Value("${spring.messages.encoding") String encoding
