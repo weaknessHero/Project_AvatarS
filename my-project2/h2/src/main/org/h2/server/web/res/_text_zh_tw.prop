@@ -161,4 +161,4 @@ tree.indexes=索引
 tree.nonUnique=非唯一
 tree.sequences=序列
 tree.unique=唯一
-tree.users=使用者
+tree.user=使用者

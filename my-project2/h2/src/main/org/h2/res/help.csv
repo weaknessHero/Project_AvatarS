@@ -1127,7 +1127,7 @@ DROP ALIAS MY_SQRT
 @h2@ DROP ALL OBJECTS [ DELETE FILES ]
 ","
 Drops all existing views, tables, sequences, schemas, function aliases, roles,
-user-defined aggregate functions, domains, and users (except the current user).
+user-defined aggregate functions, domains, and user (except the current user).
 If DELETE FILES is specified, the database files will be removed when the last
 user disconnects from the database. Warning: this command can not be rolled
 back.

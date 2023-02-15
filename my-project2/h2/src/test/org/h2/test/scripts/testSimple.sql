@@ -974,23 +974,23 @@ create user sales password '1';
 comment on user sales is 'mr. money';
 > ok
 
-select remarks from information_schema.users where user_name = 'SALES';
+select remarks from information_schema.user where user_name = 'SALES';
 >> mr. money
 
 @reconnect
 
-select remarks from information_schema.users where user_name = 'SALES';
+select remarks from information_schema.user where user_name = 'SALES';
 >> mr. money
 
 alter user sales rename to SALES_USER;
 > ok
 
-select remarks from information_schema.users where user_name = 'SALES_USER';
+select remarks from information_schema.user where user_name = 'SALES_USER';
 >> mr. money
 
 @reconnect
 
-select remarks from information_schema.users where user_name = 'SALES_USER';
+select remarks from information_schema.user where user_name = 'SALES_USER';
 >> mr. money
 
 create table test(id int);

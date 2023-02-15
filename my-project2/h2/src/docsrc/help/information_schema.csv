@@ -110,7 +110,7 @@ Contains information about sequences.
 
 "SESSIONS",,"
 Contains information about sessions.
-Only users with ADMIN privileges can see all sessions, other users can see only own session.
+Only user with ADMIN privileges can see all sessions, other user can see only own session.
 "
 
 "SESSION_STATE",,"
@@ -145,8 +145,8 @@ Contains information about triggers.
 "
 
 "USERS",,"
-Contains information about users.
-Only users with ADMIN privileges can see all users, other users can see only themselves.
+Contains information about user.
+Only user with ADMIN privileges can see all user, other user can see only themselves.
 "
 
 "VIEWS",,"
