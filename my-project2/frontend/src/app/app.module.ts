@@ -9,10 +9,14 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import { HomeComponent } from './component/home.component';
 import { SigninComponent } from './component/member/signin/signin.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { SignupComponent } from './component/member/signup/signup.component';
 import {SignService} from "./service/rest-api/sign.service";
 import { LogoutComponent } from './component/logout/logout.component';
+import { MyinfoComponent } from './component/member/myinfo/myinfo.component';
+import {MatLegacyListModule} from "@angular/material/legacy-list";
+import {HttpRequestInterceptorService} from "./service/rest-api/common/http-request-interceptor.service";
+import {MyinfoService} from "./service/rest-api/myinfo.service";
 
 @NgModule({
   declarations: [
@@ -20,23 +24,30 @@ import { LogoutComponent } from './component/logout/logout.component';
     HomeComponent,
     SigninComponent,
     SignupComponent,
-    LogoutComponent
+    LogoutComponent,
+    MyinfoComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    FlexLayoutModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        FlexLayoutModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule
+    ],
   exports: [
     ReactiveFormsModule
   ],
   providers: [
-    SignService
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpRequestInterceptorService,
+      multi: true,
+    },
+    SignService,
+    MyinfoService
   ],
   bootstrap: [AppComponent]
 })
