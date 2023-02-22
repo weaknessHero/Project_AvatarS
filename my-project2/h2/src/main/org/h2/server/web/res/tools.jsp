@@ -159,7 +159,7 @@ function update() {
         <tr><td>
         ${text.tools.sourceDatabaseURL}:&nbsp;</td><td><input id="optionScript.0" name="url" onkeyup="update()" onchange="update()" value="jdbc:h2:~/test" size="50" />
         </td></tr><tr><td>
-        ${text.a.user}:&nbsp;</td><td><input id="optionScript.1" name="user" onkeyup="update()" onchange="update()" value="sa" />
+        ${text.a.users}:&nbsp;</td><td><input id="optionScript.1" name="users" onkeyup="update()" onchange="update()" value="sa" />
         </td></tr><tr><td>
         ${text.a.password}:&nbsp;</td><td><input type="password" id="optionScript.2" name="password" onkeyup="update()" onchange="update()" value="" />
         </td></tr><tr><td>
@@ -174,7 +174,7 @@ function update() {
         <tr><td>
         ${text.tools.targetDatabaseURL}:&nbsp;</td><td><input id="optionRunScript.0" name="url" onkeyup="update()" onchange="update()" value="jdbc:h2:~/test" size="50" />
         </td></tr><tr><td>
-        ${text.a.user}:&nbsp;</td><td><input id="optionRunScript.1" name="user" onkeyup="update()" onchange="update()" value="sa" />
+        ${text.a.users}:&nbsp;</td><td><input id="optionRunScript.1" name="users" onkeyup="update()" onchange="update()" value="sa" />
         </td></tr><tr><td>
         ${text.a.password}:&nbsp;</td><td><input type="password" id="optionRunScript.2" name="password" onkeyup="update()" onchange="update()" value="" />
         </td></tr><tr><td>
@@ -204,7 +204,7 @@ function update() {
         </td></tr><tr><td>
         ${text.tools.targetDatabaseURL}:&nbsp;</td><td><input id="optionCreateCluster.1" name="urlTarget" onkeyup="update()" onchange="update()" value="jdbc:h2:~/copy/test" size="50" />
         </td></tr><tr><td>
-        ${text.a.user}:&nbsp;</td><td><input id="optionCreateCluster.2" name="user" onkeyup="update()" onchange="update()" value="sa" />
+        ${text.a.users}:&nbsp;</td><td><input id="optionCreateCluster.2" name="users" onkeyup="update()" onchange="update()" value="sa" />
         </td></tr><tr><td>
         ${text.a.password}:&nbsp;</td><td><input type="password" id="optionCreateCluster.3" name="password" onkeyup="update()" onchange="update()" value="" />
         </td></tr><tr><td>

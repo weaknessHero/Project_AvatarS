@@ -121,7 +121,7 @@ Features
     DISTINCT / DISTINCT ON (...)
 </li><li>Window functions
 </li><li>Collation support, including support for the ICU4J library
-</li><li>Support for user and roles
+</li><li>Support for users and roles
 </li><li>Compatibility modes for IBM DB2, Apache Derby, HSQLDB,
     MS SQL Server, MySQL, Oracle, and PostgreSQL.
 </li></ul>
@@ -130,7 +130,7 @@ Features
 <ul>
 <li>Includes a solution for the SQL injection problem
 </li><li>User password authentication uses SHA-256 and salt
-</li><li>For server mode connections, user passwords are never transmitted in plain text over the network
+</li><li>For server mode connections, users passwords are never transmitted in plain text over the network
     (even when using insecure connections; this only applies to the TCP server and not to the H2 Console however;
     it also doesn't apply if you set the password in the database URL)
 </li><li>All database files (including script files that can be used to backup data) can be
@@ -390,7 +390,7 @@ operating system, however it is recommended to use lowercase letters only.
 The database name must be at least three characters long
 (a limitation of <code>File.createTempFile</code>).
 The database name must not contain a semicolon.
-To point to the user home directory, use <code>~/</code>, as in: <code>jdbc:h2:~/test</code>.
+To point to the users home directory, use <code>~/</code>, as in: <code>jdbc:h2:~/test</code>.
 </p>
 
 <h2 id="in_memory_databases">In-Memory Databases</h2>
@@ -435,7 +435,7 @@ Three encryption algorithms are supported:
 </ul>
 <p>
 To use file encryption, you need to specify the encryption algorithm (the 'cipher')
-and the file password (in addition to the user password) when connecting to the database.
+and the file password (in addition to the users password) when connecting to the database.
 </p>
 
 <h3>Creating a New Database with File Encryption</h3>
@@ -448,17 +448,17 @@ To create an encrypted database, connect to it as it would already exist locally
 <h3>Connecting to an Encrypted Database</h3>
 <p>
 The encryption algorithm is set in the database URL, and the file password is specified in the password field,
-before the user password. A single space separates the file password
-and the user password; the file password itself may not contain spaces. File passwords
-and user passwords are case sensitive. Here is an example to connect to a
+before the users password. A single space separates the file password
+and the users password; the file password itself may not contain spaces. File passwords
+and users passwords are case sensitive. Here is an example to connect to a
 password-encrypted database:
 </p>
 <pre>
 String url = "jdbc:h2:~/test;CIPHER=AES";
-String user = "sa";
+String users = "sa";
 String pwds = "filepwd userpwd";
 conn = DriverManager.
-    getConnection(url, user, pwds);
+    getConnection(url, users, pwds);
 </pre>
 
 <h3>Encrypting or Decrypting a Database</h3>
@@ -466,7 +466,7 @@ conn = DriverManager.
 To encrypt an existing database, use the <code>ChangeFileEncryption</code> tool.
 This tool can also decrypt an encrypted database, or change the file encryption key.
 The tool is available from within the H2 Console in the tools section, or you can run it from the command line.
-The following command line will encrypt the database <code>test</code> in the user home directory
+The following command line will encrypt the database <code>test</code> in the users home directory
 with the file password <code>filepwd</code> and the encryption algorithm AES:
 </p>
 <pre>
@@ -1400,7 +1400,7 @@ in <code>TestMultiDimension.java</code>.
 
 <h2 id="user_defined_functions">User-Defined Functions and Stored Procedures</h2>
 <p>
-In addition to the built-in functions, this database supports user-defined Java functions.
+In addition to the built-in functions, this database supports users-defined Java functions.
 In this database, Java functions can be used as stored procedures as well.
 A function must be declared (registered) before it can be used.
 A function can be defined using source code, or as a reference to
@@ -1716,12 +1716,12 @@ Here is a sample function to do this:
 </p>
 <pre>
 public static void compact(String dir, String dbName,
-        String user, String password) throws Exception {
+        String users, String password) throws Exception {
     String url = "jdbc:h2:" + dir + "/" + dbName;
     String file = "data/test.sql";
-    Script.execute(url, user, password, file);
+    Script.execute(url, users, password, file);
     DeleteDbFiles.execute(dir, dbName, true);
-    RunScript.execute(url, user, password, file, null, false);
+    RunScript.execute(url, users, password, file, null, false);
 }
 </pre>
 <p>
@@ -1767,10 +1767,10 @@ is listed.
 </p>
 <h2 id="external_authentication">External authentication (Experimental)</h2>
 <p>
-External authentication allows to optionally validate user credentials externally (JAAS,LDAP,custom classes).
-Is also possible to temporary assign roles to externally authenticated user.  <b>This feature is experimental and subject to change</b>
+External authentication allows to optionally validate users credentials externally (JAAS,LDAP,custom classes).
+Is also possible to temporary assign roles to externally authenticated users.  <b>This feature is experimental and subject to change</b>
 </p>
-<p>Master user cannot be externally authenticated</p>
+<p>Master users cannot be externally authenticated</p>
 <p>
 To enable external authentication on a database execute statement <code>SET AUTHENTICATOR TRUE</code>. This setting in persisted on the database.
 </p>
@@ -1799,7 +1799,7 @@ JVM argument <code>-Dh2auth.configurationFile={urlOfH2Auth.xml}</code>. Here an 
 <pre>
 &lt;h2Auth allowUserRegistration="false" createMissingRoles="true"&gt;
 
-    &lt;!-- realm: DUMMY authenticate user named DUMMY[0-9] with a static password --&gt;
+    &lt;!-- realm: DUMMY authenticate users named DUMMY[0-9] with a static password --&gt;
     &lt;realm name="DUMMY"
     validatorClass="org.h2.security.auth.impl.FixedPasswordCredentialsValidator"&gt;
         &lt;property name="userNamePattern" value="DUMMY[0-9]" /&gt;
@@ -1821,10 +1821,10 @@ JVM argument <code>-Dh2auth.configurationFile={urlOfH2Auth.xml}</code>. Here an 
         &lt;property name="appName" value="H2" /&gt;
     &lt;/realm&gt;
 
-    &lt;!--Assign to each user role @{REALM} --&gt;
+    &lt;!--Assign to each users role @{REALM} --&gt;
     &lt;userToRolesMapper class="org.h2.security.auth.impl.AssignRealmNameRole"/&gt;
 
-    &lt;!--Assign to each user role REMOTEUSER --&gt;
+    &lt;!--Assign to each users role REMOTEUSER --&gt;
     &lt;userToRolesMapper class="org.h2.security.auth.impl.StaticRolesMapper"&gt;
         &lt;property name="roles" value="REMOTEUSER"/&gt;
     &lt;/userToRolesMapper&gt;

@@ -69,8 +69,8 @@ Initial Developer: H2 Group
                 <td class="login"><input type="text" name="url" value="${url}" style="width:300px;" /></td>
             </tr>
             <tr class="login">
-                <td class="login">${text.a.user}:</td>
-                <td class="login"><input type="text" name="user" value="${user}" style="width:200px;" /></td>
+                <td class="login">${text.a.users}:</td>
+                <td class="login"><input type="text" name="users" value="${users}" style="width:200px;" /></td>
             </tr>
             <tr class="login">
                 <td class="login">${text.a.password}:</td>
@@ -93,7 +93,7 @@ Initial Developer: H2 Group
             <h3>Embedded</h3>
             <p>
             The URL <code>jdbc:h2:~/test</code> means the database is stored in
-            the user home directory in files starting with 'test'.
+            the users home directory in files starting with 'test'.
             Absolute locations like <code>jdbc:h2:/data/db/test</code> are supported.
             In embedded mode, the database runs in the same process as the application.
             Only one process may access a database at any time.
@@ -109,7 +109,7 @@ Initial Developer: H2 Group
             <p>
             The URL <code>jdbc:h2:tcp://localhost/~/test</code> means connect
             over TCP/IP to the H2 TCP server running on this computer, and open a database
-            called test in the user home directory. The server must be started first.
+            called test in the users home directory. The server must be started first.
             Any number of clients can connect to the same database.
             The same location rules as for embedded databases apply.
             </p>

@@ -156,7 +156,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/api/ErrorCode.html#ADMIN_RIGHTS_REQUIRED">ADMIN_RIGHTS_REQUIRED</a></span></code>
 <div class="block">The error with code <code>90040</code> is thrown when
- a user that is not administrator tries to execute a statement
+ a users that is not administrator tries to execute a statement
  that requires admin privileges.</div>
 </td>
 </tr>
@@ -164,7 +164,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/api/ErrorCode.html#AGGREGATE_NOT_FOUND_1">AGGREGATE_NOT_FOUND_1</a></span></code>
 <div class="block">The error with code <code>90132</code> is thrown when
- trying to drop a user-defined aggregate function that doesn't exist.</div>
+ trying to drop a users-defined aggregate function that doesn't exist.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -185,7 +185,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/api/ErrorCode.html#AUTHENTICATOR_NOT_AVAILABLE">AUTHENTICATOR_NOT_AVAILABLE</a></span></code>
 <div class="block">The error with code <code>90144</code> is thrown when
- user trying to login into a database with AUTHREALM set and
+ users trying to login into a database with AUTHREALM set and
  the target database doesn't have an authenticator defined</div>
 </td>
 </tr>
@@ -215,7 +215,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/api/ErrorCode.html#CANNOT_DROP_CURRENT_USER">CANNOT_DROP_CURRENT_USER</a></span></code>
 <div class="block">The error with code <code>90019</code> is thrown when
- trying to drop the current user, if there are no other admin user.</div>
+ trying to drop the current users, if there are no other admin users.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -621,7 +621,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/api/ErrorCode.html#EXCEPTION_IN_FUNCTION_1">EXCEPTION_IN_FUNCTION_1</a></span></code>
 <div class="block">The error with code <code>90105</code> is thrown when
- an exception occurred in a user-defined method.</div>
+ an exception occurred in a users-defined method.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -1028,8 +1028,8 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/api/ErrorCode.html#NOT_ENOUGH_RIGHTS_FOR_1">NOT_ENOUGH_RIGHTS_FOR_1</a></span></code>
 <div class="block">The error with code <code>90096</code> is thrown when
- trying to perform an operation with a non-admin user if the
- user does not have enough rights.</div>
+ trying to perform an operation with a non-admin users if the
+ users does not have enough rights.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -1540,7 +1540,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/api/ErrorCode.html#USER_ALREADY_EXISTS_1">USER_ALREADY_EXISTS_1</a></span></code>
 <div class="block">The error with code <code>90033</code> is thrown when
- trying to create a user or role if a user with this name already exists.</div>
+ trying to create a users or role if a users with this name already exists.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -1559,14 +1559,14 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/api/ErrorCode.html#USER_NOT_FOUND_1">USER_NOT_FOUND_1</a></span></code>
 <div class="block">The error with code <code>90032</code> is thrown when
- trying to drop or alter a user that does not exist.</div>
+ trying to drop or alter a users that does not exist.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/api/ErrorCode.html#USER_OR_ROLE_NOT_FOUND_1">USER_OR_ROLE_NOT_FOUND_1</a></span></code>
 <div class="block">The error with code <code>90071</code> is thrown when
- trying to grant or revoke if no role or user with that name exists.</div>
+ trying to grant or revoke if no role or users with that name exists.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -1616,7 +1616,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/api/ErrorCode.html#WRONG_PASSWORD_FORMAT">WRONG_PASSWORD_FORMAT</a></span></code>
 <div class="block">The error with code <code>90050</code> is thrown when trying to open an
- encrypted database, but not separating the file password from the user
+ encrypted database, but not separating the file password from the users
  password.</div>
 </td>
 </tr>
@@ -1624,7 +1624,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/api/ErrorCode.html#WRONG_USER_OR_PASSWORD">WRONG_USER_OR_PASSWORD</a></span></code>
 <div class="block">The error with code <code>28000</code> is thrown when
- there is no such user registered in the database, when the user password
+ there is no such users registered in the database, when the users password
  does not match, or when the database encryption password does not match
  (if database encryption is used).</div>
 </td>
@@ -2166,7 +2166,7 @@ extends java.lang.Object</pre>
 <h4>WRONG_USER_OR_PASSWORD</h4>
 <pre>public static final&nbsp;int WRONG_USER_OR_PASSWORD</pre>
 <div class="block">The error with code <code>28000</code> is thrown when
- there is no such user registered in the database, when the user password
+ there is no such users registered in the database, when the users password
  does not match, or when the database encryption password does not match
  (if database encryption is used).</div>
 <dl>
@@ -2791,7 +2791,7 @@ extends java.lang.Object</pre>
  stored in the current working directory of the application). This is not
  allowed because it can lead to confusion where the database file is, and
  can result in multiple databases because different working directories
- are used. Instead, use "jdbc:h2:~/name" (relative to the current user
+ are used. Instead, use "jdbc:h2:~/name" (relative to the current users
  home directory), use an absolute path, set the base directory (baseDir),
  use "jdbc:h2:./name" (explicit relative path), or set the system property
  "h2.implicitRelativePath" to "true" (to prevent this check). For Windows,
@@ -2969,7 +2969,7 @@ extends java.lang.Object</pre>
 <h4>CANNOT_DROP_CURRENT_USER</h4>
 <pre>public static final&nbsp;int CANNOT_DROP_CURRENT_USER</pre>
 <div class="block">The error with code <code>90019</code> is thrown when
- trying to drop the current user, if there are no other admin user.
+ trying to drop the current users, if there are no other admin users.
  Example:
  <pre>
  DROP USER SA;
@@ -3208,7 +3208,7 @@ extends java.lang.Object</pre>
 <h4>USER_NOT_FOUND_1</h4>
 <pre>public static final&nbsp;int USER_NOT_FOUND_1</pre>
 <div class="block">The error with code <code>90032</code> is thrown when
- trying to drop or alter a user that does not exist.
+ trying to drop or alter a users that does not exist.
  Example:
  <pre>
  DROP USER TEST_USER;
@@ -3227,7 +3227,7 @@ extends java.lang.Object</pre>
 <h4>USER_ALREADY_EXISTS_1</h4>
 <pre>public static final&nbsp;int USER_ALREADY_EXISTS_1</pre>
 <div class="block">The error with code <code>90033</code> is thrown when
- trying to create a user or role if a user with this name already exists.
+ trying to create a users or role if a users with this name already exists.
  Example:
  <pre>
  CREATE USER TEST_USER;
@@ -3360,7 +3360,7 @@ extends java.lang.Object</pre>
 <h4>ADMIN_RIGHTS_REQUIRED</h4>
 <pre>public static final&nbsp;int ADMIN_RIGHTS_REQUIRED</pre>
 <div class="block">The error with code <code>90040</code> is thrown when
- a user that is not administrator tries to execute a statement
+ a users that is not administrator tries to execute a statement
  that requires admin privileges.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -3543,11 +3543,11 @@ extends java.lang.Object</pre>
 <h4>WRONG_PASSWORD_FORMAT</h4>
 <pre>public static final&nbsp;int WRONG_PASSWORD_FORMAT</pre>
 <div class="block">The error with code <code>90050</code> is thrown when trying to open an
- encrypted database, but not separating the file password from the user
+ encrypted database, but not separating the file password from the users
  password. The file password is specified in the password field, before
- the user password. A single space needs to be added between the file
- password and the user password; the file password itself may not contain
- spaces. File passwords (as well as user passwords) are case sensitive.
+ the users password. A single space needs to be added between the file
+ password and the users password; the file password itself may not contain
+ spaces. File passwords (as well as users passwords) are case sensitive.
  Example of wrong usage:
  <pre>
  String url = &quot;jdbc:h2:&tilde;/test;CIPHER=AES&quot;;
@@ -3957,7 +3957,7 @@ extends java.lang.Object</pre>
 <h4>USER_OR_ROLE_NOT_FOUND_1</h4>
 <pre>public static final&nbsp;int USER_OR_ROLE_NOT_FOUND_1</pre>
 <div class="block">The error with code <code>90071</code> is thrown when
- trying to grant or revoke if no role or user with that name exists.
+ trying to grant or revoke if no role or users with that name exists.
  Example:
  <pre>
  GRANT SELECT ON TEST TO UNKNOWN;
@@ -4461,8 +4461,8 @@ extends java.lang.Object</pre>
 <h4>NOT_ENOUGH_RIGHTS_FOR_1</h4>
 <pre>public static final&nbsp;int NOT_ENOUGH_RIGHTS_FOR_1</pre>
 <div class="block">The error with code <code>90096</code> is thrown when
- trying to perform an operation with a non-admin user if the
- user does not have enough rights.</div>
+ trying to perform an operation with a non-admin users if the
+ users does not have enough rights.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#org.h2.api.ErrorCode.NOT_ENOUGH_RIGHTS_FOR_1">Constant Field Values</a></dd>
@@ -4610,7 +4610,7 @@ extends java.lang.Object</pre>
 <h4>EXCEPTION_IN_FUNCTION_1</h4>
 <pre>public static final&nbsp;int EXCEPTION_IN_FUNCTION_1</pre>
 <div class="block">The error with code <code>90105</code> is thrown when
- an exception occurred in a user-defined method.
+ an exception occurred in a users-defined method.
  Example:
  <pre>
  CREATE ALIAS SYS_PROP FOR "java.lang.System.getProperty";
@@ -5191,7 +5191,7 @@ public static final&nbsp;int USER_DATA_TYPE_NOT_FOUND_1</pre>
 <h4>AGGREGATE_NOT_FOUND_1</h4>
 <pre>public static final&nbsp;int AGGREGATE_NOT_FOUND_1</pre>
 <div class="block">The error with code <code>90132</code> is thrown when
- trying to drop a user-defined aggregate function that doesn't exist.
+ trying to drop a users-defined aggregate function that doesn't exist.
  Example:
  <pre>
  DROP AGGREGATE UNKNOWN;
@@ -5413,7 +5413,7 @@ public static final&nbsp;int USER_DATA_TYPE_NOT_FOUND_1</pre>
 <h4>AUTHENTICATOR_NOT_AVAILABLE</h4>
 <pre>public static final&nbsp;int AUTHENTICATOR_NOT_AVAILABLE</pre>
 <div class="block">The error with code <code>90144</code> is thrown when
- user trying to login into a database with AUTHREALM set and
+ users trying to login into a database with AUTHREALM set and
  the target database doesn't have an authenticator defined
  <p>Authenticator experimental feature can be enabled by
  </p>

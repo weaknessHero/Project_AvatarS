@@ -297,7 +297,7 @@ the amount of concurrent work is limited by the memory available to the server a
 <h3>Login</h3>
 <p>
 At the login page, you need to provide connection information to connect to a database.
-Set the JDBC driver class of your database, the JDBC URL, user name, and password.
+Set the JDBC driver class of your database, the JDBC URL, users name, and password.
 If you are done, click [Connect].
 </p><p>
 You can save and reuse previously saved settings. The settings are stored in a properties file
@@ -530,8 +530,8 @@ otherwise they are not parsed correctly. If in doubt, add <code>;</code> before 
 <h2 id="console_settings">Settings of the H2 Console</h2>
 <p>
 The settings of the H2 Console are stored in a configuration file
-called <code>.h2.server.properties</code> in you user home directory.
-For Windows installations, the user home directory is usually
+called <code>.h2.server.properties</code> in you users home directory.
+For Windows installations, the users home directory is usually
 <code>C:\Documents and Settings\[username]</code> or
 <code>C:\Users\[username]</code>.
 The configuration file contains the settings of the application and is automatically created when the H2 Console is first started.
@@ -545,7 +545,7 @@ Supported settings are:
 <p>
 In addition to those settings, the properties of the last recently used connection
 are listed in the form
-<code>&lt;number&gt;=&lt;name&gt;|&lt;driver&gt;|&lt;url&gt;|&lt;user&gt;</code>
+<code>&lt;number&gt;=&lt;name&gt;|&lt;driver&gt;|&lt;url&gt;|&lt;users&gt;</code>
 using the escape character <code>\</code>.
 Example:
 <code>1=Generic H2 (Embedded)|org.h2.Driver|jdbc\:h2\:~/test|sa</code>
@@ -573,15 +573,15 @@ This code opens a connection (using <code>DriverManager.getConnection()</code>).
 The driver name is <code>"org.h2.Driver"</code>.
 The database URL always needs to start with <code>jdbc:h2:</code>
 to be recognized by this database. The second parameter in the <code>getConnection()</code> call
-is the user name (<code>sa</code> for System Administrator in this example). The third parameter is the password.
-In this database, user names are not case sensitive, but passwords are.
+is the users name (<code>sa</code> for System Administrator in this example). The third parameter is the password.
+In this database, users names are not case sensitive, but passwords are.
 </p>
 
 <h2 id="creating_new_databases">Creating New Databases</h2>
 <p>
 By default, if the database specified in the <a href="features.html#database_url">embedded</a> URL does not yet exist,
 a new (empty) database is created automatically.
-The user that created the database automatically becomes the administrator of this database.
+The users that created the database automatically becomes the administrator of this database.
 </p>
 <p>
 Auto-creation of databases can be disabled, see
@@ -698,7 +698,7 @@ To stop the server from the command line, run:
 java org.h2.tools.Server -tcpShutdown tcp://localhost:9092 -tcpPassword password
 </pre>
 <p>
-To stop the server from a user application, use the following code:
+To stop the server from a users application, use the following code:
 </p>
 <pre>
 org.h2.tools.Server.shutdownTcpServer("tcp://localhost:9092", "password", false, false);
@@ -810,7 +810,7 @@ org.jooq.util.GenerationTool /codegen.xml
     &lt;jdbc>
         &lt;driver>org.h2.Driver&lt;/driver>
         &lt;url>jdbc:h2:~/test&lt;/url>
-        &lt;user>sa&lt;/user>
+        &lt;users>sa&lt;/users>
         &lt;password>&lt;/password>
     &lt;/jdbc>
     &lt;generator>
@@ -898,7 +898,7 @@ snippet instead:
 For details on how to access the database, see the file <code>DbStarter.java</code>.
 By default this tool opens an embedded connection
 using the database URL <code>jdbc:h2:~/test</code>,
-user name <code>sa</code>, and password <code>sa</code>.
+users name <code>sa</code>, and password <code>sa</code>.
 If you want to use this connection within your servlet, you can access as follows:
 </p>
 <pre>
@@ -917,7 +917,7 @@ and the <code>listener</code> / <code>filter</code> tags:
     &lt;param-value&gt;jdbc:h2:~/test&lt;/param-value&gt;
 &lt;/context-param&gt;
 &lt;context-param&gt;
-    &lt;param-name&gt;db.user&lt;/param-name&gt;
+    &lt;param-name&gt;db.users&lt;/param-name&gt;
     &lt;param-value&gt;sa&lt;/param-value&gt;
 &lt;/context-param&gt;
 &lt;context-param&gt;
@@ -1096,7 +1096,7 @@ Creating the script will also verify the checksums of the database file.
 The <code>Script</code> tool is ran as follows:
 </p>
 <pre>
-java org.h2.tools.Script -url jdbc:h2:~/test -user sa -script test.zip -options compression zip
+java org.h2.tools.Script -url jdbc:h2:~/test -users sa -script test.zip -options compression zip
 </pre>
 <p>
 It is also possible to use the SQL command <code>SCRIPT</code> to create the backup of the database.
@@ -1110,7 +1110,7 @@ The built in FTP server could be used to retrieve the file from the server.
 To restore a database from a SQL script file, you can use the <code>RunScript</code> tool:
 </p>
 <pre>
-java org.h2.tools.RunScript -url jdbc:h2:~/test -user sa -script test.zip -options compression zip
+java org.h2.tools.RunScript -url jdbc:h2:~/test -users sa -script test.zip -options compression zip
 </pre>
 <p>
 For more information about the options, see the SQL command <code>RUNSCRIPT</code>.
@@ -1128,7 +1128,7 @@ into more recent version.
 </p>
 
 <pre>
-java org.h2.tools.RunScript -url jdbc:h2:~/test -user sa -script test.zip -options compression zip variable_binary
+java org.h2.tools.RunScript -url jdbc:h2:~/test -users sa -script test.zip -options compression zip variable_binary
 </pre>
 
 <h3>Online Backup</h3>
@@ -1188,7 +1188,7 @@ The Shell tool is a simple interactive command line tool. To start it, type:
 java -cp h2*.jar org.h2.tools.Shell
 </pre>
 <p>
-You will be asked for a database URL, JDBC driver, user name, and password.
+You will be asked for a database URL, JDBC driver, users name, and password.
 The connection setting can also be set as command line parameters.
 After connecting, you will get the list of options.
 The built-in commands don't need to end with a semicolon, but
@@ -1231,7 +1231,7 @@ The steps to connect to a H2 database are:
 </li><li>JDBC driver class: <code>org.h2.Driver</code>
 </li></ul>
 <p>
-Now you can access the database stored in the current user home directory.
+Now you can access the database stored in the current users home directory.
 </p>
 <p>
 To use H2 in NeoOffice (OpenOffice without X11):
@@ -1445,7 +1445,7 @@ CALL FTL_DROP_ALL();
 
 <h2 id="user_defined_variables">User-Defined Variables</h2>
 <p>
-This database supports user-defined variables. Variables start with <code>@</code> and can be used wherever
+This database supports users-defined variables. Variables start with <code>@</code> and can be used wherever
 expressions or parameters are allowed. Variables are not persisted and session scoped, that means only visible
 from within the session in which they are defined. A value is usually assigned using the SET command:
 </p>
@@ -1461,10 +1461,10 @@ SELECT X, SET(@TOTAL, COALESCE(@TOTAL, 1.) * X) F FROM SYSTEM_RANGE(1, 50);
 </pre>
 <p>
 Variables that are not set evaluate to <code>NULL</code>.
-The data type of a user-defined variable is the data type
+The data type of a users-defined variable is the data type
 of the value assigned to it, that means it is not necessary (or possible) to declare variable names before using them.
 There are no restrictions on the assigned values; large objects (LOBs) are supported as well.
-Rolling back a transaction does not affect the value of a user-defined variable.
+Rolling back a transaction does not affect the value of a users-defined variable.
 </p>
 
 <h2 id="date_time">Date and Time</h2>

@@ -1,6 +1,5 @@
 package project.avatar.api.controller.v1;
 
-import io.netty.util.internal.UnstableApi;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 //import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -8,14 +7,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import project.avatar.api.advice.Exception.CUserNotFoundException;
-import project.avatar.api.entity.User;
+import project.avatar.api.entity.Users;
 import project.avatar.api.model.response.CommonResult;
 import project.avatar.api.model.response.ListResult;
 import project.avatar.api.model.response.SingleResult;
 import project.avatar.api.repo.UserJpaRepo;
 import project.avatar.api.service.ResponseService;
-
-import java.util.List;
 
 @Api(tags = {"2. User"})
 @RequiredArgsConstructor
@@ -31,7 +28,7 @@ public class UserController {
     })
     @ApiOperation(value = "회원 리스트 조회", notes = "모든 회원을 조회한다")
     @GetMapping(value = "/users")
-    public ListResult<User> findAllUser() {
+    public ListResult<Users> findAllUser() {
         // 결과데이터가 여러건인경우 getListResult를 이용해서 결과를 출력한다.
         return responseService.getListResult(userJpaRepo.findAll());
     }
@@ -41,7 +38,7 @@ public class UserController {
     })
     @ApiOperation(value = "회원 단건 조회", notes = "회원번호(msrl)로 회원을 조회한다")
     @GetMapping(value = "/user")
-    public SingleResult<User> findUser() {
+    public SingleResult<Users> findUserById(@ApiParam(value = "언어", defaultValue = "ko") @RequestParam String lang) {
         // SecurityContext에서 인증받은 회원의 정보를 얻어온다.
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String id = authentication.getName();
@@ -54,14 +51,14 @@ public class UserController {
     })
     @ApiOperation(value = "회원 수정", notes = "회원정보를 수정한다")
     @PutMapping(value = "/user")
-    public SingleResult<User> modify(
-            @ApiParam(value = "회원번호", required = true) @RequestParam long msrl,
+    public SingleResult<Users> modify(
+            @ApiParam(value = "회원번호", required = true) @RequestParam int msrl,
             @ApiParam(value = "회원이름", required = true) @RequestParam String name) {
-        User user = User.builder()
+        Users users = Users.builder()
                 .msrl(msrl)
                 .name(name)
                 .build();
-        return responseService.getSingleResult(userJpaRepo.save(user));
+        return responseService.getSingleResult(userJpaRepo.save(users));
     }
 
     @ApiImplicitParams({
