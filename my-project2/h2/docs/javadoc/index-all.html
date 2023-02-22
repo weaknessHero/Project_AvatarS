@@ -181,7 +181,7 @@
 <dt><span class="memberNameLink"><a href="org/h2/api/ErrorCode.html#ADMIN_RIGHTS_REQUIRED">ADMIN_RIGHTS_REQUIRED</a></span> - Static variable in class org.h2.api.<a href="org/h2/api/ErrorCode.html" title="class in org.h2.api">ErrorCode</a></dt>
 <dd>
 <div class="block">The error with code <code>90040</code> is thrown when
- a user that is not administrator tries to execute a statement
+ a users that is not administrator tries to execute a statement
  that requires admin privileges.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/jdbc/JdbcResultSet.html#afterLast--">afterLast()</a></span> - Method in class org.h2.jdbc.<a href="org/h2/jdbc/JdbcResultSet.html" title="class in org.h2.jdbc">JdbcResultSet</a></dt>
@@ -195,20 +195,20 @@
 </dd>
 <dt><a href="org/h2/api/Aggregate.html" title="interface in org.h2.api"><span class="typeNameLink">Aggregate</span></a> - Interface in <a href="org/h2/api/package-summary.html">org.h2.api</a></dt>
 <dd>
-<div class="block">A user-defined aggregate function needs to implement this interface.</div>
+<div class="block">A users-defined aggregate function needs to implement this interface.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/DbObject.html#AGGREGATE">AGGREGATE</a></span> - Static variable in class org.h2.engine.<a href="org/h2/engine/DbObject.html" title="class in org.h2.engine">DbObject</a></dt>
 <dd>
-<div class="block">This object is a user-defined aggregate function.</div>
+<div class="block">This object is a users-defined aggregate function.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/api/ErrorCode.html#AGGREGATE_NOT_FOUND_1">AGGREGATE_NOT_FOUND_1</a></span> - Static variable in class org.h2.api.<a href="org/h2/api/ErrorCode.html" title="class in org.h2.api">ErrorCode</a></dt>
 <dd>
 <div class="block">The error with code <code>90132</code> is thrown when
- trying to drop a user-defined aggregate function that doesn't exist.</div>
+ trying to drop a users-defined aggregate function that doesn't exist.</div>
 </dd>
 <dt><a href="org/h2/api/AggregateFunction.html" title="interface in org.h2.api"><span class="typeNameLink">AggregateFunction</span></a> - Interface in <a href="org/h2/api/package-summary.html">org.h2.api</a></dt>
 <dd>
-<div class="block">A user-defined aggregate function needs to implement this interface.</div>
+<div class="block">A users-defined aggregate function needs to implement this interface.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/Mode.html#aliasColumnName">aliasColumnName</a></span> - Variable in class org.h2.engine.<a href="org/h2/engine/Mode.html" title="class in org.h2.engine">Mode</a></dt>
 <dd>
@@ -335,7 +335,7 @@
 <dt><span class="memberNameLink"><a href="org/h2/api/ErrorCode.html#AUTHENTICATOR_NOT_AVAILABLE">AUTHENTICATOR_NOT_AVAILABLE</a></span> - Static variable in class org.h2.api.<a href="org/h2/api/ErrorCode.html" title="class in org.h2.api">ErrorCode</a></dt>
 <dd>
 <div class="block">The error with code <code>90144</code> is thrown when
- user trying to login into a database with AUTHREALM set and
+ users trying to login into a database with AUTHREALM set and
  the target database doesn't have an authenticator defined</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/GeneratedKeysMode.html#AUTO">AUTO</a></span> - Static variable in class org.h2.engine.<a href="org/h2/engine/GeneratedKeysMode.html" title="class in org.h2.engine">GeneratedKeysMode</a></dt>
@@ -434,7 +434,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/UserBuilder.html#buildUser-org.h2.security.auth.AuthenticationInfo-org.h2.engine.Database-boolean-">buildUser(AuthenticationInfo, Database, boolean)</a></span> - Static method in class org.h2.engine.<a href="org/h2/engine/UserBuilder.html" title="class in org.h2.engine">UserBuilder</a></dt>
 <dd>
-<div class="block">Build the database user starting from authentication informations.</div>
+<div class="block">Build the database users starting from authentication informations.</div>
 </dd>
 </dl>
 <a name="I:C">
@@ -493,7 +493,7 @@
 <dt><span class="memberNameLink"><a href="org/h2/api/ErrorCode.html#CANNOT_DROP_CURRENT_USER">CANNOT_DROP_CURRENT_USER</a></span> - Static variable in class org.h2.api.<a href="org/h2/api/ErrorCode.html" title="class in org.h2.api">ErrorCode</a></dt>
 <dd>
 <div class="block">The error with code <code>90019</code> is thrown when
- trying to drop the current user, if there are no other admin user.</div>
+ trying to drop the current users, if there are no other admin users.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/api/ErrorCode.html#CANNOT_DROP_LAST_COLUMN">CANNOT_DROP_LAST_COLUMN</a></span> - Static variable in class org.h2.api.<a href="org/h2/api/ErrorCode.html" title="class in org.h2.api">ErrorCode</a></dt>
 <dd>
@@ -566,7 +566,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/User.html#checkAdmin--">checkAdmin()</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/User.html" title="class in org.h2.engine">User</a></dt>
 <dd>
-<div class="block">Checks if this user has admin rights.</div>
+<div class="block">Checks if this users has admin rights.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/SessionLocal.html#checkCanceled--">checkCanceled()</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/SessionLocal.html" title="class in org.h2.engine">SessionLocal</a></dt>
 <dd>
@@ -609,15 +609,15 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/User.html#checkSchemaAdmin--">checkSchemaAdmin()</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/User.html" title="class in org.h2.engine">User</a></dt>
 <dd>
-<div class="block">Checks if this user has schema admin rights for every schema.</div>
+<div class="block">Checks if this users has schema admin rights for every schema.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/User.html#checkSchemaOwner-org.h2.schema.Schema-">checkSchemaOwner(Schema)</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/User.html" title="class in org.h2.engine">User</a></dt>
 <dd>
-<div class="block">Checks if this user has schema owner rights for the specified schema.</div>
+<div class="block">Checks if this users has schema owner rights for the specified schema.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/User.html#checkTableRight-org.h2.table.Table-int-">checkTableRight(Table, int)</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/User.html" title="class in org.h2.engine">User</a></dt>
 <dd>
-<div class="block">Checks that this user has the given rights for the specified table.</div>
+<div class="block">Checks that this users has the given rights for the specified table.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/Database.html#checkWritingAllowed--">checkWritingAllowed()</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/Database.html" title="class in org.h2.engine">Database</a></dt>
 <dd>&nbsp;</dd>
@@ -952,7 +952,7 @@
 </dd>
 <dt><a href="org/h2/engine/ConnectionInfo.html" title="class in org.h2.engine"><span class="typeNameLink">ConnectionInfo</span></a> - Class in <a href="org/h2/engine/package-summary.html">org.h2.engine</a></dt>
 <dd>
-<div class="block">Encapsulates the connection settings, including user name and password.</div>
+<div class="block">Encapsulates the connection settings, including users name and password.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/ConnectionInfo.html#ConnectionInfo-java.lang.String-">ConnectionInfo(String)</a></span> - Constructor for class org.h2.engine.<a href="org/h2/engine/ConnectionInfo.html" title="class in org.h2.engine">ConnectionInfo</a></dt>
 <dd>
@@ -1317,7 +1317,7 @@
 </dd>
 <dt><a href="org/h2/engine/DbObject.html" title="class in org.h2.engine"><span class="typeNameLink">DbObject</span></a> - Class in <a href="org/h2/engine/package-summary.html">org.h2.engine</a></dt>
 <dd>
-<div class="block">A database object such as a table, an index, or a user.</div>
+<div class="block">A database object such as a table, an index, or a users.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/DbObject.html#DbObject-org.h2.engine.Database-int-java.lang.String-int-">DbObject(Database, int, String, int)</a></span> - Constructor for class org.h2.engine.<a href="org/h2/engine/DbObject.html" title="class in org.h2.engine">DbObject</a></dt>
 <dd>
@@ -1646,7 +1646,7 @@
 <dt><span class="memberNameLink"><a href="org/h2/api/ErrorCode.html#EXCEPTION_IN_FUNCTION_1">EXCEPTION_IN_FUNCTION_1</a></span> - Static variable in class org.h2.api.<a href="org/h2/api/ErrorCode.html" title="class in org.h2.api">ErrorCode</a></dt>
 <dd>
 <div class="block">The error with code <code>90105</code> is thrown when
- an exception occurred in a user-defined method.</div>
+ an exception occurred in a users-defined method.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/api/ErrorCode.html#EXCEPTION_OPENING_PORT_2">EXCEPTION_OPENING_PORT_2</a></span> - Static variable in class org.h2.api.<a href="org/h2/api/ErrorCode.html" title="class in org.h2.api">ErrorCode</a></dt>
 <dd>
@@ -1922,11 +1922,11 @@
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/Database.html#findUser-java.lang.String-">findUser(String)</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/Database.html" title="class in org.h2.engine">Database</a></dt>
 <dd>
-<div class="block">Get the user if it exists, or null if not.</div>
+<div class="block">Get the users if it exists, or null if not.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/Database.html#findUserOrRole-java.lang.String-">findUserOrRole(String)</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/Database.html" title="class in org.h2.engine">Database</a></dt>
 <dd>
-<div class="block">Get the user or role if it exists, or <code>null</code> if not.</div>
+<div class="block">Get the users or role if it exists, or <code>null</code> if not.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/api/Trigger.html#fire-java.sql.Connection-java.lang.Object:A-java.lang.Object:A-">fire(Connection, Object[], Object[])</a></span> - Method in interface org.h2.api.<a href="org/h2/api/Trigger.html" title="interface in org.h2.api">Trigger</a></dt>
 <dd>
@@ -2223,7 +2223,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/Database.html#getAuthenticator--">getAuthenticator()</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/Database.html" title="class in org.h2.engine">Database</a></dt>
 <dd>
-<div class="block">get authenticator for database user</div>
+<div class="block">get authenticator for database users</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/tools/SimpleResultSet.html#getAutoClose--">getAutoClose()</a></span> - Method in class org.h2.tools.<a href="org/h2/tools/SimpleResultSet.html" title="class in org.h2.tools">SimpleResultSet</a></dt>
 <dd>
@@ -2679,11 +2679,11 @@
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/jdbcx/JdbcDataSource.html#getConnection--">getConnection()</a></span> - Method in class org.h2.jdbcx.<a href="org/h2/jdbcx/JdbcDataSource.html" title="class in org.h2.jdbcx">JdbcDataSource</a></dt>
 <dd>
-<div class="block">Open a new connection using the current URL, user name and password.</div>
+<div class="block">Open a new connection using the current URL, users name and password.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/jdbcx/JdbcDataSource.html#getConnection-java.lang.String-java.lang.String-">getConnection(String, String)</a></span> - Method in class org.h2.jdbcx.<a href="org/h2/jdbcx/JdbcDataSource.html" title="class in org.h2.jdbcx">JdbcDataSource</a></dt>
 <dd>
-<div class="block">Open a new connection using the current URL and the specified user name
+<div class="block">Open a new connection using the current URL and the specified users name
  and password.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/jdbcx/JdbcXAConnection.html#getConnection--">getConnection()</a></span> - Method in class org.h2.jdbcx.<a href="org/h2/jdbcx/JdbcXAConnection.html" title="class in org.h2.jdbcx">JdbcXAConnection</a></dt>
@@ -2989,7 +2989,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/Database.html#getFirstUserTable--">getFirstUserTable()</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/Database.html" title="class in org.h2.engine">Database</a></dt>
 <dd>
-<div class="block">Get the first user defined table, excluding the LOB_BLOCKS table that the
+<div class="block">Get the first users defined table, excluding the LOB_BLOCKS table that the
  Recover tool creates.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/jdbc/JdbcCallableStatement.html#getFloat-int-">getFloat(int)</a></span> - Method in class org.h2.jdbc.<a href="org/h2/jdbc/JdbcCallableStatement.html" title="class in org.h2.jdbc">JdbcCallableStatement</a></dt>
@@ -3399,7 +3399,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/jdbc/JdbcDatabaseMetaData.html#getMaxUserNameLength--">getMaxUserNameLength()</a></span> - Method in class org.h2.jdbc.<a href="org/h2/jdbc/JdbcDatabaseMetaData.html" title="class in org.h2.jdbc">JdbcDatabaseMetaData</a></dt>
 <dd>
-<div class="block">Returns the maximum length for a user name.</div>
+<div class="block">Returns the maximum length for a users name.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/tools/MultiDimension.html#getMaxValue-int-">getMaxValue(int)</a></span> - Method in class org.h2.tools.<a href="org/h2/tools/MultiDimension.html" title="class in org.h2.tools">MultiDimension</a></dt>
 <dd>
@@ -3770,12 +3770,12 @@
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/jdbcx/JdbcDataSource.html#getPooledConnection--">getPooledConnection()</a></span> - Method in class org.h2.jdbcx.<a href="org/h2/jdbcx/JdbcDataSource.html" title="class in org.h2.jdbcx">JdbcDataSource</a></dt>
 <dd>
-<div class="block">Open a new pooled connection using the current URL, user name and
+<div class="block">Open a new pooled connection using the current URL, users name and
  password.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/jdbcx/JdbcDataSource.html#getPooledConnection-java.lang.String-java.lang.String-">getPooledConnection(String, String)</a></span> - Method in class org.h2.jdbcx.<a href="org/h2/jdbcx/JdbcDataSource.html" title="class in org.h2.jdbcx">JdbcDataSource</a></dt>
 <dd>
-<div class="block">Open a new pooled connection using the current URL and the specified user
+<div class="block">Open a new pooled connection using the current URL and the specified users
  name and password.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/tools/Server.html#getPort--">getPort()</a></span> - Method in class org.h2.tools.<a href="org/h2/tools/Server.html" title="class in org.h2.tools">Server</a></dt>
@@ -4299,7 +4299,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/Database.html#getSystemUser--">getSystemUser()</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/Database.html" title="class in org.h2.engine">Database</a></dt>
 <dd>
-<div class="block">Returns system user.</div>
+<div class="block">Returns system users.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/Database.html#getTableEngine-java.lang.String-">getTableEngine(String)</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/Database.html" title="class in org.h2.engine">Database</a></dt>
 <dd>
@@ -4525,7 +4525,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/jdbc/JdbcDatabaseMetaData.html#getUDTs-java.lang.String-java.lang.String-java.lang.String-int:A-">getUDTs(String, String, String, int[])</a></span> - Method in class org.h2.jdbc.<a href="org/h2/jdbc/JdbcDatabaseMetaData.html" title="class in org.h2.jdbc">JdbcDatabaseMetaData</a></dt>
 <dd>
-<div class="block">Gets the list of user-defined data types.</div>
+<div class="block">Gets the list of users-defined data types.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/jdbc/JdbcResultSet.html#getUnicodeStream-int-">getUnicodeStream(int)</a></span> - Method in class org.h2.jdbc.<a href="org/h2/jdbc/JdbcResultSet.html" title="class in org.h2.jdbc">JdbcResultSet</a></dt>
 <dd>
@@ -4605,26 +4605,26 @@
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/Database.html#getUser-java.lang.String-">getUser(String)</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/Database.html" title="class in org.h2.engine">Database</a></dt>
 <dd>
-<div class="block">Get user with the given name.</div>
+<div class="block">Get users with the given name.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/SessionLocal.html#getUser--">getUser()</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/SessionLocal.html" title="class in org.h2.engine">SessionLocal</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/h2/jdbcx/JdbcDataSource.html#getUser--">getUser()</a></span> - Method in class org.h2.jdbcx.<a href="org/h2/jdbcx/JdbcDataSource.html" title="class in org.h2.jdbcx">JdbcDataSource</a></dt>
 <dd>
-<div class="block">Get the current user name.</div>
+<div class="block">Get the current users name.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/ConnectionInfo.html#getUserName--">getUserName()</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/ConnectionInfo.html" title="class in org.h2.engine">ConnectionInfo</a></dt>
 <dd>
-<div class="block">Get the name of the user.</div>
+<div class="block">Get the name of the users.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/jdbc/JdbcDatabaseMetaData.html#getUserName--">getUserName()</a></span> - Method in class org.h2.jdbc.<a href="org/h2/jdbc/JdbcDatabaseMetaData.html" title="class in org.h2.jdbc">JdbcDatabaseMetaData</a></dt>
 <dd>
-<div class="block">Returns the user name as passed to DriverManager.getConnection(url, user,
+<div class="block">Returns the users name as passed to DriverManager.getConnection(url, users,
  password).</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/SessionLocal.html#getVariable-java.lang.String-">getVariable(String)</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/SessionLocal.html" title="class in org.h2.engine">SessionLocal</a></dt>
 <dd>
-<div class="block">Get the value of the specified user defined variable.</div>
+<div class="block">Get the value of the specified users defined variable.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/tools/CompressTool.html#getVariableIntLength-int-">getVariableIntLength(int)</a></span> - Static method in class org.h2.tools.<a href="org/h2/tools/CompressTool.html" title="class in org.h2.tools">CompressTool</a></dt>
 <dd>
@@ -4674,11 +4674,11 @@
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/jdbcx/JdbcDataSource.html#getXAConnection--">getXAConnection()</a></span> - Method in class org.h2.jdbcx.<a href="org/h2/jdbcx/JdbcDataSource.html" title="class in org.h2.jdbcx">JdbcDataSource</a></dt>
 <dd>
-<div class="block">Open a new XA connection using the current URL, user name and password.</div>
+<div class="block">Open a new XA connection using the current URL, users name and password.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/jdbcx/JdbcDataSource.html#getXAConnection-java.lang.String-java.lang.String-">getXAConnection(String, String)</a></span> - Method in class org.h2.jdbcx.<a href="org/h2/jdbcx/JdbcDataSource.html" title="class in org.h2.jdbcx">JdbcDataSource</a></dt>
 <dd>
-<div class="block">Open a new XA connection using the current URL and the specified user
+<div class="block">Open a new XA connection using the current URL and the specified users
  name and password.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/jdbcx/JdbcXAConnection.html#getXAResource--">getXAResource()</a></span> - Method in class org.h2.jdbcx.<a href="org/h2/jdbcx/JdbcXAConnection.html" title="class in org.h2.jdbcx">JdbcXAConnection</a></dt>
@@ -4776,7 +4776,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/User.html#hasTableRight-org.h2.table.Table-int-">hasTableRight(Table, int)</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/User.html" title="class in org.h2.engine">User</a></dt>
 <dd>
-<div class="block">See if this user has the given rights for this database object.</div>
+<div class="block">See if this users has the given rights for this database object.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/api/IntervalQualifier.html#hasYears--">hasYears()</a></span> - Method in enum org.h2.api.<a href="org/h2/api/IntervalQualifier.html" title="enum in org.h2.api">IntervalQualifier</a></dt>
 <dd>
@@ -5886,7 +5886,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/api/UserToRolesMapper.html#mapUserToRoles-org.h2.security.auth.AuthenticationInfo-">mapUserToRoles(AuthenticationInfo)</a></span> - Method in interface org.h2.api.<a href="org/h2/api/UserToRolesMapper.html" title="interface in org.h2.api">UserToRolesMapper</a></dt>
 <dd>
-<div class="block">Map user identified by authentication info to a set of granted roles.</div>
+<div class="block">Map users identified by authentication info to a set of granted roles.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/SessionLocal.html#markTableForAnalyze-org.h2.table.Table-">markTableForAnalyze(Table)</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/SessionLocal.html" title="class in org.h2.engine">SessionLocal</a></dt>
 <dd>
@@ -6169,8 +6169,8 @@
 <dt><span class="memberNameLink"><a href="org/h2/api/ErrorCode.html#NOT_ENOUGH_RIGHTS_FOR_1">NOT_ENOUGH_RIGHTS_FOR_1</a></span> - Static variable in class org.h2.api.<a href="org/h2/api/ErrorCode.html" title="class in org.h2.api">ErrorCode</a></dt>
 <dd>
 <div class="block">The error with code <code>90096</code> is thrown when
- trying to perform an operation with a non-admin user if the
- user does not have enough rights.</div>
+ trying to perform an operation with a non-admin users if the
+ users does not have enough rights.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/api/ErrorCode.html#NOT_ON_UPDATABLE_ROW">NOT_ON_UPDATABLE_ROW</a></span> - Static variable in class org.h2.api.<a href="org/h2/api/ErrorCode.html" title="class in org.h2.api">ErrorCode</a></dt>
 <dd>
@@ -6390,7 +6390,7 @@
 <dd>
 <div class="block">
 
-Contains interfaces for user-defined extensions, such as triggers and user-defined aggregate functions.</div>
+Contains interfaces for users-defined extensions, such as triggers and users-defined aggregate functions.</div>
 </dd>
 <dt><a href="org/h2/engine/package-summary.html">org.h2.engine</a> - package org.h2.engine</dt>
 <dd>
@@ -6682,7 +6682,7 @@ Various tools.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/Constants.html#PUBLIC_ROLE_NAME">PUBLIC_ROLE_NAME</a></span> - Static variable in class org.h2.engine.<a href="org/h2/engine/Constants.html" title="class in org.h2.engine">Constants</a></dt>
 <dd>
-<div class="block">Every user belongs to this role.</div>
+<div class="block">Every users belongs to this role.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/api/ErrorCode.html#PUBLIC_STATIC_JAVA_METHOD_NOT_FOUND_1">PUBLIC_STATIC_JAVA_METHOD_NOT_FOUND_1</a></span> - Static variable in class org.h2.api.<a href="org/h2/api/ErrorCode.html" title="class in org.h2.api">ErrorCode</a></dt>
 <dd>
@@ -7289,7 +7289,7 @@ Various tools.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/Right.html#SCHEMA_OWNER">SCHEMA_OWNER</a></span> - Static variable in class org.h2.engine.<a href="org/h2/engine/Right.html" title="class in org.h2.engine">Right</a></dt>
 <dd>
-<div class="block">The right bit mask that means: user is a schema owner.</div>
+<div class="block">The right bit mask that means: users is a schema owner.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/Constants.html#SCHEMA_PG_CATALOG">SCHEMA_PG_CATALOG</a></span> - Static variable in class org.h2.engine.<a href="org/h2/engine/Constants.html" title="class in org.h2.engine">Constants</a></dt>
 <dd>
@@ -7543,7 +7543,7 @@ Various tools.</div>
 <dt><span class="memberNameLink"><a href="org/h2/engine/ConnectionInfo.html#setBaseDir-java.lang.String-">setBaseDir(String)</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/ConnectionInfo.html" title="class in org.h2.engine">ConnectionInfo</a></dt>
 <dd>
 <div class="block">Set the base directory of persistent databases, unless the database is in
- the user home folder (~).</div>
+ the users home folder (~).</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/SysProperties.html#setBaseDir-java.lang.String-">setBaseDir(String)</a></span> - Static method in class org.h2.engine.<a href="org/h2/engine/SysProperties.html" title="class in org.h2.engine">SysProperties</a></dt>
 <dd>
@@ -8201,7 +8201,7 @@ Various tools.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/User.html#setSaltAndHash-byte:A-byte:A-">setSaltAndHash(byte[], byte[])</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/User.html" title="class in org.h2.engine">User</a></dt>
 <dd>
-<div class="block">Set the salt and hash of the password for this user.</div>
+<div class="block">Set the salt and hash of the password for this users.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/SessionLocal.html#setSavepoint--">setSavepoint()</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/SessionLocal.html" title="class in org.h2.engine">SessionLocal</a></dt>
 <dd>
@@ -8396,19 +8396,19 @@ Various tools.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/jdbcx/JdbcDataSource.html#setUser-java.lang.String-">setUser(String)</a></span> - Method in class org.h2.jdbcx.<a href="org/h2/jdbcx/JdbcDataSource.html" title="class in org.h2.jdbcx">JdbcDataSource</a></dt>
 <dd>
-<div class="block">Set the current user name.</div>
+<div class="block">Set the current users name.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/ConnectionInfo.html#setUserName-java.lang.String-">setUserName(String)</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/ConnectionInfo.html" title="class in org.h2.engine">ConnectionInfo</a></dt>
 <dd>
-<div class="block">Overwrite the user name.</div>
+<div class="block">Overwrite the users name.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/ConnectionInfo.html#setUserPasswordHash-byte:A-">setUserPasswordHash(byte[])</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/ConnectionInfo.html" title="class in org.h2.engine">ConnectionInfo</a></dt>
 <dd>
-<div class="block">Set the user password hash.</div>
+<div class="block">Set the users password hash.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/User.html#setUserPasswordHash-byte:A-">setUserPasswordHash(byte[])</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/User.html" title="class in org.h2.engine">User</a></dt>
 <dd>
-<div class="block">Set the user name password hash.</div>
+<div class="block">Set the users name password hash.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/SessionLocal.html#setVariable-java.lang.String-org.h2.value.Value-">setVariable(String, Value)</a></span> - Method in class org.h2.engine.<a href="org/h2/engine/SessionLocal.html" title="class in org.h2.engine">SessionLocal</a></dt>
 <dd>
@@ -10061,7 +10061,7 @@ Various tools.</div>
 <dt><span class="memberNameLink"><a href="org/h2/engine/Mode.html#updateSequenceOnManualIdentityInsertion">updateSequenceOnManualIdentityInsertion</a></span> - Variable in class org.h2.engine.<a href="org/h2/engine/Mode.html" title="class in org.h2.engine">Mode</a></dt>
 <dd>
 <div class="block">If <code>true</code>, sequences of generated by default identity columns are
- updated when value is provided by user.</div>
+ updated when value is provided by users.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/jdbc/JdbcResultSet.html#updateShort-int-short-">updateShort(int, short)</a></span> - Method in class org.h2.jdbc.<a href="org/h2/jdbc/JdbcResultSet.html" title="class in org.h2.jdbc">JdbcResultSet</a></dt>
 <dd>
@@ -10179,18 +10179,18 @@ Various tools.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/DbObject.html#USER">USER</a></span> - Static variable in class org.h2.engine.<a href="org/h2/engine/DbObject.html" title="class in org.h2.engine">DbObject</a></dt>
 <dd>
-<div class="block">This object is a user.</div>
+<div class="block">This object is a users.</div>
 </dd>
 <dt><a href="org/h2/engine/User.html" title="class in org.h2.engine"><span class="typeNameLink">User</span></a> - Class in <a href="org/h2/engine/package-summary.html">org.h2.engine</a></dt>
 <dd>
-<div class="block">Represents a user object.</div>
+<div class="block">Represents a users object.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/User.html#User-org.h2.engine.Database-int-java.lang.String-boolean-">User(Database, int, String, boolean)</a></span> - Constructor for class org.h2.engine.<a href="org/h2/engine/User.html" title="class in org.h2.engine">User</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/h2/api/ErrorCode.html#USER_ALREADY_EXISTS_1">USER_ALREADY_EXISTS_1</a></span> - Static variable in class org.h2.api.<a href="org/h2/api/ErrorCode.html" title="class in org.h2.api">ErrorCode</a></dt>
 <dd>
 <div class="block">The error with code <code>90033</code> is thrown when
- trying to create a user or role if a user with this name already exists.</div>
+ trying to create a users or role if a users with this name already exists.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/api/ErrorCode.html#USER_DATA_TYPE_ALREADY_EXISTS_1">USER_DATA_TYPE_ALREADY_EXISTS_1</a></span> - Static variable in class org.h2.api.<a href="org/h2/api/ErrorCode.html" title="class in org.h2.api">ErrorCode</a></dt>
 <dd>
@@ -10202,21 +10202,21 @@ Various tools.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/SysProperties.html#USER_HOME">USER_HOME</a></span> - Static variable in class org.h2.engine.<a href="org/h2/engine/SysProperties.html" title="class in org.h2.engine">SysProperties</a></dt>
 <dd>
-<div class="block">System property <code>user.home</code> (empty string if not set).</div>
+<div class="block">System property <code>users.home</code> (empty string if not set).</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/api/ErrorCode.html#USER_NOT_FOUND_1">USER_NOT_FOUND_1</a></span> - Static variable in class org.h2.api.<a href="org/h2/api/ErrorCode.html" title="class in org.h2.api">ErrorCode</a></dt>
 <dd>
 <div class="block">The error with code <code>90032</code> is thrown when
- trying to drop or alter a user that does not exist.</div>
+ trying to drop or alter a users that does not exist.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/api/ErrorCode.html#USER_OR_ROLE_NOT_FOUND_1">USER_OR_ROLE_NOT_FOUND_1</a></span> - Static variable in class org.h2.api.<a href="org/h2/api/ErrorCode.html" title="class in org.h2.api">ErrorCode</a></dt>
 <dd>
 <div class="block">The error with code <code>90071</code> is thrown when
- trying to grant or revoke if no role or user with that name exists.</div>
+ trying to grant or revoke if no role or users with that name exists.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/engine/Constants.html#USER_PACKAGE">USER_PACKAGE</a></span> - Static variable in class org.h2.engine.<a href="org/h2/engine/Constants.html" title="class in org.h2.engine">Constants</a></dt>
 <dd>
-<div class="block">The package name of user defined classes.</div>
+<div class="block">The package name of users defined classes.</div>
 </dd>
 <dt><a href="org/h2/engine/UserBuilder.html" title="class in org.h2.engine"><span class="typeNameLink">UserBuilder</span></a> - Class in <a href="org/h2/engine/package-summary.html">org.h2.engine</a></dt>
 <dd>&nbsp;</dd>
@@ -10225,7 +10225,7 @@ Various tools.</div>
 <dt><a href="org/h2/api/UserToRolesMapper.html" title="interface in org.h2.api"><span class="typeNameLink">UserToRolesMapper</span></a> - Interface in <a href="org/h2/api/package-summary.html">org.h2.api</a></dt>
 <dd>
 <div class="block">A class that implement this interface can be used during authentication to
- map external user to database roles.</div>
+ map external users to database roles.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/jdbc/JdbcDatabaseMetaData.html#usesLocalFilePerTable--">usesLocalFilePerTable()</a></span> - Method in class org.h2.jdbc.<a href="org/h2/jdbc/JdbcDatabaseMetaData.html" title="class in org.h2.jdbc">JdbcDatabaseMetaData</a></dt>
 <dd>
@@ -10247,7 +10247,7 @@ Various tools.</div>
 <dl>
 <dt><span class="memberNameLink"><a href="org/h2/api/CredentialsValidator.html#validateCredentials-org.h2.security.auth.AuthenticationInfo-">validateCredentials(AuthenticationInfo)</a></span> - Method in interface org.h2.api.<a href="org/h2/api/CredentialsValidator.html" title="interface in org.h2.api">CredentialsValidator</a></dt>
 <dd>
-<div class="block">Validate user credential.</div>
+<div class="block">Validate users credential.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/api/ErrorCode.html#VALUE_TOO_LONG_2">VALUE_TOO_LONG_2</a></span> - Static variable in class org.h2.api.<a href="org/h2/api/ErrorCode.html" title="class in org.h2.api">ErrorCode</a></dt>
 <dd>
@@ -10488,13 +10488,13 @@ the order they are declared.</div>
 <dt><span class="memberNameLink"><a href="org/h2/api/ErrorCode.html#WRONG_PASSWORD_FORMAT">WRONG_PASSWORD_FORMAT</a></span> - Static variable in class org.h2.api.<a href="org/h2/api/ErrorCode.html" title="class in org.h2.api">ErrorCode</a></dt>
 <dd>
 <div class="block">The error with code <code>90050</code> is thrown when trying to open an
- encrypted database, but not separating the file password from the user
+ encrypted database, but not separating the file password from the users
  password.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/h2/api/ErrorCode.html#WRONG_USER_OR_PASSWORD">WRONG_USER_OR_PASSWORD</a></span> - Static variable in class org.h2.api.<a href="org/h2/api/ErrorCode.html" title="class in org.h2.api">ErrorCode</a></dt>
 <dd>
 <div class="block">The error with code <code>28000</code> is thrown when
- there is no such user registered in the database, when the user password
+ there is no such users registered in the database, when the users password
  does not match, or when the database encryption password does not match
  (if database encryption is used).</div>
 </dd>

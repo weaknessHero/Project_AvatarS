@@ -174,7 +174,7 @@ implements java.sql.Connection, <a href="../../../org/h2/jdbc/JdbcConnectionBack
 </tr>
 <tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../org/h2/jdbc/JdbcConnection.html#JdbcConnection-org.h2.engine.Session-java.lang.String-java.lang.String-">JdbcConnection</a></span>(<a href="../../../org/h2/engine/Session.html" title="class in org.h2.engine">Session</a>&nbsp;session,
-              java.lang.String&nbsp;user,
+              java.lang.String&nbsp;users,
               java.lang.String&nbsp;url)</code>
 <div class="block">INTERNAL</div>
 </td>
@@ -182,7 +182,7 @@ implements java.sql.Connection, <a href="../../../org/h2/jdbc/JdbcConnectionBack
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../org/h2/jdbc/JdbcConnection.html#JdbcConnection-java.lang.String-java.util.Properties-java.lang.String-java.lang.Object-boolean-">JdbcConnection</a></span>(java.lang.String&nbsp;url,
               java.util.Properties&nbsp;info,
-              java.lang.String&nbsp;user,
+              java.lang.String&nbsp;users,
               java.lang.Object&nbsp;password,
               boolean&nbsp;forbidCreation)</code>
 <div class="block">INTERNAL
@@ -646,7 +646,7 @@ implements java.sql.Connection, <a href="../../../org/h2/jdbc/JdbcConnectionBack
 <h4>JdbcConnection</h4>
 <pre>public&nbsp;JdbcConnection(java.lang.String&nbsp;url,
                       java.util.Properties&nbsp;info,
-                      java.lang.String&nbsp;user,
+                      java.lang.String&nbsp;users,
                       java.lang.Object&nbsp;password,
                       boolean&nbsp;forbidCreation)
                throws java.sql.SQLException</pre>
@@ -657,8 +657,8 @@ implements java.sql.Connection, <a href="../../../org/h2/jdbc/JdbcConnectionBack
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>url</code> - of this connection</dd>
 <dd><code>info</code> - of this connection</dd>
-<dd><code>user</code> - of this connection</dd>
-<dd><code>password</code> - for the user</dd>
+<dd><code>users</code> - of this connection</dd>
+<dd><code>password</code> - for the users</dd>
 <dd><code>forbidCreation</code> - whether database creation is forbidden</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.sql.SQLException</code> - on failure</dd>
@@ -686,13 +686,13 @@ implements java.sql.Connection, <a href="../../../org/h2/jdbc/JdbcConnectionBack
 <li class="blockList">
 <h4>JdbcConnection</h4>
 <pre>public&nbsp;JdbcConnection(<a href="../../../org/h2/engine/Session.html" title="class in org.h2.engine">Session</a>&nbsp;session,
-                      java.lang.String&nbsp;user,
+                      java.lang.String&nbsp;users,
                       java.lang.String&nbsp;url)</pre>
 <div class="block">INTERNAL</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>session</code> - of this connection</dd>
-<dd><code>user</code> - of this connection</dd>
+<dd><code>users</code> - of this connection</dd>
 <dd><code>url</code> - of this connection</dd>
 </dl>
 </li>

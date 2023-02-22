@@ -1374,7 +1374,7 @@ Contains information about granted rights and roles.
 The name of grantee.
 </td></tr>
 <tr><td>GRANTEETYPE</td><td>CHARACTER VARYING</td></tr><tr><td colspan="2">
-&#39;USER&#39; if grantee is a user, &#39;ROLE&#39; if grantee is a role.
+&#39;USER&#39; if grantee is a users, &#39;ROLE&#39; if grantee is a role.
 </td></tr>
 <tr><td>GRANTEDROLE</td><td>CHARACTER VARYING</td></tr><tr><td colspan="2">
 The name of the granted role for role grants.
@@ -1408,7 +1408,7 @@ Optional remarks.
 
 <h3 class="notranslate" id="information_schema_routines">ROUTINES</h3>
 <p class="notranslate">
-Contains information about user-defined routines, including aggregate functions.
+Contains information about users-defined routines, including aggregate functions.
 </p>
 <table class="main">
 <tbody>
@@ -1491,7 +1491,7 @@ INFORMATION_SCHEMA.ENUM_VALUES for ENUM data type, and INFORMATION_SCHEMA.FIELDS
 &#39;EXTERNAL&#39;.
 </td></tr>
 <tr><td>ROUTINE_DEFINITION</td><td>CHARACTER VARYING</td></tr><tr><td colspan="2">
-Source code or NULL if not applicable or user doesn&#39;t have ADMIN privileges.
+Source code or NULL if not applicable or users doesn&#39;t have ADMIN privileges.
 </td></tr>
 <tr><td>EXTERNAL_NAME</td><td>CHARACTER VARYING</td></tr><tr><td colspan="2">
 The name of the class or method.
@@ -1628,7 +1628,7 @@ Optional remarks.
 <h3 class="notranslate" id="information_schema_sessions">SESSIONS</h3>
 <p class="notranslate">
 Contains information about sessions.
-Only user with ADMIN privileges can see all sessions, other user can see only own session.
+Only users with ADMIN privileges can see all sessions, other users can see only own session.
 </p>
 <table class="main">
 <tbody>
@@ -1636,7 +1636,7 @@ Only user with ADMIN privileges can see all sessions, other user can see only ow
 The identifier of the session.
 </td></tr>
 <tr><td>USER_NAME</td><td>CHARACTER VARYING</td></tr><tr><td colspan="2">
-The name of the user.
+The name of the users.
 </td></tr>
 <tr><td>SERVER</td><td>CHARACTER VARYING</td></tr><tr><td colspan="2">
 The name of the server used by remote connection.
@@ -1925,16 +1925,16 @@ Optional remarks.
 
 <h3 class="notranslate" id="information_schema_users">USERS</h3>
 <p class="notranslate">
-Contains information about user.
-Only user with ADMIN privileges can see all user, other user can see only themselves.
+Contains information about users.
+Only users with ADMIN privileges can see all users, other users can see only themselves.
 </p>
 <table class="main">
 <tbody>
 <tr><td>USER_NAME</td><td>CHARACTER VARYING</td></tr><tr><td colspan="2">
-The name of the user.
+The name of the users.
 </td></tr>
 <tr><td>IS_ADMIN</td><td>BOOLEAN</td></tr><tr><td colspan="2">
-Whether user has ADMIN privileges.
+Whether users has ADMIN privileges.
 </td></tr>
 <tr><td>REMARKS</td><td>CHARACTER VARYING</td></tr><tr><td colspan="2">
 Optional remarks.

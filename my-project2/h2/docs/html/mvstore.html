@@ -783,8 +783,8 @@ Data compression: The data after the page type are optionally compressed using t
 
 <h3>Metadata Map</h3>
 <p>
-In addition to the user maps, there is one metadata map that contains names and
-positions of user maps, and chunk metadata.
+In addition to the users maps, there is one metadata map that contains names and
+positions of users maps, and chunk metadata.
 The very last page of a chunk contains the root page of that metadata map.
 The exact position of this root page is stored in the chunk header.
 This page (directly or indirectly) points to the root pages of all other maps.
@@ -796,7 +796,7 @@ contains the following entries:
 </li><li>map.1: The metadata of map 1. The entries are: name, createVersion, and type.
 </li><li>name.data: The map id of the map named "data". The value is "1".
 </li><li>root.1: The root position of map 1.
-</li><li>setting.storeVersion: The store version (a user defined value).
+</li><li>setting.storeVersion: The store version (a users defined value).
 </li></ul>
 
 <h2 id="differences">Similar Projects and Differences to Other Storage Engines</h2>
