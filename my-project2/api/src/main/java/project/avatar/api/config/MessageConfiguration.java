@@ -1,6 +1,6 @@
 package project.avatar.api.config;
 
-import net.rakugakibox.util.YamlResourceBundle;
+//import net.rakugakibox.util.YamlResourceBundle;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -38,7 +38,7 @@ public class MessageConfiguration implements WebMvcConfigurer {
         registry.addInterceptor(localeChangeInterceptor());
     }
 
-    @Bean //yml을 참조하는 messagesource 선언
+    /*@Bean //yml을 참조하는 messagesource 선언
     public MessageSource messageSource(
             @Value("${spring.messages.basename") String basename,
             @Value("${spring.messages.encoding") String encoding
@@ -50,13 +50,13 @@ public class MessageConfiguration implements WebMvcConfigurer {
         ms.setUseCodeAsDefaultMessage(true);
         ms.setFallbackToSystemLocale(true);
         return ms;
-    }
+    }*/
 
     //
-    private static class YamlMessageSource extends ResourceBundleMessageSource{
+    /*private static class YamlMessageSource extends ResourceBundleMessageSource{
         @Override
         protected ResourceBundle doGetBundle(String basename, Locale locale) throws MissingResourceException{
             return ResourceBundle.getBundle(basename, locale, YamlResourceBundle.Control.INSTANCE);
         }
-    }
+    }*/
 }
