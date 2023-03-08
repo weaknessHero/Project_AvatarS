@@ -253,13 +253,13 @@ implements org.h2.store.DataHandler, <a href="../../../org/h2/engine/CastDataPro
 <tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../org/h2/engine/User.html" title="class in org.h2.engine">User</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/Database.html#findUser-java.lang.String-">findUser</a></span>(java.lang.String&nbsp;name)</code>
-<div class="block">Get the users if it exists, or null if not.</div>
+<div class="block">Get the user if it exists, or null if not.</div>
 </td>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/h2/engine/RightOwner.html" title="class in org.h2.engine">RightOwner</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/Database.html#findUserOrRole-java.lang.String-">findUserOrRole</a></span>(java.lang.String&nbsp;name)</code>
-<div class="block">Get the users or role if it exists, or <code>null</code> if not.</div>
+<div class="block">Get the user or role if it exists, or <code>null</code> if not.</div>
 </td>
 </tr>
 <tr id="i16" class="altColor">
@@ -311,7 +311,7 @@ implements org.h2.store.DataHandler, <a href="../../../org/h2/engine/CastDataPro
 <tr id="i26" class="altColor">
 <td class="colFirst"><code>org.h2.security.auth.Authenticator</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/Database.html#getAuthenticator--">getAuthenticator</a></span>()</code>
-<div class="block">get authenticator for database users</div>
+<div class="block">get authenticator for database user</div>
 </td>
 </tr>
 <tr id="i27" class="rowColor">
@@ -364,7 +364,7 @@ implements org.h2.store.DataHandler, <a href="../../../org/h2/engine/CastDataPro
 <tr id="i37" class="rowColor">
 <td class="colFirst"><code>org.h2.table.Table</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/Database.html#getFirstUserTable--">getFirstUserTable</a></span>()</code>
-<div class="block">Get the first users defined table, excluding the LOB_BLOCKS table that the
+<div class="block">Get the first user defined table, excluding the LOB_BLOCKS table that the
  Recover tool creates.</div>
 </td>
 </tr>
@@ -392,7 +392,7 @@ implements org.h2.store.DataHandler, <a href="../../../org/h2/engine/CastDataPro
 <td class="colFirst"><code>org.h2.table.TableLinkConnection</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/Database.html#getLinkConnection-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">getLinkConnection</a></span>(java.lang.String&nbsp;driver,
                  java.lang.String&nbsp;url,
-                 java.lang.String&nbsp;users,
+                 java.lang.String&nbsp;user,
                  java.lang.String&nbsp;password)</code>
 <div class="block">Open a new connection or get an existing connection to another database.</div>
 </td>
@@ -552,7 +552,7 @@ implements org.h2.store.DataHandler, <a href="../../../org/h2/engine/CastDataPro
 <tr id="i77" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/h2/engine/User.html" title="class in org.h2.engine">User</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/Database.html#getSystemUser--">getSystemUser</a></span>()</code>
-<div class="block">Returns system users.</div>
+<div class="block">Returns system user.</div>
 </td>
 </tr>
 <tr id="i78" class="altColor">
@@ -587,7 +587,7 @@ implements org.h2.store.DataHandler, <a href="../../../org/h2/engine/CastDataPro
 <tr id="i83" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/h2/engine/User.html" title="class in org.h2.engine">User</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/Database.html#getUser-java.lang.String-">getUser</a></span>(java.lang.String&nbsp;name)</code>
-<div class="block">Get users with the given name.</div>
+<div class="block">Get user with the given name.</div>
 </td>
 </tr>
 <tr id="i84" class="altColor">
@@ -808,7 +808,7 @@ implements org.h2.store.DataHandler, <a href="../../../org/h2/engine/CastDataPro
 </tr>
 <tr id="i124" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/Database.html#setMasterUser-org.h2.engine.User-">setMasterUser</a></span>(<a href="../../../org/h2/engine/User.html" title="class in org.h2.engine">User</a>&nbsp;users)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/Database.html#setMasterUser-org.h2.engine.User-">setMasterUser</a></span>(<a href="../../../org/h2/engine/User.html" title="class in org.h2.engine">User</a>&nbsp;user)</code>&nbsp;</td>
 </tr>
 <tr id="i125" class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -1316,12 +1316,12 @@ implements org.h2.store.DataHandler, <a href="../../../org/h2/engine/CastDataPro
 <li class="blockList">
 <h4>findUser</h4>
 <pre>public&nbsp;<a href="../../../org/h2/engine/User.html" title="class in org.h2.engine">User</a>&nbsp;findUser(java.lang.String&nbsp;name)</pre>
-<div class="block">Get the users if it exists, or null if not.</div>
+<div class="block">Get the user if it exists, or null if not.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>name</code> - the name of the users</dd>
+<dd><code>name</code> - the name of the user</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the users or null</dd>
+<dd>the user or null</dd>
 </dl>
 </li>
 </ul>
@@ -1332,15 +1332,15 @@ implements org.h2.store.DataHandler, <a href="../../../org/h2/engine/CastDataPro
 <li class="blockList">
 <h4>getUser</h4>
 <pre>public&nbsp;<a href="../../../org/h2/engine/User.html" title="class in org.h2.engine">User</a>&nbsp;getUser(java.lang.String&nbsp;name)</pre>
-<div class="block">Get users with the given name. This method throws an exception if the users
+<div class="block">Get user with the given name. This method throws an exception if the user
  does not exist.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>name</code> - the users name</dd>
+<dd><code>name</code> - the user name</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the users</dd>
+<dd>the user</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>org.h2.message.DbException</code> - if the users does not exist</dd>
+<dd><code>org.h2.message.DbException</code> - if the user does not exist</dd>
 </dl>
 </li>
 </ul>
@@ -1351,12 +1351,12 @@ implements org.h2.store.DataHandler, <a href="../../../org/h2/engine/CastDataPro
 <li class="blockList">
 <h4>findUserOrRole</h4>
 <pre>public&nbsp;<a href="../../../org/h2/engine/RightOwner.html" title="class in org.h2.engine">RightOwner</a>&nbsp;findUserOrRole(java.lang.String&nbsp;name)</pre>
-<div class="block">Get the users or role if it exists, or <code>null</code> if not.</div>
+<div class="block">Get the user or role if it exists, or <code>null</code> if not.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>name</code> - the name of the users or role</dd>
+<dd><code>name</code> - the name of the user or role</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the users, the role, or <code>null</code></dd>
+<dd>the user, the role, or <code>null</code></dd>
 </dl>
 </li>
 </ul>
@@ -1367,7 +1367,7 @@ implements org.h2.store.DataHandler, <a href="../../../org/h2/engine/CastDataPro
 <li class="blockList">
 <h4>removeSession</h4>
 <pre>public&nbsp;void&nbsp;removeSession(<a href="../../../org/h2/engine/SessionLocal.html" title="class in org.h2.engine">SessionLocal</a>&nbsp;session)</pre>
-<div class="block">Remove a session. This method is called after the users has disconnected.</div>
+<div class="block">Remove a session. This method is called after the user has disconnected.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>session</code> - the session</dd>
@@ -1395,10 +1395,10 @@ implements org.h2.store.DataHandler, <a href="../../../org/h2/engine/CastDataPro
 <li class="blockList">
 <h4>getSystemUser</h4>
 <pre>public&nbsp;<a href="../../../org/h2/engine/User.html" title="class in org.h2.engine">User</a>&nbsp;getSystemUser()</pre>
-<div class="block">Returns system users.</div>
+<div class="block">Returns system user.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>system users</dd>
+<dd>system user</dd>
 </dl>
 </li>
 </ul>
@@ -1752,7 +1752,7 @@ implements org.h2.store.DataHandler, <a href="../../../org/h2/engine/CastDataPro
 <ul class="blockList">
 <li class="blockList">
 <h4>setMasterUser</h4>
-<pre>public&nbsp;void&nbsp;setMasterUser(<a href="../../../org/h2/engine/User.html" title="class in org.h2.engine">User</a>&nbsp;users)</pre>
+<pre>public&nbsp;void&nbsp;setMasterUser(<a href="../../../org/h2/engine/User.html" title="class in org.h2.engine">User</a>&nbsp;user)</pre>
 </li>
 </ul>
 <a name="getPublicRole--">
@@ -2402,14 +2402,14 @@ implements org.h2.store.DataHandler, <a href="../../../org/h2/engine/CastDataPro
 <h4>getLinkConnection</h4>
 <pre>public&nbsp;org.h2.table.TableLinkConnection&nbsp;getLinkConnection(java.lang.String&nbsp;driver,
                                                           java.lang.String&nbsp;url,
-                                                          java.lang.String&nbsp;users,
+                                                          java.lang.String&nbsp;user,
                                                           java.lang.String&nbsp;password)</pre>
 <div class="block">Open a new connection or get an existing connection to another database.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>driver</code> - the database driver or null</dd>
 <dd><code>url</code> - the database URL</dd>
-<dd><code>users</code> - the users name</dd>
+<dd><code>user</code> - the user name</dd>
 <dd><code>password</code> - the password</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the connection</dd>
@@ -2463,7 +2463,7 @@ implements org.h2.store.DataHandler, <a href="../../../org/h2/engine/CastDataPro
 <li class="blockList">
 <h4>getFirstUserTable</h4>
 <pre>public&nbsp;org.h2.table.Table&nbsp;getFirstUserTable()</pre>
-<div class="block">Get the first users defined table, excluding the LOB_BLOCKS table that the
+<div class="block">Get the first user defined table, excluding the LOB_BLOCKS table that the
  Recover tool creates.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -2741,7 +2741,7 @@ implements org.h2.store.DataHandler, <a href="../../../org/h2/engine/CastDataPro
 <li class="blockList">
 <h4>getAuthenticator</h4>
 <pre>public&nbsp;org.h2.security.auth.Authenticator&nbsp;getAuthenticator()</pre>
-<div class="block">get authenticator for database users</div>
+<div class="block">get authenticator for database user</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>authenticator set for database</dd>

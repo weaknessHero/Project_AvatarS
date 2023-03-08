@@ -107,7 +107,7 @@ var activeTableTab = "activeTableTab";
 <pre>public interface <span class="typeNameLabel">UserToRolesMapper</span>
 extends org.h2.security.auth.Configurable</pre>
 <div class="block">A class that implement this interface can be used during authentication to
- map external users to database roles.
+ map external user to database roles.
  <p>
  <b>This feature is experimental and subject to change</b>
  </p></div>
@@ -132,7 +132,7 @@ extends org.h2.security.auth.Configurable</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>java.util.Collection&lt;java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/api/UserToRolesMapper.html#mapUserToRoles-org.h2.security.auth.AuthenticationInfo-">mapUserToRoles</a></span>(org.h2.security.auth.AuthenticationInfo&nbsp;authenticationInfo)</code>
-<div class="block">Map users identified by authentication info to a set of granted roles.</div>
+<div class="block">Map user identified by authentication info to a set of granted roles.</div>
 </td>
 </tr>
 </table>
@@ -165,12 +165,12 @@ extends org.h2.security.auth.Configurable</pre>
 <h4>mapUserToRoles</h4>
 <pre>java.util.Collection&lt;java.lang.String&gt;&nbsp;mapUserToRoles(org.h2.security.auth.AuthenticationInfo&nbsp;authenticationInfo)
                                                throws org.h2.security.auth.AuthenticationException</pre>
-<div class="block">Map users identified by authentication info to a set of granted roles.</div>
+<div class="block">Map user identified by authentication info to a set of granted roles.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>authenticationInfo</code> - authentication information</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>list of roles to be assigned to the users temporary</dd>
+<dd>list of roles to be assigned to the user temporary</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>org.h2.security.auth.AuthenticationException</code> - on authentication exception</dd>
 </dl>

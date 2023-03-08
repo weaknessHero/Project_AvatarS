@@ -421,7 +421,7 @@ extends java.lang.Object</pre>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/SysProperties.html#USER_HOME">USER_HOME</a></span></code>
-<div class="block">System property <code>users.home</code> (empty string if not set).</div>
+<div class="block">System property <code>user.home</code> (empty string if not set).</div>
 </td>
 </tr>
 </table>
@@ -515,7 +515,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>USER_HOME</h4>
 <pre>public static final&nbsp;java.lang.String USER_HOME</pre>
-<div class="block">System property <code>users.home</code> (empty string if not set).
+<div class="block">System property <code>user.home</code> (empty string if not set).
  It is usually set by the system, and used as a replacement for ~ in file
  names.</div>
 </li>
@@ -671,7 +671,7 @@ extends java.lang.Object</pre>
 <div class="block">System property <code>h2.delayWrongPasswordMin</code>
  (default: 250).
  The minimum delay in milliseconds before an exception is thrown for using
- the wrong users name or password. This slows down brute force attacks. The
+ the wrong user name or password. This slows down brute force attacks. The
  delay is reset to this value after a successful login. Unsuccessful
  logins will double the time until DELAY_WRONG_PASSWORD_MAX.
  To disable the delay, set this system property to 0.</div>
@@ -687,7 +687,7 @@ extends java.lang.Object</pre>
 <div class="block">System property <code>h2.delayWrongPasswordMax</code>
  (default: 4000).
  The maximum delay in milliseconds before an exception is thrown for using
- the wrong users name or password. This slows down brute force attacks. The
+ the wrong user name or password. This slows down brute force attacks. The
  delay is reset after a successful login. The value 0 means there is no
  maximum delay.</div>
 </li>
@@ -701,7 +701,7 @@ extends java.lang.Object</pre>
 <pre>public static final&nbsp;boolean JAVA_SYSTEM_COMPILER</pre>
 <div class="block">System property <code>h2.javaSystemCompiler</code> (default: true).
  Whether to use the Java system compiler
- (ToolProvider.getSystemJavaCompiler()) if it is available to compile users
+ (ToolProvider.getSystemJavaCompiler()) if it is available to compile user
  defined functions. If disabled or if the system compiler is not
  available, the com.sun.tools.javac compiler is used if available, and
  "javac" (as an external process) is used if not.</div>
@@ -743,7 +743,7 @@ extends java.lang.Object</pre>
  Number of times to retry file delete and rename. in Windows, files can't
  be deleted if they are open. Waiting a bit can help (sometimes the
  Windows Explorer opens the files for a short time) may help. Sometimes,
- running garbage collection may close files if the users forgot to call
+ running garbage collection may close files if the user forgot to call
  Connection.close() or InputStream.close().</div>
 </li>
 </ul>

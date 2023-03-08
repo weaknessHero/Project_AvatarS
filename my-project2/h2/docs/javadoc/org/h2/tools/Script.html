@@ -184,7 +184,7 @@ extends org.h2.util.Tool</pre>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/tools/Script.html#process-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">process</a></span>(java.lang.String&nbsp;url,
-       java.lang.String&nbsp;users,
+       java.lang.String&nbsp;user,
        java.lang.String&nbsp;password,
        java.lang.String&nbsp;fileName,
        java.lang.String&nbsp;options1,
@@ -259,8 +259,8 @@ extends org.h2.util.Tool</pre>
  <td>Print the list of options</td></tr>
  <tr><td>[-url "&lt;url&gt;"]</td>
  <td>The database URL (jdbc:...)</td></tr>
- <tr><td>[-users &lt;users&gt;]</td>
- <td>The users name (default: sa)</td></tr>
+ <tr><td>[-user &lt;user&gt;]</td>
+ <td>The user name (default: sa)</td></tr>
  <tr><td>[-password &lt;pwd&gt;]</td>
  <td>The password</td></tr>
  <tr><td>[-script &lt;file&gt;]</td>
@@ -305,7 +305,7 @@ extends org.h2.util.Tool</pre>
 <li class="blockList">
 <h4>process</h4>
 <pre>public static&nbsp;void&nbsp;process(java.lang.String&nbsp;url,
-                           java.lang.String&nbsp;users,
+                           java.lang.String&nbsp;user,
                            java.lang.String&nbsp;password,
                            java.lang.String&nbsp;fileName,
                            java.lang.String&nbsp;options1,
@@ -315,7 +315,7 @@ extends org.h2.util.Tool</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>url</code> - the database URL</dd>
-<dd><code>users</code> - the users name</dd>
+<dd><code>user</code> - the user name</dd>
 <dd><code>password</code> - the password</dd>
 <dd><code>fileName</code> - the target file name</dd>
 <dd><code>options1</code> - the options before the file name (may be an empty string)</dd>

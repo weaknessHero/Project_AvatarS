@@ -115,7 +115,7 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">ConnectionInfo</span>
 extends java.lang.Object
 implements java.lang.Cloneable</pre>
-<div class="block">Encapsulates the connection settings, including users name and password.</div>
+<div class="block">Encapsulates the connection settings, including user name and password.</div>
 </li>
 </ul>
 </div>
@@ -141,7 +141,7 @@ implements java.lang.Cloneable</pre>
 <tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../org/h2/engine/ConnectionInfo.html#ConnectionInfo-java.lang.String-java.util.Properties-java.lang.String-java.lang.Object-">ConnectionInfo</a></span>(java.lang.String&nbsp;u,
               java.util.Properties&nbsp;info,
-              java.lang.String&nbsp;users,
+              java.lang.String&nbsp;user,
               java.lang.Object&nbsp;password)</code>
 <div class="block">Create a connection info object.</div>
 </td>
@@ -228,7 +228,7 @@ implements java.lang.Cloneable</pre>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/ConnectionInfo.html#getUserName--">getUserName</a></span>()</code>
-<div class="block">Get the name of the users.</div>
+<div class="block">Get the name of the user.</div>
 </td>
 </tr>
 <tr id="i12" class="altColor">
@@ -261,7 +261,7 @@ implements java.lang.Cloneable</pre>
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/ConnectionInfo.html#setBaseDir-java.lang.String-">setBaseDir</a></span>(java.lang.String&nbsp;dir)</code>
 <div class="block">Set the base directory of persistent databases, unless the database is in
- the users home folder (~).</div>
+ the user home folder (~).</div>
 </td>
 </tr>
 <tr id="i17" class="rowColor">
@@ -302,13 +302,13 @@ implements java.lang.Cloneable</pre>
 <tr id="i23" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/ConnectionInfo.html#setUserName-java.lang.String-">setUserName</a></span>(java.lang.String&nbsp;name)</code>
-<div class="block">Overwrite the users name.</div>
+<div class="block">Overwrite the user name.</div>
 </td>
 </tr>
 <tr id="i24" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/ConnectionInfo.html#setUserPasswordHash-byte:A-">setUserPasswordHash</a></span>(byte[]&nbsp;hash)</code>
-<div class="block">Set the users password hash.</div>
+<div class="block">Set the user password hash.</div>
 </td>
 </tr>
 </table>
@@ -356,14 +356,14 @@ implements java.lang.Cloneable</pre>
 <h4>ConnectionInfo</h4>
 <pre>public&nbsp;ConnectionInfo(java.lang.String&nbsp;u,
                       java.util.Properties&nbsp;info,
-                      java.lang.String&nbsp;users,
+                      java.lang.String&nbsp;user,
                       java.lang.Object&nbsp;password)</pre>
 <div class="block">Create a connection info object.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>u</code> - the database URL (must start with jdbc:h2:)</dd>
 <dd><code>info</code> - the connection properties or <code>null</code></dd>
-<dd><code>users</code> - the users name or <code>null</code></dd>
+<dd><code>user</code> - the user name or <code>null</code></dd>
 <dd><code>password</code> - the password as <code>String</code> or <code>char[]</code>, or
             <code>null</code></dd>
 </dl>
@@ -419,7 +419,7 @@ implements java.lang.Cloneable</pre>
 <h4>setBaseDir</h4>
 <pre>public&nbsp;void&nbsp;setBaseDir(java.lang.String&nbsp;dir)</pre>
 <div class="block">Set the base directory of persistent databases, unless the database is in
- the users home folder (~).</div>
+ the user home folder (~).</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>dir</code> - the new base directory</dd>
@@ -525,10 +525,10 @@ implements java.lang.Cloneable</pre>
 <li class="blockList">
 <h4>getUserName</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getUserName()</pre>
-<div class="block">Get the name of the users.</div>
+<div class="block">Get the name of the user.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the users name</dd>
+<dd>the user name</dd>
 </dl>
 </li>
 </ul>
@@ -557,11 +557,11 @@ implements java.lang.Cloneable</pre>
 <li class="blockList">
 <h4>setUserName</h4>
 <pre>public&nbsp;void&nbsp;setUserName(java.lang.String&nbsp;name)</pre>
-<div class="block">Overwrite the users name. The users name is case-insensitive and stored in
+<div class="block">Overwrite the user name. The user name is case-insensitive and stored in
  uppercase. English conversion is used.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>name</code> - the users name</dd>
+<dd><code>name</code> - the user name</dd>
 </dl>
 </li>
 </ul>
@@ -572,7 +572,7 @@ implements java.lang.Cloneable</pre>
 <li class="blockList">
 <h4>setUserPasswordHash</h4>
 <pre>public&nbsp;void&nbsp;setUserPasswordHash(byte[]&nbsp;hash)</pre>
-<div class="block">Set the users password hash.</div>
+<div class="block">Set the user password hash.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>hash</code> - the new hash value</dd>

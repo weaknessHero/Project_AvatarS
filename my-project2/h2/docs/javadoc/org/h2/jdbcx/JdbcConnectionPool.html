@@ -175,7 +175,7 @@ implements javax.sql.DataSource, javax.sql.ConnectionEventListener, <a href="../
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../org/h2/jdbcx/JdbcConnectionPool.html" title="class in org.h2.jdbcx">JdbcConnectionPool</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/jdbcx/JdbcConnectionPool.html#create-java.lang.String-java.lang.String-java.lang.String-">create</a></span>(java.lang.String&nbsp;url,
-      java.lang.String&nbsp;users,
+      java.lang.String&nbsp;user,
       java.lang.String&nbsp;password)</code>
 <div class="block">Constructs a new connection pool for H2 databases.</div>
 </td>
@@ -200,7 +200,7 @@ implements javax.sql.DataSource, javax.sql.ConnectionEventListener, <a href="../
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.sql.Connection</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/jdbcx/JdbcConnectionPool.html#getConnection-java.lang.String-java.lang.String-">getConnection</a></span>(java.lang.String&nbsp;users,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/jdbcx/JdbcConnectionPool.html#getConnection-java.lang.String-java.lang.String-">getConnection</a></span>(java.lang.String&nbsp;user,
              java.lang.String&nbsp;password)</code>
 <div class="block">INTERNAL</div>
 </td>
@@ -304,13 +304,13 @@ implements javax.sql.DataSource, javax.sql.ConnectionEventListener, <a href="../
 <li class="blockList">
 <h4>create</h4>
 <pre>public static&nbsp;<a href="../../../org/h2/jdbcx/JdbcConnectionPool.html" title="class in org.h2.jdbcx">JdbcConnectionPool</a>&nbsp;create(java.lang.String&nbsp;url,
-                                        java.lang.String&nbsp;users,
+                                        java.lang.String&nbsp;user,
                                         java.lang.String&nbsp;password)</pre>
 <div class="block">Constructs a new connection pool for H2 databases.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>url</code> - the database URL of the H2 connection</dd>
-<dd><code>users</code> - the users name</dd>
+<dd><code>user</code> - the user name</dd>
 <dd><code>password</code> - the password</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the connection pool</dd>
@@ -423,7 +423,7 @@ implements javax.sql.DataSource, javax.sql.ConnectionEventListener, <a href="../
 <ul class="blockList">
 <li class="blockList">
 <h4>getConnection</h4>
-<pre>public&nbsp;java.sql.Connection&nbsp;getConnection(java.lang.String&nbsp;users,
+<pre>public&nbsp;java.sql.Connection&nbsp;getConnection(java.lang.String&nbsp;user,
                                          java.lang.String&nbsp;password)</pre>
 <div class="block">INTERNAL</div>
 <dl>

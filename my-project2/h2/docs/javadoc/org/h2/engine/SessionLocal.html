@@ -181,7 +181,7 @@ implements org.h2.mvstore.tx.TransactionStore.RollbackListener</pre>
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../org/h2/engine/SessionLocal.html#SessionLocal-org.h2.engine.Database-org.h2.engine.User-int-">SessionLocal</a></span>(<a href="../../../org/h2/engine/Database.html" title="class in org.h2.engine">Database</a>&nbsp;database,
-            <a href="../../../org/h2/engine/User.html" title="class in org.h2.engine">User</a>&nbsp;users,
+            <a href="../../../org/h2/engine/User.html" title="class in org.h2.engine">User</a>&nbsp;user,
             int&nbsp;id)</code>&nbsp;</td>
 </tr>
 </table>
@@ -561,7 +561,7 @@ implements org.h2.mvstore.tx.TransactionStore.RollbackListener</pre>
 <tr id="i64" class="altColor">
 <td class="colFirst"><code>org.h2.value.Value</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/SessionLocal.html#getVariable-java.lang.String-">getVariable</a></span>(java.lang.String&nbsp;name)</code>
-<div class="block">Get the value of the specified users defined variable.</div>
+<div class="block">Get the value of the specified user defined variable.</div>
 </td>
 </tr>
 <tr id="i65" class="rowColor">
@@ -976,7 +976,7 @@ implements org.h2.mvstore.tx.TransactionStore.RollbackListener</pre>
 <li class="blockList">
 <h4>SessionLocal</h4>
 <pre>public&nbsp;SessionLocal(<a href="../../../org/h2/engine/Database.html" title="class in org.h2.engine">Database</a>&nbsp;database,
-                    <a href="../../../org/h2/engine/User.html" title="class in org.h2.engine">User</a>&nbsp;users,
+                    <a href="../../../org/h2/engine/User.html" title="class in org.h2.engine">User</a>&nbsp;user,
                     int&nbsp;id)</pre>
 </li>
 </ul>
@@ -1081,7 +1081,7 @@ implements org.h2.mvstore.tx.TransactionStore.RollbackListener</pre>
 <li class="blockList">
 <h4>getVariable</h4>
 <pre>public&nbsp;org.h2.value.Value&nbsp;getVariable(java.lang.String&nbsp;name)</pre>
-<div class="block">Get the value of the specified users defined variable. This method always
+<div class="block">Get the value of the specified user defined variable. This method always
  returns a value; it returns ValueNull.INSTANCE if the variable doesn't
  exist.</div>
 <dl>
@@ -1916,7 +1916,7 @@ implements org.h2.mvstore.tx.TransactionStore.RollbackListener</pre>
 <h4>createConnection</h4>
 <pre>public&nbsp;<a href="../../../org/h2/jdbc/JdbcConnection.html" title="class in org.h2.jdbc">JdbcConnection</a>&nbsp;createConnection(boolean&nbsp;columnList)</pre>
 <div class="block">Create an internal connection. This connection is used when initializing
- triggers, and when calling users defined functions.</div>
+ triggers, and when calling user defined functions.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>columnList</code> - if the url should be 'jdbc:columnlist:connection'</dd>

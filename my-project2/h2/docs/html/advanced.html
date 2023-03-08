@@ -439,7 +439,7 @@ java org.h2.tools.Server
 java org.h2.tools.CreateCluster
     -urlSource jdbc:h2:tcp://localhost:9101/~/test
     -urlTarget jdbc:h2:tcp://localhost:9102/~/test
-    -users sa
+    -user sa
     -serverList localhost:9101,localhost:9102
 </pre>
 </li><li>You can now connect to the databases using
@@ -824,8 +824,8 @@ Simon Krenger</a>.
 <p>
 When running the database as a service, absolute path should be used.
 Using <code>~</code> in the database URL is problematic in this case,
-because it means to use the home directory of the current users.
-The service might run without or with the wrong users, so that
+because it means to use the home directory of the current user.
+The service might run without or with the wrong user, so that
 the database files might end up in an unexpected place.
 </p>
 
@@ -905,7 +905,7 @@ java -cp h2*.jar org.h2.tools.Server
 <p>
 The PG Server (PG for PostgreSQL protocol) is started as well.
 By default, databases are stored in the current working directory where the server is started.
-Use <code>-baseDir</code> to save databases in another directory, for example the users home directory:
+Use <code>-baseDir</code> to save databases in another directory, for example the user home directory:
 </p>
 <pre>
 java -cp h2*.jar org.h2.tools.Server -baseDir ~
@@ -953,7 +953,7 @@ The property column represents the property key in the <code>odbc.ini</code> fil
         The name must be at least 3 characters.
     </td></tr>
 <tr><td>Servername</td><td>localhost</td><td>The server name or IP address.<br />By default, only remote connections are allowed</td></tr>
-<tr><td>Username</td><td>sa</td><td>The database users name.</td></tr>
+<tr><td>Username</td><td>sa</td><td>The database user name.</td></tr>
 <tr><td>SSL</td><td>false (disabled)</td><td>At this time, SSL is not supported.</td></tr>
 <tr><td>Port</td><td>5435</td><td>The port where the PG Server is listening.</td></tr>
 <tr><td>Password</td><td>sa</td><td>The database password.</td></tr>
@@ -988,7 +988,7 @@ Also, it is currently not possible to use encrypted SSL connections.
 Therefore the ODBC driver should not be used where security is important.
 </p>
 <p>
-The first connection that opens a database using the PostgreSQL server needs to be an administrator users.
+The first connection that opens a database using the PostgreSQL server needs to be an administrator user.
 Subsequent connections don't need to be opened by an administrator.
 </p>
 
@@ -1139,8 +1139,8 @@ the schema of the database. This file can be executed using the <code>RunScript<
 <a href="https://h2database.com/html/commands.html#runscript"><code>RUNSCRIPT</code></a> SQL statement.
 The script includes at least one
 <code>CREATE USER</code> statement. If you run the script against a database that was created with the same
-users, or if there are conflicting users, running the script will fail. Consider running the script
-against a database that was created with a users name that is not in the script.
+user, or if there are conflicting user, running the script will fail. Consider running the script
+against a database that was created with a user name that is not in the script.
 </p>
 <p>
 The <code>Recover</code> tool creates a SQL script from database file. It also processes the transaction log.
@@ -1167,7 +1167,7 @@ That means the existence of the lock file is not a safe protocol for file lockin
 However, this software uses a challenge-response protocol to protect the database
 files. There are two methods (algorithms) implemented to provide both security
 (that is, the same database files cannot be opened by two processes at the same time)
-and simplicity (that is, the lock file does not need to be deleted manually by the users).
+and simplicity (that is, the lock file does not need to be deleted manually by the user).
 The two methods are 'file method' and 'socket methods'.
 </p>
 <p>
@@ -1218,7 +1218,7 @@ many concurrent threads trying to lock the database, they block each other (mean
 the file cannot be locked by any of them) for some time. However, the file never gets
 locked by two threads at the same time. However using that many concurrent threads
 / processes is not the common use case. Generally, an application should throw an error
-to the users if it cannot open a database, and not try again in a (fast) loop.
+to the user if it cannot open a database, and not try again in a (fast) loop.
 </p>
 
 <h3>File Locking Method 'Socket'</h3>
@@ -1292,7 +1292,7 @@ It is a good idea to use char arrays instead of strings for passwords.
 Char arrays can be cleared (filled with zeros) after use, and therefore the
 password will not be stored in the swap file.
 </p><p>
-This database supports using char arrays instead of string to pass users and file passwords.
+This database supports using char arrays instead of string to pass user and file passwords.
 The following code can be used to do that:
 </p>
 <pre>
@@ -1302,7 +1302,7 @@ public class Test {
     public static void main(String[] args) throws Exception {
         String url = "jdbc:h2:~/test";
         Properties prop = new Properties();
-        prop.setProperty("users", "sa");
+        prop.setProperty("user", "sa");
         System.out.print("Password?");
         char[] password = System.console().readPassword();
         prop.put("password", password);
@@ -1322,12 +1322,12 @@ When using Swing, use <code>javax.swing.JPasswordField</code>.
 
 <h3>Passing the User Name and/or Password in the URL</h3>
 <p>
-Instead of passing the users name as a separate parameter as in
+Instead of passing the user name as a separate parameter as in
 <code>
 Connection conn = DriverManager.
     getConnection("jdbc:h2:~/test", "sa", "123");
 </code>
-the users name (and/or password) can be supplied in the URL itself:
+the user name (and/or password) can be supplied in the URL itself:
 <code>
 Connection conn = DriverManager.
     getConnection("jdbc:h2:~/test;USER=sa;PASSWORD=123");
@@ -1353,11 +1353,11 @@ To connect using the password hash instead of plain text password, append
 the password with the password hash. To calculate the password hash from a plain text password,
 run the following command within the H2 Console tool:
 <code>@password_hash &lt;upperCaseUserName&gt; &lt;password&gt;</code>.
-As an example, if the users name is <code>sa</code> and the password is
+As an example, if the user name is <code>sa</code> and the password is
 <code>test</code>, run the command
 <code>@password_hash SA test</code>.
 Then use the resulting password hash as you would use the plain text password.
-When using an encrypted database, then the users password and file password
+When using an encrypted database, then the user password and file password
 need to be hashed separately. To calculate the hash of the file password, run:
 <code>@password_hash file &lt;filePassword&gt;</code>.
 </p>
@@ -1367,15 +1367,15 @@ need to be hashed separately. To calculate the hash of the file password, run:
 <p>
 This database engine provides a solution for the security vulnerability known as 'SQL Injection'.
 Here is a short description of what SQL injection means.
-Some applications build SQL statements with embedded users input such as:
+Some applications build SQL statements with embedded user input such as:
 </p>
 <pre>
 String sql = "SELECT * FROM USERS WHERE PASSWORD='"+pwd+"'";
 ResultSet rs = conn.createStatement().executeQuery(sql);
 </pre>
 <p>
-If this mechanism is used anywhere in the application, and users input is not correctly filtered or encoded,
-it is possible for a users to inject SQL functionality or statements by using specially built input
+If this mechanism is used anywhere in the application, and user input is not correctly filtered or encoded,
+it is possible for a user to inject SQL functionality or statements by using specially built input
 such as (in this example) this password: <code>' OR ''='</code>.
 In this case the statement becomes:
 </p>
@@ -1389,7 +1389,7 @@ For more information about SQL Injection, see <a href="#glossary_links">Glossary
 
 <h3>Disabling Literals</h3>
 <p>
-SQL Injection is not possible if users input is not directly embedded in SQL statements.
+SQL Injection is not possible if user input is not directly embedded in SQL statements.
 A simple solution for the problem above is to use a prepared statement:
 </p>
 <pre>
@@ -1399,7 +1399,7 @@ prep.setString(1, pwd);
 ResultSet rs = prep.executeQuery();
 </pre>
 <p>
-This database provides a way to enforce usage of parameters when passing users input
+This database provides a way to enforce usage of parameters when passing user input
 to the database. This is done by disabling embedded literals in SQL statements.
 To do this, execute the statement:
 </p>
@@ -1457,7 +1457,7 @@ options <code>-webAllowOthers, -tcpAllowOthers, -pgAllowOthers</code>.
 If you enable remote access using
 <code>-tcpAllowOthers</code> or <code>-pgAllowOthers</code>,
 please also consider using the options <code>-baseDir</code>,
-so that remote users can not create new databases
+so that remote user can not create new databases
 or access existing databases with weak passwords.
 When using the option <code>-baseDir</code>, only databases within that directory may be accessed.
 Ensure the existing accessible databases are protected using strong passwords.
@@ -1485,7 +1485,7 @@ CREATE ALIAS GET_PROPERTY FOR "java.lang.System.getProperty";
 CALL GET_PROPERTY('abc');
 </pre>
 <p>
-To restrict users (including admins) from loading classes and executing code,
+To restrict user (including admins) from loading classes and executing code,
 the list of allowed classes can be set in the system property
 <code>h2.allowedClasses</code>
 in the form of a comma separated list of classes or patterns (items ending with <code>*</code>).
@@ -1495,8 +1495,8 @@ By default all classes are allowed. Example:
 java -Dh2.allowedClasses=java.lang.Math,com.acme.*
 </pre>
 <p>
-This mechanism is used for all users classes, including database event listeners,
-trigger classes, users-defined functions, users-defined aggregate functions, and JDBC
+This mechanism is used for all user classes, including database event listeners,
+trigger classes, user-defined functions, user-defined aggregate functions, and JDBC
 driver classes (with the exception of the H2 driver) when using the H2 Console.
 </p>
 
@@ -1509,26 +1509,26 @@ the underlying security primitives.
 
 <h3>User Password Encryption</h3>
 <p>
-When a users tries to connect to a database, the combination of
-users name, @, and password are hashed using SHA-256, and this hash value
+When a user tries to connect to a database, the combination of
+user name, @, and password are hashed using SHA-256, and this hash value
 is transmitted to the database.
 This step does not protect against an attacker that re-uses the value if he is able to listen to the
 (unencrypted) transmission between the client and the server.
 But, the passwords are never transmitted as plain text,
 even when using an unencrypted connection between client and server.
-That means if a users reuses the same password for different things,
+That means if a user reuses the same password for different things,
 this password is still protected up to some point. See also
 'RFC 2617 - HTTP Authentication: Basic and Digest Access Authentication'
 for more information.
 </p><p>
-When a new database or users is created, a new random salt value is generated.
+When a new database or user is created, a new random salt value is generated.
 The size of the salt is 64 bits. Using the random salt reduces the risk of an
 attacker pre-calculating hash values for many different (commonly used) passwords.
 </p><p>
-The combination of users-password hash value (see above) and salt is hashed
+The combination of user-password hash value (see above) and salt is hashed
 using SHA-256. The resulting value is stored in the database.
-When a users tries to connect to the database, the database combines
-users-password hash value with the stored salt value and calculates the
+When a user tries to connect to the database, the database combines
+user-password hash value with the stored salt value and calculates the
 hash value. Other products use multiple iterations (hash the hash value again and again),
 but this is not done in this product to reduce the risk of denial of service attacks
 (where the attacker tries to connect with bogus passwords, and the server
@@ -1543,7 +1543,7 @@ then the iteration count is not required at all.
 <p>
 The database files can be encrypted using the AES-128 algorithm.
 </p><p>
-When a users tries to connect to an encrypted database, the combination of
+When a user tries to connect to an encrypted database, the combination of
 <code>file@</code> and the file password is hashed using SHA-256. This hash value is
 transmitted to the server.
 </p><p>
@@ -1587,16 +1587,16 @@ To protect against remote brute force password attacks, the delay after each uns
 login gets double as long. Use the system properties <code>h2.delayWrongPasswordMin</code>
 and <code>h2.delayWrongPasswordMax</code> to change the minimum (the default is 250 milliseconds)
 or maximum delay (the default is 4000 milliseconds, or 4 seconds). The delay only
-applies for those using the wrong password. Normally there is no delay for a users that knows the correct
+applies for those using the wrong password. Normally there is no delay for a user that knows the correct
 password, with one exception: after using the wrong password, there is a delay of up to (randomly distributed)
 the same delay as for a wrong password. This is to protect against parallel brute force attacks,
 so that an attacker needs to wait for the whole delay. Delays are synchronized. This is also required
 to protect against parallel attacks.
 </p>
 <p>
-There is only one exception message for both wrong users and for wrong password,
-to make it harder to get the list of users names. It is not possible from the stack trace to see
-if the users name was wrong or the password.
+There is only one exception message for both wrong user and for wrong password,
+to make it harder to get the list of user names. It is not possible from the stack trace to see
+if the user name was wrong or the password.
 </p>
 
 <h3>HTTPS Connections</h3>
@@ -1982,7 +1982,7 @@ Very complex expressions may result in a stack overflow exception.
     <tr>
         <td>SQL Injection</td>
         <td>A security vulnerability where an application embeds SQL
-        statements or expressions in users input. See also: <a
+        statements or expressions in user input. See also: <a
             href="https://en.wikipedia.org/wiki/SQL_injection">Wikipedia:
         SQL injection</a></td>
     </tr>

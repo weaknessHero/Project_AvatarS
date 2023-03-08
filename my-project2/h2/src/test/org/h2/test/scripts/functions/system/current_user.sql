@@ -3,7 +3,7 @@
 -- Initial Developer: H2 Group
 --
 
-select users() x_sa, current_user() x_sa2;
+select user() x_sa, current_user() x_sa2;
 > X_SA X_SA2
 > ---- -----
 > SA   SA

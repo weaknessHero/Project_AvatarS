@@ -107,7 +107,7 @@ alter table card alter column suit enum('hearts', 'clubs', 'spades', 'diamonds',
 drop table card;
 > ok
 
---- ENUM as custom users data type
+--- ENUM as custom user data type
 
 create type CARD_SUIT as enum('hearts', 'clubs', 'spades', 'diamonds');
 > ok

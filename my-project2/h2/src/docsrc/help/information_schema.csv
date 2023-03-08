@@ -97,7 +97,7 @@ Contains information about roles.
 "
 
 "ROUTINES",,"
-Contains information about users-defined routines, including aggregate functions.
+Contains information about user-defined routines, including aggregate functions.
 "
 
 "SCHEMATA",,"
@@ -110,7 +110,7 @@ Contains information about sequences.
 
 "SESSIONS",,"
 Contains information about sessions.
-Only users with ADMIN privileges can see all sessions, other users can see only own session.
+Only user with ADMIN privileges can see all sessions, other user can see only own session.
 "
 
 "SESSION_STATE",,"
@@ -145,8 +145,8 @@ Contains information about triggers.
 "
 
 "USERS",,"
-Contains information about users.
-Only users with ADMIN privileges can see all users, other users can see only themselves.
+Contains information about user.
+Only user with ADMIN privileges can see all user, other user can see only themselves.
 "
 
 "VIEWS",,"
@@ -656,7 +656,7 @@ The rule for DELETE in referenced table ('RESTRICT', 'CASCADE', 'SET DEFAULT', o
 "
 
 "RIGHTS","GRANTEETYPE","
-'USER' if grantee is a users, 'ROLE' if grantee is a role.
+'USER' if grantee is a user, 'ROLE' if grantee is a role.
 "
 
 "RIGHTS","GRANTEDROLE","
@@ -692,7 +692,7 @@ The name of the routine.
 "
 
 "ROUTINES","ROUTINE_DEFINITION","
-Source code or NULL if not applicable or users doesn't have ADMIN privileges.
+Source code or NULL if not applicable or user doesn't have ADMIN privileges.
 "
 
 "ROUTINES","EXTERNAL_NAME","
@@ -784,7 +784,7 @@ The cache size.
 "
 
 "SESSIONS","USER_NAME","
-The name of the users.
+The name of the user.
 "
 
 "SESSIONS","SERVER","
@@ -982,11 +982,11 @@ Whether trigger is defined with NO WAIT clause (is not actually used).
 "
 
 "USERS","USER_NAME","
-The name of the users.
+The name of the user.
 "
 
 "USERS","IS_ADMIN","
-Whether users has ADMIN privileges.
+Whether user has ADMIN privileges.
 "
 
 "VIEWS","VIEW_DEFINITION","

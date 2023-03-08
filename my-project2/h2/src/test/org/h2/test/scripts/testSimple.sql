@@ -862,7 +862,7 @@ select remarks from information_schema.roles where role_name = 'HR';
 select remarks from information_schema.roles where role_name = 'HR';
 >> Human Resources
 
-create users abc password 'x';
+create user abc password 'x';
 > ok
 
 grant hr to abc;
@@ -873,7 +873,7 @@ drop role hr;
 
 @reconnect
 
-drop users abc;
+drop user abc;
 > ok
 
 create domain email as varchar(100) check instr(value, '@') > 0;
@@ -968,29 +968,29 @@ drop table test;
 
 @reconnect
 
-create users sales password '1';
+create user sales password '1';
 > ok
 
-comment on users sales is 'mr. money';
+comment on user sales is 'mr. money';
 > ok
 
-select remarks from information_schema.users where user_name = 'SALES';
+select remarks from information_schema.user where user_name = 'SALES';
 >> mr. money
 
 @reconnect
 
-select remarks from information_schema.users where user_name = 'SALES';
+select remarks from information_schema.user where user_name = 'SALES';
 >> mr. money
 
-alter users sales rename to SALES_USER;
+alter user sales rename to SALES_USER;
 > ok
 
-select remarks from information_schema.users where user_name = 'SALES_USER';
+select remarks from information_schema.user where user_name = 'SALES_USER';
 >> mr. money
 
 @reconnect
 
-select remarks from information_schema.users where user_name = 'SALES_USER';
+select remarks from information_schema.user where user_name = 'SALES_USER';
 >> mr. money
 
 create table test(id int);

@@ -639,9 +639,9 @@ ALTER TABLE TEST RENAME TO MY_DATA
 "Commands (DDL)","ALTER USER ADMIN","
 @h2@ ALTER USER userName ADMIN { TRUE | FALSE }
 ","
-Switches the admin flag of a users on or off.
+Switches the admin flag of a user on or off.
 
-Only unquoted or uppercase users names are allowed.
+Only unquoted or uppercase user names are allowed.
 Admin rights are required to execute this command.
 This command commits an open transaction in this connection.
 ","
@@ -651,10 +651,10 @@ ALTER USER TOM ADMIN TRUE
 "Commands (DDL)","ALTER USER RENAME","
 @h2@ ALTER USER userName RENAME TO newUserName
 ","
-Renames a users.
-After renaming a users, the password becomes invalid and needs to be changed as well.
+Renames a user.
+After renaming a user, the password becomes invalid and needs to be changed as well.
 
-Only unquoted or uppercase users names are allowed.
+Only unquoted or uppercase user names are allowed.
 Admin rights are required to execute this command.
 This command commits an open transaction in this connection.
 ","
@@ -664,8 +664,8 @@ ALTER USER TOM RENAME TO THOMAS
 "Commands (DDL)","ALTER USER SET PASSWORD","
 @h2@ ALTER USER userName SET { PASSWORD string | SALT bytes HASH bytes }
 ","
-Changes the password of a users.
-Only unquoted or uppercase users names are allowed.
+Changes the password of a user.
+Only unquoted or uppercase user names are allowed.
 The password must be enclosed in single quotes. It is case sensitive
 and can contain spaces. The salt and hash values are hex strings.
 
@@ -732,7 +732,7 @@ COMMENT ON TABLE TEST IS 'Table used for testing'
 "Commands (DDL)","CREATE AGGREGATE","
 @h2@ CREATE AGGREGATE [ IF NOT EXISTS ] [schemaName.]aggregateName FOR classNameString
 ","
-Creates a new users-defined aggregate function. The method name must be the full
+Creates a new user-defined aggregate function. The method name must be the full
 qualified class name. The class must implement the interface
 ""org.h2.api.Aggregate"" or ""org.h2.api.AggregateFunction"".
 
@@ -909,7 +909,7 @@ Creates a new schema.
 Schema admin rights are required to execute this command.
 
 If schema name is not specified, the owner name is used as a schema name.
-If schema name is specified, but no owner is specified, the current users is used as an owner.
+If schema name is specified, but no owner is specified, the current user is used as an owner.
 
 Schema owners can create, rename, and drop objects in the schema.
 Schema owners can drop the schema itself, but cannot rename it.
@@ -1070,7 +1070,7 @@ Java::MyPackage::MyTrigger.new(""constructorParam"")';
 @h2@ CREATE USER [ IF NOT EXISTS ] newUserName
 @h2@ { PASSWORD string | SALT bytes HASH bytes } @h2@ [ ADMIN ]
 ","
-Creates a new users. For compatibility, only unquoted or uppercase users names are allowed.
+Creates a new user. For compatibility, only unquoted or uppercase user names are allowed.
 The password must be in single quotes. It is case sensitive and can contain spaces.
 The salt and hash values are hex strings.
 
@@ -1104,7 +1104,7 @@ CREATE VIEW TEST_VIEW AS SELECT * FROM TEST WHERE ID < 100
 "Commands (DDL)","DROP AGGREGATE","
 @h2@ DROP AGGREGATE [ IF EXISTS ] aggregateName
 ","
-Drops an existing users-defined aggregate function.
+Drops an existing user-defined aggregate function.
 Schema owner rights are required to execute this command.
 
 This command commits an open transaction in this connection.
@@ -1127,9 +1127,9 @@ DROP ALIAS MY_SQRT
 @h2@ DROP ALL OBJECTS [ DELETE FILES ]
 ","
 Drops all existing views, tables, sequences, schemas, function aliases, roles,
-users-defined aggregate functions, domains, and users (except the current users).
+user-defined aggregate functions, domains, and user (except the current user).
 If DELETE FILES is specified, the database files will be removed when the last
-users disconnects from the database. Warning: this command can not be rolled
+user disconnects from the database. Warning: this command can not be rolled
 back.
 
 Admin rights are required to execute this command.
@@ -1228,8 +1228,8 @@ DROP TRIGGER TRIG_INS
 "Commands (DDL)","DROP USER","
 @h2@ DROP USER [ IF EXISTS ] userName
 ","
-Drops a users. The current users cannot be dropped.
-For compatibility, only unquoted or uppercase users names are allowed.
+Drops a user. The current user cannot be dropped.
+For compatibility, only unquoted or uppercase user names are allowed.
 
 Admin rights are required to execute this command.
 This command commits an open transaction in this connection.
@@ -1310,7 +1310,7 @@ GRANT { { SELECT | INSERT | UPDATE | DELETE } [,..] | ALL [ PRIVILEGES ] } ON
 { @h2@ { SCHEMA schemaName } | { [ TABLE ] [schemaName.]tableName @h2@ [,...] } }
 TO { PUBLIC | userName | roleName }
 ","
-Grants rights for a table to a users or role.
+Grants rights for a table to a user or role.
 
 Schema owner rights are required to execute this command.
 This command commits an open transaction in this connection.
@@ -1321,7 +1321,7 @@ GRANT SELECT ON TEST TO READONLY
 "Commands (Other)","GRANT ALTER ANY SCHEMA","
 @h2@ GRANT ALTER ANY SCHEMA TO userName
 ","
-Grant schema admin rights to a users.
+Grant schema admin rights to a user.
 
 Schema admin can create, rename, or drop schemas and also has schema owner rights in every schema.
 
@@ -1334,7 +1334,7 @@ GRANT ALTER ANY SCHEMA TO Bob
 "Commands (Other)","GRANT ROLE","
 GRANT { roleName [,...] } TO { PUBLIC | userName | roleName }
 ","
-Grants a role to a users or role.
+Grants a role to a user or role.
 
 Admin rights are required to execute this command.
 This command commits an open transaction in this connection.
@@ -1364,7 +1364,7 @@ REVOKE { { SELECT | INSERT | UPDATE | DELETE } [,..] | ALL [ PRIVILEGES ] } ON
 { @h2@ { SCHEMA schemaName } | { [ TABLE ] [schemaName.]tableName @h2@ [,...] } }
 FROM { PUBLIC | userName | roleName }
 ","
-Removes rights for a table from a users or role.
+Removes rights for a table from a user or role.
 
 Schema owner rights are required to execute this command.
 This command commits an open transaction in this connection.
@@ -1375,7 +1375,7 @@ REVOKE SELECT ON TEST FROM READONLY
 "Commands (Other)","REVOKE ALTER ANY SCHEMA","
 @h2@ REVOKE ALTER ANY SCHEMA FROM userName
 ","
-Removes schema admin rights from a users.
+Removes schema admin rights from a user.
 
 Admin rights are required to execute this command.
 This command commits an open transaction in this connection.
@@ -1386,7 +1386,7 @@ GRANT ALTER ANY SCHEMA TO Bob
 "Commands (Other)","REVOKE ROLE","
 REVOKE { roleName [,...] } FROM { PUBLIC | userName | roleName }
 ","
-Removes a role from a users or role.
+Removes a role from a user or role.
 
 Admin rights are required to execute this command.
 This command commits an open transaction in this connection.
@@ -1426,7 +1426,7 @@ SAVEPOINT HALF_DONE
 "Commands (Other)","SET @","
 @h2@ SET @variableName [ = ] expression
 ","
-Updates a users-defined variable.
+Updates a user-defined variable.
 Variables are not persisted and session scoped, that means only visible from within the session in which they are defined.
 This command does not commit a transaction, and rollback does not affect it.
 ","
@@ -1439,7 +1439,7 @@ SET @TOTAL=0
 This setting can help solve the SQL injection problem. By default, text and
 number literals are allowed in SQL statements. However, this enables SQL
 injection if the application dynamically builds SQL statements. SQL injection is
-not possible if users data is set using parameters ('?').
+not possible if user data is set using parameters ('?').
 
 NONE means literals of any kind are not allowed, only parameters and constants
 are allowed. NUMBERS mean only numerical and boolean literals are allowed. ALL
@@ -1496,7 +1496,7 @@ SET CACHE_SIZE 8192
 This command should not be used directly by an application, the statement is
 executed automatically by the system. The behavior may change in future
 releases. Sets the cluster server list. An empty string switches off the cluster
-mode. Switching on the cluster mode requires admin rights, but any users can
+mode. Switching on the cluster mode requires admin rights, but any user can
 switch it off (this is automatically done when the client detects the other
 server is not responding).
 
@@ -1882,7 +1882,7 @@ SET OPTIMIZE_REUSE_RESULTS 0
 "Commands (Other)","SET PASSWORD","
 @h2@ SET PASSWORD string
 ","
-Changes the password of the current users. The password must be in single quotes.
+Changes the password of the current user. The password must be in single quotes.
 It is case sensitive and can contain spaces.
 
 This command commits an open transaction in this connection.
@@ -1964,7 +1964,7 @@ SET RETENTION_TIME 0
 "Commands (Other)","SET SALT HASH","
 @h2@ SET SALT bytes HASH bytes
 ","
-Sets the password salt and hash for the current users. The password must be in
+Sets the password salt and hash for the current user. The password must be in
 single quotes. It is case sensitive and can contain spaces.
 
 This command commits an open transaction in this connection.
@@ -6315,7 +6315,7 @@ CALL DISK_SPACE_USED('my_table');
 ","
 Throw an SQLException with the passed SQLState and reason.
 ","
-CALL SIGNAL('23505', 'Duplicate users ID: ' || user_id);
+CALL SIGNAL('23505', 'Duplicate user ID: ' || user_id);
 "
 
 "Functions (System)","ESTIMATED_ENVELOPE","
@@ -6527,7 +6527,7 @@ CALL TRUNCATE_VALUE(X, 10, TRUE);
 "Functions (System)","CURRENT_PATH","
 CURRENT_PATH
 ","
-Returns the comma-separated list of quoted schema names where users-defined functions are searched
+Returns the comma-separated list of quoted schema names where user-defined functions are searched
 when they are referenced without the schema name.
 ","
 CURRENT_PATH
@@ -6544,7 +6544,7 @@ CURRENT_ROLE
 "Functions (System)","CURRENT_USER","
 CURRENT_USER | SESSION_USER | SYSTEM_USER | USER
 ","
-Returns the name of the current users of this session.
+Returns the name of the current user of this session.
 ","
 CURRENT_USER
 "

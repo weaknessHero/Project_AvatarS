@@ -529,7 +529,7 @@ create table test(id identity);
 set password test;
 > exception COLUMN_NOT_FOUND_1
 
-alter users sa set password test;
+alter user sa set password test;
 > exception COLUMN_NOT_FOUND_1
 
 comment on table test is test;
@@ -6699,7 +6699,7 @@ SCRIPT NOPASSWORDS NOSETTINGS NOVERSION;
 DROP TABLE TEST;
 > ok
 
---- users ----------------------------------------------------------------------------------------------
+--- user ----------------------------------------------------------------------------------------------
 CREATE USER TEST PASSWORD 'abc';
 > ok
 

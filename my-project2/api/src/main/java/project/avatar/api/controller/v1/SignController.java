@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import project.avatar.api.advice.Exception.CEmailSigninFailedException;
 import project.avatar.api.config.security.JwtTokenProvider;
-import project.avatar.api.entity.Users;
+import project.avatar.api.entity.User;
 import project.avatar.api.model.response.CommonResult;
 import project.avatar.api.model.response.SingleResult;
 import project.avatar.api.repo.UserJpaRepo;
@@ -35,11 +35,11 @@ public class SignController {
     public SingleResult<String> signin(@ApiParam(value = "회원ID : 이메일", required = true) @RequestParam String id,
                                        @ApiParam(value = "비밀번호", required = true) @RequestParam String password) {
 
-        Users users = userJpaRepo.findByUid(id).orElseThrow(CEmailSigninFailedException::new);
-        if (!passwordEncoder.matches(password, users.getPassword()))
+        User user = userJpaRepo.findByUid(id).orElseThrow(CEmailSigninFailedException::new);
+        if (!passwordEncoder.matches(password, user.getPassword()))
             throw new CEmailSigninFailedException();
 
-        return responseService.getSingleResult(jwtTokenProvider.createToken(String.valueOf(users.getMsrl()), users.getRoles()));
+        return responseService.getSingleResult(jwtTokenProvider.createToken(String.valueOf(user.getMsrl()), user.getRoles()));
     }
 
     @ApiOperation(value = "가입", notes = "회원가입을 한다.")
@@ -48,7 +48,7 @@ public class SignController {
                                @ApiParam(value = "비밀번호", required = true) @RequestParam String password,
                                @ApiParam(value = "이름", required = true) @RequestParam String name) {
 
-        userJpaRepo.save(Users.builder()
+        userJpaRepo.save(User.builder()
                 .uid(id)
                 .password(passwordEncoder.encode(password))
                 .name(name)

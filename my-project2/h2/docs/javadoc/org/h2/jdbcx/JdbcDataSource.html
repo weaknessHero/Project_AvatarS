@@ -149,7 +149,7 @@ implements javax.sql.XADataSource, javax.sql.DataSource, javax.sql.ConnectionPoo
  Connection conn = ds.getConnection();
  </pre>
 
- In this example the users name and password are serialized as
+ In this example the user name and password are serialized as
  well; this may be a security problem in some cases.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -210,14 +210,14 @@ implements javax.sql.XADataSource, javax.sql.DataSource, javax.sql.ConnectionPoo
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>java.sql.Connection</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/jdbcx/JdbcDataSource.html#getConnection--">getConnection</a></span>()</code>
-<div class="block">Open a new connection using the current URL, users name and password.</div>
+<div class="block">Open a new connection using the current URL, user name and password.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.sql.Connection</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/jdbcx/JdbcDataSource.html#getConnection-java.lang.String-java.lang.String-">getConnection</a></span>(java.lang.String&nbsp;users,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/jdbcx/JdbcDataSource.html#getConnection-java.lang.String-java.lang.String-">getConnection</a></span>(java.lang.String&nbsp;user,
              java.lang.String&nbsp;password)</code>
-<div class="block">Open a new connection using the current URL and the specified users name
+<div class="block">Open a new connection using the current URL and the specified user name
  and password.</div>
 </td>
 </tr>
@@ -254,15 +254,15 @@ implements javax.sql.XADataSource, javax.sql.DataSource, javax.sql.ConnectionPoo
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>javax.sql.PooledConnection</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/jdbcx/JdbcDataSource.html#getPooledConnection--">getPooledConnection</a></span>()</code>
-<div class="block">Open a new pooled connection using the current URL, users name and
+<div class="block">Open a new pooled connection using the current URL, user name and
  password.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>javax.sql.PooledConnection</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/jdbcx/JdbcDataSource.html#getPooledConnection-java.lang.String-java.lang.String-">getPooledConnection</a></span>(java.lang.String&nbsp;users,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/jdbcx/JdbcDataSource.html#getPooledConnection-java.lang.String-java.lang.String-">getPooledConnection</a></span>(java.lang.String&nbsp;user,
                    java.lang.String&nbsp;password)</code>
-<div class="block">Open a new pooled connection using the current URL and the specified users
+<div class="block">Open a new pooled connection using the current URL and the specified user
  name and password.</div>
 </td>
 </tr>
@@ -287,20 +287,20 @@ implements javax.sql.XADataSource, javax.sql.DataSource, javax.sql.ConnectionPoo
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/jdbcx/JdbcDataSource.html#getUser--">getUser</a></span>()</code>
-<div class="block">Get the current users name.</div>
+<div class="block">Get the current user name.</div>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>javax.sql.XAConnection</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/jdbcx/JdbcDataSource.html#getXAConnection--">getXAConnection</a></span>()</code>
-<div class="block">Open a new XA connection using the current URL, users name and password.</div>
+<div class="block">Open a new XA connection using the current URL, user name and password.</div>
 </td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>javax.sql.XAConnection</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/jdbcx/JdbcDataSource.html#getXAConnection-java.lang.String-java.lang.String-">getXAConnection</a></span>(java.lang.String&nbsp;users,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/jdbcx/JdbcDataSource.html#getXAConnection-java.lang.String-java.lang.String-">getXAConnection</a></span>(java.lang.String&nbsp;user,
                java.lang.String&nbsp;password)</code>
-<div class="block">Open a new XA connection using the current URL and the specified users
+<div class="block">Open a new XA connection using the current URL and the specified user
  name and password.</div>
 </td>
 </tr>
@@ -354,8 +354,8 @@ implements javax.sql.XADataSource, javax.sql.DataSource, javax.sql.ConnectionPoo
 </tr>
 <tr id="i23" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/jdbcx/JdbcDataSource.html#setUser-java.lang.String-">setUser</a></span>(java.lang.String&nbsp;users)</code>
-<div class="block">Set the current users name.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/jdbcx/JdbcDataSource.html#setUser-java.lang.String-">setUser</a></span>(java.lang.String&nbsp;user)</code>
+<div class="block">Set the current user name.</div>
 </td>
 </tr>
 <tr id="i24" class="altColor">
@@ -492,7 +492,7 @@ implements javax.sql.XADataSource, javax.sql.DataSource, javax.sql.ConnectionPoo
 <h4>getConnection</h4>
 <pre>public&nbsp;java.sql.Connection&nbsp;getConnection()
                                   throws java.sql.SQLException</pre>
-<div class="block">Open a new connection using the current URL, users name and password.</div>
+<div class="block">Open a new connection using the current URL, user name and password.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>getConnection</code>&nbsp;in interface&nbsp;<code>javax.sql.DataSource</code></dd>
@@ -509,16 +509,16 @@ implements javax.sql.XADataSource, javax.sql.DataSource, javax.sql.ConnectionPoo
 <ul class="blockList">
 <li class="blockList">
 <h4>getConnection</h4>
-<pre>public&nbsp;java.sql.Connection&nbsp;getConnection(java.lang.String&nbsp;users,
+<pre>public&nbsp;java.sql.Connection&nbsp;getConnection(java.lang.String&nbsp;user,
                                          java.lang.String&nbsp;password)
                                   throws java.sql.SQLException</pre>
-<div class="block">Open a new connection using the current URL and the specified users name
+<div class="block">Open a new connection using the current URL and the specified user name
  and password.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>getConnection</code>&nbsp;in interface&nbsp;<code>javax.sql.DataSource</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>users</code> - the users name</dd>
+<dd><code>user</code> - the user name</dd>
 <dd><code>password</code> - the password</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the connection</dd>
@@ -636,10 +636,10 @@ implements javax.sql.XADataSource, javax.sql.DataSource, javax.sql.ConnectionPoo
 <li class="blockList">
 <h4>getUser</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getUser()</pre>
-<div class="block">Get the current users name.</div>
+<div class="block">Get the current user name.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the users name</dd>
+<dd>the user name</dd>
 </dl>
 </li>
 </ul>
@@ -649,11 +649,11 @@ implements javax.sql.XADataSource, javax.sql.DataSource, javax.sql.ConnectionPoo
 <ul class="blockList">
 <li class="blockList">
 <h4>setUser</h4>
-<pre>public&nbsp;void&nbsp;setUser(java.lang.String&nbsp;users)</pre>
-<div class="block">Set the current users name.</div>
+<pre>public&nbsp;void&nbsp;setUser(java.lang.String&nbsp;user)</pre>
+<div class="block">Set the current user name.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>users</code> - the new users name</dd>
+<dd><code>user</code> - the new user name</dd>
 </dl>
 </li>
 </ul>
@@ -709,7 +709,7 @@ implements javax.sql.XADataSource, javax.sql.DataSource, javax.sql.ConnectionPoo
 <h4>getXAConnection</h4>
 <pre>public&nbsp;javax.sql.XAConnection&nbsp;getXAConnection()
                                        throws java.sql.SQLException</pre>
-<div class="block">Open a new XA connection using the current URL, users name and password.</div>
+<div class="block">Open a new XA connection using the current URL, user name and password.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>getXAConnection</code>&nbsp;in interface&nbsp;<code>javax.sql.XADataSource</code></dd>
@@ -726,16 +726,16 @@ implements javax.sql.XADataSource, javax.sql.DataSource, javax.sql.ConnectionPoo
 <ul class="blockList">
 <li class="blockList">
 <h4>getXAConnection</h4>
-<pre>public&nbsp;javax.sql.XAConnection&nbsp;getXAConnection(java.lang.String&nbsp;users,
+<pre>public&nbsp;javax.sql.XAConnection&nbsp;getXAConnection(java.lang.String&nbsp;user,
                                               java.lang.String&nbsp;password)
                                        throws java.sql.SQLException</pre>
-<div class="block">Open a new XA connection using the current URL and the specified users
+<div class="block">Open a new XA connection using the current URL and the specified user
  name and password.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>getXAConnection</code>&nbsp;in interface&nbsp;<code>javax.sql.XADataSource</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>users</code> - the users name</dd>
+<dd><code>user</code> - the user name</dd>
 <dd><code>password</code> - the password</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the connection</dd>
@@ -752,7 +752,7 @@ implements javax.sql.XADataSource, javax.sql.DataSource, javax.sql.ConnectionPoo
 <h4>getPooledConnection</h4>
 <pre>public&nbsp;javax.sql.PooledConnection&nbsp;getPooledConnection()
                                                throws java.sql.SQLException</pre>
-<div class="block">Open a new pooled connection using the current URL, users name and
+<div class="block">Open a new pooled connection using the current URL, user name and
  password.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -770,16 +770,16 @@ implements javax.sql.XADataSource, javax.sql.DataSource, javax.sql.ConnectionPoo
 <ul class="blockList">
 <li class="blockList">
 <h4>getPooledConnection</h4>
-<pre>public&nbsp;javax.sql.PooledConnection&nbsp;getPooledConnection(java.lang.String&nbsp;users,
+<pre>public&nbsp;javax.sql.PooledConnection&nbsp;getPooledConnection(java.lang.String&nbsp;user,
                                                       java.lang.String&nbsp;password)
                                                throws java.sql.SQLException</pre>
-<div class="block">Open a new pooled connection using the current URL and the specified users
+<div class="block">Open a new pooled connection using the current URL and the specified user
  name and password.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>getPooledConnection</code>&nbsp;in interface&nbsp;<code>javax.sql.ConnectionPoolDataSource</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>users</code> - the users name</dd>
+<dd><code>user</code> - the user name</dd>
 <dd><code>password</code> - the password</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the connection</dd>

@@ -124,7 +124,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public final class <span class="typeNameLabel">User</span>
 extends <a href="../../../org/h2/engine/RightOwner.html" title="class in org.h2.engine">RightOwner</a></pre>
-<div class="block">Represents a users object.</div>
+<div class="block">Represents a user object.</div>
 </li>
 </ul>
 </div>
@@ -188,26 +188,26 @@ extends <a href="../../../org/h2/engine/RightOwner.html" title="class in org.h2.
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/User.html#checkAdmin--">checkAdmin</a></span>()</code>
-<div class="block">Checks if this users has admin rights.</div>
+<div class="block">Checks if this user has admin rights.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/User.html#checkSchemaAdmin--">checkSchemaAdmin</a></span>()</code>
-<div class="block">Checks if this users has schema admin rights for every schema.</div>
+<div class="block">Checks if this user has schema admin rights for every schema.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/User.html#checkSchemaOwner-org.h2.schema.Schema-">checkSchemaOwner</a></span>(org.h2.schema.Schema&nbsp;schema)</code>
-<div class="block">Checks if this users has schema owner rights for the specified schema.</div>
+<div class="block">Checks if this user has schema owner rights for the specified schema.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/User.html#checkTableRight-org.h2.table.Table-int-">checkTableRight</a></span>(org.h2.table.Table&nbsp;table,
                int&nbsp;rightMask)</code>
-<div class="block">Checks that this users has the given rights for the specified table.</div>
+<div class="block">Checks that this user has the given rights for the specified table.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
@@ -239,7 +239,7 @@ extends <a href="../../../org/h2/engine/RightOwner.html" title="class in org.h2.
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/User.html#hasTableRight-org.h2.table.Table-int-">hasTableRight</a></span>(org.h2.table.Table&nbsp;table,
              int&nbsp;rightMask)</code>
-<div class="block">See if this users has the given rights for this database object.</div>
+<div class="block">See if this user has the given rights for this database object.</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
@@ -260,13 +260,13 @@ extends <a href="../../../org/h2/engine/RightOwner.html" title="class in org.h2.
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/User.html#setSaltAndHash-byte:A-byte:A-">setSaltAndHash</a></span>(byte[]&nbsp;salt,
               byte[]&nbsp;hash)</code>
-<div class="block">Set the salt and hash of the password for this users.</div>
+<div class="block">Set the salt and hash of the password for this user.</div>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/engine/User.html#setUserPasswordHash-byte:A-">setUserPasswordHash</a></span>(byte[]&nbsp;userPasswordHash)</code>
-<div class="block">Set the users name password hash.</div>
+<div class="block">Set the user name password hash.</div>
 </td>
 </tr>
 </table>
@@ -358,7 +358,7 @@ extends <a href="../../../org/h2/engine/RightOwner.html" title="class in org.h2.
 <h4>setSaltAndHash</h4>
 <pre>public&nbsp;void&nbsp;setSaltAndHash(byte[]&nbsp;salt,
                            byte[]&nbsp;hash)</pre>
-<div class="block">Set the salt and hash of the password for this users.</div>
+<div class="block">Set the salt and hash of the password for this user.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>salt</code> - the salt</dd>
@@ -373,11 +373,11 @@ extends <a href="../../../org/h2/engine/RightOwner.html" title="class in org.h2.
 <li class="blockList">
 <h4>setUserPasswordHash</h4>
 <pre>public&nbsp;void&nbsp;setUserPasswordHash(byte[]&nbsp;userPasswordHash)</pre>
-<div class="block">Set the users name password hash. A random salt is generated as well.
+<div class="block">Set the user name password hash. A random salt is generated as well.
  The parameter is filled with zeros after use.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>userPasswordHash</code> - the users name password hash</dd>
+<dd><code>userPasswordHash</code> - the user name password hash</dd>
 </dl>
 </li>
 </ul>
@@ -422,11 +422,11 @@ extends <a href="../../../org/h2/engine/RightOwner.html" title="class in org.h2.
 <li class="blockList">
 <h4>checkAdmin</h4>
 <pre>public&nbsp;void&nbsp;checkAdmin()</pre>
-<div class="block">Checks if this users has admin rights. An exception is thrown if users
+<div class="block">Checks if this user has admin rights. An exception is thrown if user
  doesn't have them.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>org.h2.message.DbException</code> - if this users is not an admin</dd>
+<dd><code>org.h2.message.DbException</code> - if this user is not an admin</dd>
 </dl>
 </li>
 </ul>
@@ -437,11 +437,11 @@ extends <a href="../../../org/h2/engine/RightOwner.html" title="class in org.h2.
 <li class="blockList">
 <h4>checkSchemaAdmin</h4>
 <pre>public&nbsp;void&nbsp;checkSchemaAdmin()</pre>
-<div class="block">Checks if this users has schema admin rights for every schema. An
- exception is thrown if users doesn't have them.</div>
+<div class="block">Checks if this user has schema admin rights for every schema. An
+ exception is thrown if user doesn't have them.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>org.h2.message.DbException</code> - if this users is not a schema admin</dd>
+<dd><code>org.h2.message.DbException</code> - if this user is not a schema admin</dd>
 </dl>
 </li>
 </ul>
@@ -452,13 +452,13 @@ extends <a href="../../../org/h2/engine/RightOwner.html" title="class in org.h2.
 <li class="blockList">
 <h4>checkSchemaOwner</h4>
 <pre>public&nbsp;void&nbsp;checkSchemaOwner(org.h2.schema.Schema&nbsp;schema)</pre>
-<div class="block">Checks if this users has schema owner rights for the specified schema. An
- exception is thrown if users doesn't have them.</div>
+<div class="block">Checks if this user has schema owner rights for the specified schema. An
+ exception is thrown if user doesn't have them.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>schema</code> - the schema</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>org.h2.message.DbException</code> - if this users is not a schema owner</dd>
+<dd><code>org.h2.message.DbException</code> - if this user is not a schema owner</dd>
 </dl>
 </li>
 </ul>
@@ -470,13 +470,13 @@ extends <a href="../../../org/h2/engine/RightOwner.html" title="class in org.h2.
 <h4>checkTableRight</h4>
 <pre>public&nbsp;void&nbsp;checkTableRight(org.h2.table.Table&nbsp;table,
                             int&nbsp;rightMask)</pre>
-<div class="block">Checks that this users has the given rights for the specified table.</div>
+<div class="block">Checks that this user has the given rights for the specified table.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>table</code> - the table</dd>
 <dd><code>rightMask</code> - the rights required</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>org.h2.message.DbException</code> - if this users does not have the required rights</dd>
+<dd><code>org.h2.message.DbException</code> - if this user does not have the required rights</dd>
 </dl>
 </li>
 </ul>
@@ -488,13 +488,13 @@ extends <a href="../../../org/h2/engine/RightOwner.html" title="class in org.h2.
 <h4>hasTableRight</h4>
 <pre>public&nbsp;boolean&nbsp;hasTableRight(org.h2.table.Table&nbsp;table,
                              int&nbsp;rightMask)</pre>
-<div class="block">See if this users has the given rights for this database object.</div>
+<div class="block">See if this user has the given rights for this database object.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>table</code> - the database object, or null for schema-only check</dd>
 <dd><code>rightMask</code> - the rights required</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if the users has the rights</dd>
+<dd>true if the user has the rights</dd>
 </dl>
 </li>
 </ul>

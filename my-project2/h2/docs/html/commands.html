@@ -1463,7 +1463,7 @@ ALTER TABLE TEST RENAME TO MY_DATA</p>
 <span class="ruleH2">ALTER USER <a href="grammar.html#name">userName</a> ADMIN { TRUE | FALSE }</span>
 </pre>
 syntax-end -->
-<p>Switches the admin flag of a users on or off.</p><p>Only unquoted or uppercase users names are allowed. Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
+<p>Switches the admin flag of a user on or off.</p><p>Only unquoted or uppercase user names are allowed. Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
 <p>Example:</p>
 <p class="notranslate">
 ALTER USER TOM ADMIN TRUE</p>
@@ -1482,7 +1482,7 @@ ALTER USER TOM ADMIN TRUE</p>
 <span class="ruleH2">ALTER USER <a href="grammar.html#name">userName</a> RENAME TO <a href="grammar.html#name">newUserName</a></span>
 </pre>
 syntax-end -->
-<p>Renames a users. After renaming a users, the password becomes invalid and needs to be changed as well.</p><p>Only unquoted or uppercase users names are allowed. Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
+<p>Renames a user. After renaming a user, the password becomes invalid and needs to be changed as well.</p><p>Only unquoted or uppercase user names are allowed. Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
 <p>Example:</p>
 <p class="notranslate">
 ALTER USER TOM RENAME TO THOMAS</p>
@@ -1501,7 +1501,7 @@ ALTER USER TOM RENAME TO THOMAS</p>
 <span class="ruleH2">ALTER USER <a href="grammar.html#name">userName</a> SET { PASSWORD <a href="grammar.html#string">string</a> | SALT <a href="grammar.html#bytes">bytes</a> HASH <a href="grammar.html#bytes">bytes</a> }</span>
 </pre>
 syntax-end -->
-<p>Changes the password of a users. Only unquoted or uppercase users names are allowed. The password must be enclosed in single quotes. It is case sensitive and can contain spaces. The salt and hash values are hex strings.</p><p>Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
+<p>Changes the password of a user. Only unquoted or uppercase user names are allowed. The password must be enclosed in single quotes. It is case sensitive and can contain spaces. The salt and hash values are hex strings.</p><p>Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
 <p>Example:</p>
 <p class="notranslate">
 ALTER USER SA SET PASSWORD &#39;rioyxlgt&#39;</p>
@@ -1604,7 +1604,7 @@ COMMENT ON TABLE TEST IS &#39;Table used for testing&#39;</p>
 <span class="ruleH2">CREATE AGGREGATE [ IF NOT EXISTS ] [<a href="grammar.html#name">schemaName</a>.]<a href="grammar.html#name">aggregateName</a> FOR <a href="grammar.html#string">classNameString</a></span>
 </pre>
 syntax-end -->
-<p>Creates a new users-defined aggregate function. The method name must be the full qualified class name. The class must implement the interface <code>org.h2.api.Aggregate</code> or <code>org.h2.api.AggregateFunction</code>.</p><p>Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
+<p>Creates a new user-defined aggregate function. The method name must be the full qualified class name. The class must implement the interface <code>org.h2.api.Aggregate</code> or <code>org.h2.api.AggregateFunction</code>.</p><p>Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
 <p>Example:</p>
 <p class="notranslate">
 CREATE AGGREGATE SIMPLE_MEDIAN FOR &#39;com.acme.db.Median&#39;</p>
@@ -1771,7 +1771,7 @@ CREATE SCHEMA <span class="ruleH2">[ IF NOT EXISTS ]</span>
 <span class="ruleH2">[ WITH <a href="grammar.html#name">tableEngineParamName</a> [,...] ]</span>
 </pre>
 syntax-end -->
-<p>Creates a new schema. Schema admin rights are required to execute this command.</p><p>If schema name is not specified, the owner name is used as a schema name. If schema name is specified, but no owner is specified, the current users is used as an owner.</p><p>Schema owners can create, rename, and drop objects in the schema. Schema owners can drop the schema itself, but cannot rename it. Some objects may still require admin rights for their creation, see documentation of their <code>CREATE</code> statements for details.</p><p>Optional table engine parameters are used when <code>CREATE TABLE</code> command is run on this schema without having its engine params set.</p><p>This command commits an open transaction in this connection.</p>
+<p>Creates a new schema. Schema admin rights are required to execute this command.</p><p>If schema name is not specified, the owner name is used as a schema name. If schema name is specified, but no owner is specified, the current user is used as an owner.</p><p>Schema owners can create, rename, and drop objects in the schema. Schema owners can drop the schema itself, but cannot rename it. Some objects may still require admin rights for their creation, see documentation of their <code>CREATE</code> statements for details.</p><p>Optional table engine parameters are used when <code>CREATE TABLE</code> command is run on this schema without having its engine params set.</p><p>This command commits an open transaction in this connection.</p>
 <p>Example:</p>
 <p class="notranslate">
 CREATE SCHEMA TEST_SCHEMA AUTHORIZATION SA</p>
@@ -1873,7 +1873,7 @@ CREATE TRIGGER TRIG_INS BEFORE INSERT ON TEST FOR EACH ROW CALL &#39;MyTrigger&#
 { PASSWORD <a href="grammar.html#string">string</a> | SALT <a href="grammar.html#bytes">bytes</a> HASH <a href="grammar.html#bytes">bytes</a> } [ ADMIN ]</span>
 </pre>
 syntax-end -->
-<p>Creates a new users. For compatibility, only unquoted or uppercase users names are allowed. The password must be in single quotes. It is case sensitive and can contain spaces. The salt and hash values are hex strings.</p><p>Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
+<p>Creates a new user. For compatibility, only unquoted or uppercase user names are allowed. The password must be in single quotes. It is case sensitive and can contain spaces. The salt and hash values are hex strings.</p><p>Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
 <p>Example:</p>
 <p class="notranslate">
 CREATE USER GUEST PASSWORD &#39;abc&#39;</p>
@@ -1915,7 +1915,7 @@ CREATE VIEW TEST_VIEW AS SELECT * FROM TEST WHERE ID &lt; 100</p>
 <span class="ruleH2">DROP AGGREGATE [ IF EXISTS ] <a href="grammar.html#name">aggregateName</a></span>
 </pre>
 syntax-end -->
-<p>Drops an existing users-defined aggregate function. Schema owner rights are required to execute this command.</p><p>This command commits an open transaction in this connection.</p>
+<p>Drops an existing user-defined aggregate function. Schema owner rights are required to execute this command.</p><p>This command commits an open transaction in this connection.</p>
 <p>Example:</p>
 <p class="notranslate">
 DROP AGGREGATE SIMPLE_MEDIAN</p>
@@ -1953,7 +1953,7 @@ DROP ALIAS MY_SQRT</p>
 <span class="ruleH2">DROP ALL OBJECTS [ DELETE FILES ]</span>
 </pre>
 syntax-end -->
-<p>Drops all existing views, tables, sequences, schemas, function aliases, roles, users-defined aggregate functions, domains, and users (except the current users). If <code>DELETE FILES</code> is specified, the database files will be removed when the last users disconnects from the database. Warning: this command can not be rolled back.</p><p>Admin rights are required to execute this command.</p>
+<p>Drops all existing views, tables, sequences, schemas, function aliases, roles, user-defined aggregate functions, domains, and user (except the current user). If <code>DELETE FILES</code> is specified, the database files will be removed when the last user disconnects from the database. Warning: this command can not be rolled back.</p><p>Admin rights are required to execute this command.</p>
 <p>Example:</p>
 <p class="notranslate">
 DROP ALL OBJECTS</p>
@@ -2126,7 +2126,7 @@ DROP TRIGGER TRIG_INS</p>
 <span class="ruleH2">DROP USER [ IF EXISTS ] <a href="grammar.html#name">userName</a></span>
 </pre>
 syntax-end -->
-<p>Drops a users. The current users cannot be dropped. For compatibility, only unquoted or uppercase users names are allowed.</p><p>Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
+<p>Drops a user. The current user cannot be dropped. For compatibility, only unquoted or uppercase user names are allowed.</p><p>Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
 <p>Example:</p>
 <p class="notranslate">
 DROP USER TOM</p>
@@ -2265,7 +2265,7 @@ GRANT { { SELECT | INSERT | UPDATE | DELETE } [,..] | ALL [ PRIVILEGES ] } ON
 TO { PUBLIC | <a href="grammar.html#name">userName</a> | <a href="grammar.html#name">roleName</a> }
 </pre>
 syntax-end -->
-<p>Grants rights for a table to a users or role.</p><p>Schema owner rights are required to execute this command. This command commits an open transaction in this connection.</p>
+<p>Grants rights for a table to a user or role.</p><p>Schema owner rights are required to execute this command. This command commits an open transaction in this connection.</p>
 <p>Example:</p>
 <p class="notranslate">
 GRANT SELECT ON TEST TO READONLY</p>
@@ -2284,7 +2284,7 @@ GRANT SELECT ON TEST TO READONLY</p>
 <span class="ruleH2">GRANT ALTER ANY SCHEMA TO <a href="grammar.html#name">userName</a></span>
 </pre>
 syntax-end -->
-<p>Grant schema admin rights to a users.</p><p>Schema admin can create, rename, or drop schemas and also has schema owner rights in every schema.</p><p>Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
+<p>Grant schema admin rights to a user.</p><p>Schema admin can create, rename, or drop schemas and also has schema owner rights in every schema.</p><p>Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
 <p>Example:</p>
 <p class="notranslate">
 GRANT ALTER ANY SCHEMA TO Bob</p>
@@ -2303,7 +2303,7 @@ GRANT { <a href="grammar.html#name">roleName</a> [,...] } TO { PUBLIC | <a href=
 GRANT { <a href="grammar.html#name">roleName</a> [,...] } TO { PUBLIC | <a href="grammar.html#name">userName</a> | <a href="grammar.html#name">roleName</a> }
 </pre>
 syntax-end -->
-<p>Grants a role to a users or role.</p><p>Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
+<p>Grants a role to a user or role.</p><p>Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
 <p>Example:</p>
 <p class="notranslate">
 GRANT READONLY TO PUBLIC</p>
@@ -2364,7 +2364,7 @@ REVOKE { { SELECT | INSERT | UPDATE | DELETE } [,..] | ALL [ PRIVILEGES ] } ON
 FROM { PUBLIC | <a href="grammar.html#name">userName</a> | <a href="grammar.html#name">roleName</a> }
 </pre>
 syntax-end -->
-<p>Removes rights for a table from a users or role.</p><p>Schema owner rights are required to execute this command. This command commits an open transaction in this connection.</p>
+<p>Removes rights for a table from a user or role.</p><p>Schema owner rights are required to execute this command. This command commits an open transaction in this connection.</p>
 <p>Example:</p>
 <p class="notranslate">
 REVOKE SELECT ON TEST FROM READONLY</p>
@@ -2383,7 +2383,7 @@ REVOKE SELECT ON TEST FROM READONLY</p>
 <span class="ruleH2">REVOKE ALTER ANY SCHEMA FROM <a href="grammar.html#name">userName</a></span>
 </pre>
 syntax-end -->
-<p>Removes schema admin rights from a users.</p><p>Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
+<p>Removes schema admin rights from a user.</p><p>Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
 <p>Example:</p>
 <p class="notranslate">
 GRANT ALTER ANY SCHEMA TO Bob</p>
@@ -2402,7 +2402,7 @@ REVOKE { <a href="grammar.html#name">roleName</a> [,...] } FROM { PUBLIC | <a hr
 REVOKE { <a href="grammar.html#name">roleName</a> [,...] } FROM { PUBLIC | <a href="grammar.html#name">userName</a> | <a href="grammar.html#name">roleName</a> }
 </pre>
 syntax-end -->
-<p>Removes a role from a users or role.</p><p>Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
+<p>Removes a role from a user or role.</p><p>Admin rights are required to execute this command. This command commits an open transaction in this connection.</p>
 <p>Example:</p>
 <p class="notranslate">
 REVOKE READONLY FROM TOM</p>
@@ -2478,7 +2478,7 @@ SAVEPOINT HALF_DONE</p>
 <span class="ruleH2">SET <a href="grammar.html#name">@variableName</a> [ = ] <a href="grammar.html#expression">expression</a></span>
 </pre>
 syntax-end -->
-<p>Updates a users-defined variable. Variables are not persisted and session scoped, that means only visible from within the session in which they are defined. This command does not commit a transaction, and rollback does not affect it.</p>
+<p>Updates a user-defined variable. Variables are not persisted and session scoped, that means only visible from within the session in which they are defined. This command does not commit a transaction, and rollback does not affect it.</p>
 <p>Example:</p>
 <p class="notranslate">
 SET @TOTAL=0</p>
@@ -2497,7 +2497,7 @@ SET @TOTAL=0</p>
 <span class="ruleH2">SET ALLOW_LITERALS { NONE | ALL | NUMBERS }</span>
 </pre>
 syntax-end -->
-<p>This setting can help solve the SQL injection problem. By default, text and number literals are allowed in SQL statements. However, this enables SQL injection if the application dynamically builds SQL statements. SQL injection is not possible if users data is set using parameters (&#39;?&#39;).</p><p><code>NONE</code> means literals of any kind are not allowed, only parameters and constants are allowed. <code>NUMBERS</code> mean only numerical and boolean literals are allowed. <code>ALL</code> means all literals are allowed (default).</p><p>See also <code>CREATE CONSTANT</code>.</p><p>Admin rights are required to execute this command, as it affects all connections. This command commits an open transaction in this connection. This setting is persistent. This setting can be appended to the database URL: <code>jdbc:h2:./test;ALLOW_LITERALS=NONE</code></p>
+<p>This setting can help solve the SQL injection problem. By default, text and number literals are allowed in SQL statements. However, this enables SQL injection if the application dynamically builds SQL statements. SQL injection is not possible if user data is set using parameters (&#39;?&#39;).</p><p><code>NONE</code> means literals of any kind are not allowed, only parameters and constants are allowed. <code>NUMBERS</code> mean only numerical and boolean literals are allowed. <code>ALL</code> means all literals are allowed (default).</p><p>See also <code>CREATE CONSTANT</code>.</p><p>Admin rights are required to execute this command, as it affects all connections. This command commits an open transaction in this connection. This setting is persistent. This setting can be appended to the database URL: <code>jdbc:h2:./test;ALLOW_LITERALS=NONE</code></p>
 <p>Example:</p>
 <p class="notranslate">
 SET ALLOW_LITERALS NONE</p>
@@ -2554,7 +2554,7 @@ SET CACHE_SIZE 8192</p>
 <span class="ruleH2">SET CLUSTER <a href="grammar.html#string">serverListString</a></span>
 </pre>
 syntax-end -->
-<p>This command should not be used directly by an application, the statement is executed automatically by the system. The behavior may change in future releases. Sets the cluster server list. An empty string switches off the cluster mode. Switching on the cluster mode requires admin rights, but any users can switch it off (this is automatically done when the client detects the other server is not responding).</p><p>This command is effective immediately, but does not commit an open transaction.</p>
+<p>This command should not be used directly by an application, the statement is executed automatically by the system. The behavior may change in future releases. Sets the cluster server list. An empty string switches off the cluster mode. Switching on the cluster mode requires admin rights, but any user can switch it off (this is automatically done when the client detects the other server is not responding).</p><p>This command is effective immediately, but does not commit an open transaction.</p>
 <p>Example:</p>
 <p class="notranslate">
 SET CLUSTER &#39;&#39;</p>
@@ -3014,7 +3014,7 @@ SET OPTIMIZE_REUSE_RESULTS 0</p>
 <span class="ruleH2">SET PASSWORD <a href="grammar.html#string">string</a></span>
 </pre>
 syntax-end -->
-<p>Changes the password of the current users. The password must be in single quotes. It is case sensitive and can contain spaces.</p><p>This command commits an open transaction in this connection.</p>
+<p>Changes the password of the current user. The password must be in single quotes. It is case sensitive and can contain spaces.</p><p>This command commits an open transaction in this connection.</p>
 <p>Example:</p>
 <p class="notranslate">
 SET PASSWORD &#39;abcstzri!.5&#39;</p>
@@ -3128,7 +3128,7 @@ SET RETENTION_TIME 0</p>
 <span class="ruleH2">SET SALT <a href="grammar.html#bytes">bytes</a> HASH <a href="grammar.html#bytes">bytes</a></span>
 </pre>
 syntax-end -->
-<p>Sets the password salt and hash for the current users. The password must be in single quotes. It is case sensitive and can contain spaces.</p><p>This command commits an open transaction in this connection.</p>
+<p>Sets the password salt and hash for the current user. The password must be in single quotes. It is case sensitive and can contain spaces.</p><p>This command commits an open transaction in this connection.</p>
 <p>Example:</p>
 <p class="notranslate">
 SET SALT &#39;00&#39; HASH &#39;1122&#39;</p>
