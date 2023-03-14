@@ -17,13 +17,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private final JwtTokenProvider jwtTokenProvider;
+    //private final JwtTokenProvider jwtTokenProvider;
 
-    @Bean
+    /*@Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception{
         return super.authenticationManagerBean();
-    }
+    }*/
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{

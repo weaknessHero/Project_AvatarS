@@ -14,9 +14,9 @@ export class SignupComponent {
   signUpForm: FormGroup;
 
   constructor(
-    /*private router: Router,
+    private router: Router,
     private formBuilder: FormBuilder,
-    private signService: SignService*/
+    private signService: SignService,
     private http: HttpClient
   ) {
     this.signUpForm = new FormGroup({
@@ -25,19 +25,19 @@ export class SignupComponent {
       password: new FormControl('', [Validators.required])
     })
 
-    /*this.signUpForm = this.formBuilder.group({
-      id: new FormControl('', Validators.compose([
+    this.signUpForm = this.formBuilder.group({
+      uid: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])),
       password: new FormControl('', [Validators.required]),
       password_re: new FormControl('', [Validators.required]),
       name: new FormControl('', [Validators.required])
-    }, {validator: this.checkPassword});*/
+    }, {validator: this.checkPassword});
   }
   onSubmit(){
     const user = this.signUpForm.value;
-    this.http.post('api/users/signup', user).subscribe(
+    this.http.post('api/user/signup', user).subscribe(
       response => {
         console.log(response);
       },
@@ -47,7 +47,7 @@ export class SignupComponent {
     );
   }
 
-  /*checkPassword(group:FormGroup){
+  checkPassword(group:FormGroup){
     let password = group.controls.password.value;
     let passwordRe = group.controls.password_re.value;
     return password === '' || passwordRe === '' || password === passwordRe ? null : { notSame : true }
@@ -59,13 +59,13 @@ export class SignupComponent {
 
   submit(){
     if(this.signUpForm.valid){
-      this.signService.signUp(this.signUpForm.value.id, this.signUpForm.value.password, this.signUpForm.value.name)
+      this.signService.signUp(this.signUpForm.value.uid, this.signUpForm.value.password, this.signUpForm.value.name)
         .then(response => {
-          this.signService.signIn(this.signUpForm.value.id, this.signUpForm.value.password)
+          this.signService.signIn(this.signUpForm.value.uid, this.signUpForm.value.password)
             .then(response =>{
               this.router.navigate(['/']);
             });
         });
     }
-  }*/
+  }
 }

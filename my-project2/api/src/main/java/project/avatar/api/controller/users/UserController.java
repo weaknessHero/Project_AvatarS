@@ -2,21 +2,16 @@ package project.avatar.api.controller.users;
 
 //import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import io.swagger.annotations.Api;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import project.avatar.api.entity.User;
 //import project.avatar.api.repo.UserJpaRepo;
-import project.avatar.api.repo.UserRepository;
-import java.util.List;
+
 
 @Api(tags = {"2. User"})
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/user")
 public class UserController{
-    @Autowired
-    private UserRepository userRepository;
+    /*@Autowired
+    private UserRepository userRepository;*/
 
 
 }

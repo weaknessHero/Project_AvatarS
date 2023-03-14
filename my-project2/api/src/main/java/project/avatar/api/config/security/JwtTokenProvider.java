@@ -1,4 +1,4 @@
-package project.avatar.api.config.security;
+/*package project.avatar.api.config.security;
 
 import io.jsonwebtoken.*;
 import lombok.RequiredArgsConstructor;
@@ -70,3 +70,4 @@ public class JwtTokenProvider {
         }
     }
 }
+*/

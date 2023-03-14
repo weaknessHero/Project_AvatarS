@@ -4,7 +4,7 @@
     <form [formGroup]="signUpForm" (ngSubmit)="submit()">
       <p>
         <mat-form-field>
-          <input type="text" matInput placeholder="Email" formControlName="id">
+          <input type="text" matInput placeholder="Email" formControlName="uid">
         </mat-form-field>
       </p>
       <p>
@@ -22,7 +22,7 @@
           <input type="text" matInput placeholder="Name" formControlName="name">
         </mat-form-field>
       </p>
-      <p *ngIf="f.id.invalid && (f.id.touched || f.id.dirty)" class="error">
+      <p *ngIf="f.uid.invalid && (f.uid.touched || f.uid.dirty)" class="error">
         유효한 이메일을 입력해주세요.
       </p>
       <p *ngIf="f.password.invalid && (f.password.touched || f.password.dirty) && f.password.errors.required" class="error">

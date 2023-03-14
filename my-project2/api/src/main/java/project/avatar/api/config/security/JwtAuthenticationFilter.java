@@ -1,4 +1,4 @@
-package project.avatar.api.config.security;
+/*package project.avatar.api.config.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,4 +28,4 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
         }
         filterChain.doFilter(request, response);
     }
-}
+}*/

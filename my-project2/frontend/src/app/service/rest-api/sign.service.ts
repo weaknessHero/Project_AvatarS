@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {ApiReponseSingle} from "../../model/common/ApiReponseSingle";
 import {ApiValidationService} from "./common/api-validation.service";
 
@@ -8,15 +8,15 @@ import {ApiValidationService} from "./common/api-validation.service";
 })
 export class SignService {
 
-  private signInUrl = '/api/v1/signin';
-  private signUpUrl = '/api/v1/signup';
+  private signInUrl = '/api/user/signin';
+  private signUpUrl = '/api/user/signup';
 
   constructor(private http: HttpClient,
-              private apiValidationService: ApiValidationService) { }
+              private apiValidationService: ApiValidationService) {}
 
-  signIn(id: string, password: string): Promise<any>{
+  signIn(uid: string, password: string): Promise<any>{
     const params = new FormData();
-    params.append('id', id);
+    params.append('uid', uid);
     params.append('password', password);
     return this.http.post<ApiReponseSingle>(this.signInUrl, params)
       .toPromise()
@@ -29,17 +29,23 @@ export class SignService {
         return Promise.reject(response.error.msg);
       });
   }
+  signUp(uid: string, password: string, name: string): Promise<any>{
 
-  signUp(id: string, password: string, name: string): Promise<any>{
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+
     const params = new FormData();
-    params.append('id', id);
+    params.append('uid', uid);
     params.append('password',password);
     params.append('name', name);
-    return this.http.post<ApiReponseSingle>(this.signUpUrl, params)
+    return this.http.post<ApiReponseSingle>(
+      this.signUpUrl,
+      JSON.stringify(params), {headers: headers})
       .toPromise()
       .then(this.apiValidationService.validateResponse)
       .then(response =>{
-        return true;
+        response.json();
+        //return true;
       })
       .catch(response =>{
         alert('[가입 실패]\n'+response.error.msg);

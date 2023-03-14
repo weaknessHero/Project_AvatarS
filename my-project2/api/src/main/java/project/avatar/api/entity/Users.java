@@ -1,107 +1,43 @@
-//package project.avatar.api.entity;
+package project.avatar.api.entity;
 
+import lombok.*;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 
-//import jakarta.persistence.*;
-//import org.springframework.data.mongodb.core.mapping.Document;
+@Getter
+@Setter
+@Data
+@Document(collection = "users")
 
-//import javax.persistence.*;
+public class Users {
+    public Users() {}
 
-//@Builder
-//@Entity
-//@Getter
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Table(name = "users")
-//@Document(collection = "users")
-//public class Users/* implements UserDetails*/{
-
-/*    @Id
-    private long msrl;
+    @Id
+    //private String _id;
     private String uid;
     private String password;
     private String name;
 
-    public long getMsrl(){
-        return msrl;
+    public Users(String uid, String password, String name){
+        //this._id = _id;
+        this.uid = uid;
+        this.password = password;
+        this.name = name;
     }
-    public void setMsrl(long msrl){
-        this.msrl = msrl;
-    }
-
-    public String getUid(){
+    /*public String get_id() {
+        return _id;
+    }*/
+    public String getUid(Users users) {
         return uid;
     }
-
-    public void setUid(String uid){
-        this.uid = uid;
-    }
-
-    public String getPassword(){
+    public String getPassword() {
         return password;
     }
-
-    public void setPassword(String password){
-        this.password = password;
-    }
-
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void setName(String name){
-        this.name = name;
+    public String toString() {
+        return String.format("User[uid=%s, password=%s, name=%s]", uid, password, name);
     }
-
-    /*@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long msrl;
-
-    @Column(nullable = false, unique = true, length = 30)
-    private String uid;
-
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Column(nullable = false, length = 100)
-    private String password;
-
-    @Column(nullable = false, length = 100)
-    private String name;
-
-    @ElementCollection(fetch = FetchType.EAGER)
-    @Builder.Default
-    private List<String> roles = new ArrayList<>();
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities(){
-        return this.roles.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
-    }
-
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Override
-    public String getUsername(){
-        return this.uid;
-    }
-
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Override
-    public boolean isAccountNonExpired(){
-        return true;
-    }
-
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Override
-    public boolean isCredentialsNonExpired(){
-        return true;
-    }
-
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Override
-    public boolean isEnabled(){
-        return true;
-    }*/
-//}
+}

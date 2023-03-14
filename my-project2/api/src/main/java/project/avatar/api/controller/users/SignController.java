@@ -1,14 +1,16 @@
 package project.avatar.api.controller.users;
 
 import io.swagger.annotations.Api;
-import io.swagger.models.Model;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-//import project.avatar.api.entity.Users;
-import project.avatar.api.entity.User;
-//import project.avatar.api.repo.UserJpaRepo;
+import project.avatar.api.entity.Users;
 import project.avatar.api.repo.UserRepository;
+//import project.avatar.api.entity.Users;
+
+//import project.avatar.api.repo.UserJpaRepo;
+
 
 @Api(tags = {"1. Sign"})
 //@RequiredArgsConstructor
@@ -17,15 +19,21 @@ import project.avatar.api.repo.UserRepository;
 public class SignController {
 
     @Autowired
-    private UserRepository userRepository;
+    UserRepository userRepository;
 
     @PostMapping("/signup")
-    public ResponseEntity<?> signup(@RequestBody User user){
-        if (userRepository.existsById(user.getUid())){
+    public ResponseEntity<?> signup(@RequestBody Users users){
+        if (userRepository.existsById(users.getUid(users))){
             return ResponseEntity.badRequest().body("Id가 이미 사용중입니다.");
         }
-        return ResponseEntity.ok(userRepository.save(userRepository.findByUid(user.getUid())));
+        users.setPassword(String.valueOf(users.getPassword().hashCode()));
+        return ResponseEntity.ok(userRepository.save(users));
     }
+
+    /*@ApiOperation(value = "로그인", notes = "이메일 회원 로그인을 한다.")
+    @PostMapping(value = "/signin")
+
+
 
     /*@PostMapping
     public User createUser(@RequestBody User user){
@@ -40,9 +48,9 @@ public class SignController {
     /*private final UserJpaRepo userJpaRepo;
     private final JwtTokenProvider jwtTokenProvider;
     private final ResponseService responseService;
-    private final PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;*/
 
-    @ApiOperation(value = "로그인", notes = "이메일 회원 로그인을 한다.")
+    /*@ApiOperation(value = "로그인", notes = "이메일 회원 로그인을 한다.")
     @PostMapping(value = "/signin")
     public SingleResult<String> signin(@ApiParam(value = "회원ID : 이메일", required = true) @RequestParam String id,
                                        @ApiParam(value = "비밀번호", required = true) @RequestParam String password) {
