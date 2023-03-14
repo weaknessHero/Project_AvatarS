@@ -15,7 +15,7 @@ innodb_flush_log_at_trx_commit = 0
 Initialization:
 sudo mysql
 create database test;
-create user 'sa'@'localhost' identified by 'sa';
+create users 'sa'@'localhost' identified by 'sa';
 use test;
 grant all on * to 'sa'@'localhost' with grant option;
 

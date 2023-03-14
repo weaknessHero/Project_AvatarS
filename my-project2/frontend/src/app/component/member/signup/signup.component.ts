@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {SignService} from "../../../service/rest-api/sign.service";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-signup',
@@ -13,11 +14,18 @@ export class SignupComponent {
   signUpForm: FormGroup;
 
   constructor(
-    private router: Router,
+    /*private router: Router,
     private formBuilder: FormBuilder,
-    private signService: SignService
+    private signService: SignService*/
+    private http: HttpClient
   ) {
-    this.signUpForm = this.formBuilder.group({
+    this.signUpForm = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      uid: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required])
+    })
+
+    /*this.signUpForm = this.formBuilder.group({
       id: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
@@ -25,10 +33,21 @@ export class SignupComponent {
       password: new FormControl('', [Validators.required]),
       password_re: new FormControl('', [Validators.required]),
       name: new FormControl('', [Validators.required])
-    }, {validator: this.checkPassword});
+    }, {validator: this.checkPassword});*/
+  }
+  onSubmit(){
+    const user = this.signUpForm.value;
+    this.http.post('api/users/signup', user).subscribe(
+      response => {
+        console.log(response);
+      },
+      error =>{
+        console.log(error);
+      }
+    );
   }
 
-  checkPassword(group:FormGroup){
+  /*checkPassword(group:FormGroup){
     let password = group.controls.password.value;
     let passwordRe = group.controls.password_re.value;
     return password === '' || passwordRe === '' || password === passwordRe ? null : { notSame : true }
@@ -48,5 +67,5 @@ export class SignupComponent {
             });
         });
     }
-  }
+  }*/
 }

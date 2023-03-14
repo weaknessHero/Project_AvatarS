@@ -94,7 +94,7 @@ Initial Developer: H2 Group
         <tr>
             <th>${text.admin.ip}</th>
             <th>${text.admin.url}</th>
-            <th>${text.a.user}</th>
+            <th>${text.a.users}</th>
             <th>${text.admin.executing}</th>
             <th>${text.admin.lastAccess}</th>
             <th>${text.admin.lastQuery}</th>
@@ -108,7 +108,7 @@ Initial Developer: H2 Group
                     ${item.url}
                 </td>
                 <td>
-                    ${item.user}
+                    ${item.users}
                 </td>
                 <td>
                     ${item.executing}

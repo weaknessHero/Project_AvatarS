@@ -172,7 +172,7 @@ extends org.h2.util.Tool</pre>
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/h2/tools/CreateCluster.html#execute-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">execute</a></span>(java.lang.String&nbsp;urlSource,
        java.lang.String&nbsp;urlTarget,
-       java.lang.String&nbsp;user,
+       java.lang.String&nbsp;users,
        java.lang.String&nbsp;password,
        java.lang.String&nbsp;serverList)</code>
 <div class="block">Creates a cluster.</div>
@@ -253,8 +253,8 @@ extends org.h2.util.Tool</pre>
  <td>The database URL of the source database (jdbc:h2:...)</td></tr>
  <tr><td>[-urlTarget "&lt;url&gt;"]</td>
  <td>The database URL of the target database (jdbc:h2:...)</td></tr>
- <tr><td>[-user &lt;user&gt;]</td>
- <td>The user name (default: sa)</td></tr>
+ <tr><td>[-users &lt;users&gt;]</td>
+ <td>The users name (default: sa)</td></tr>
  <tr><td>[-password &lt;pwd&gt;]</td>
  <td>The password</td></tr>
  <tr><td>[-serverList &lt;list&gt;]</td>
@@ -296,7 +296,7 @@ extends org.h2.util.Tool</pre>
 <h4>execute</h4>
 <pre>public&nbsp;void&nbsp;execute(java.lang.String&nbsp;urlSource,
                     java.lang.String&nbsp;urlTarget,
-                    java.lang.String&nbsp;user,
+                    java.lang.String&nbsp;users,
                     java.lang.String&nbsp;password,
                     java.lang.String&nbsp;serverList)
              throws java.sql.SQLException</pre>
@@ -305,7 +305,7 @@ extends org.h2.util.Tool</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>urlSource</code> - the database URL of the original database</dd>
 <dd><code>urlTarget</code> - the database URL of the copy</dd>
-<dd><code>user</code> - the user name</dd>
+<dd><code>users</code> - the users name</dd>
 <dd><code>password</code> - the password</dd>
 <dd><code>serverList</code> - the server list</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
