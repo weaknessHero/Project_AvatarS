@@ -39,13 +39,13 @@ export class SignService {
     params.append('password',password);
     params.append('name', name);
     return this.http.post<ApiReponseSingle>(
-      this.signUpUrl,
-      JSON.stringify(params), {headers: headers})
+      this.signUpUrl,params
+      /*JSON.stringify(params)*/, {headers: headers})
       .toPromise()
       .then(this.apiValidationService.validateResponse)
       .then(response =>{
-        response.json();
-        //return true;
+        //response.json();
+        return true;
       })
       .catch(response =>{
         alert('[가입 실패]\n'+response.error.msg);
