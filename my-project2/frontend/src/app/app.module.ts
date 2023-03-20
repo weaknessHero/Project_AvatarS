@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,9 +14,11 @@ import { SignupComponent } from './component/member/signup/signup.component';
 import {SignService} from "./service/rest-api/sign.service";
 import { LogoutComponent } from './component/logout/logout.component';
 import { MyinfoComponent } from './component/member/myinfo/myinfo.component';
-import {MatLegacyListModule} from "@angular/material/legacy-list";
 import {HttpRequestInterceptorService} from "./service/rest-api/common/http-request-interceptor.service";
 import {MyinfoService} from "./service/rest-api/myinfo.service";
+import {MatInputModule} from "@angular/material/input";
+import {IonicStorageModule} from "@ionic/storage-angular";
+import { HeadComponent } from './head/head.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import {MyinfoService} from "./service/rest-api/myinfo.service";
     SigninComponent,
     SignupComponent,
     LogoutComponent,
-    MyinfoComponent
+    MyinfoComponent,
+    HeadComponent
   ],
     imports: [
         BrowserModule,
@@ -35,7 +38,9 @@ import {MyinfoService} from "./service/rest-api/myinfo.service";
         FlexLayoutModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientModule
+        HttpClientModule,
+        MatInputModule,
+        IonicStorageModule
     ],
   exports: [
     ReactiveFormsModule
@@ -49,6 +54,7 @@ import {MyinfoService} from "./service/rest-api/myinfo.service";
     SignService,
     MyinfoService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }

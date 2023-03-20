@@ -1,0 +1,19 @@
+*{
+  margin-top: 10px;
+}
+
+.searchbar{
+  display: flex;
+  width: 100%;
+}
+
+.example-full-width{
+  height: 100px;
+  margin-bottom: 0px;
+  margin-left: 5px;
+}
+
+.submit{
+  margin-left: 5px;
+  height: 75px;
+}

@@ -1,1 +1,23 @@
-<h2>&nbsp;&nbsp;&nbsp;&nbsp;Avatar S main page</h2>
+<div class="imagelist"
+     *ngFor="let image of imageList"
+     [ngStyle] = "{ 'background-image' : 'url(' + image + ')'}"
+     [class.unselect] = "image !== currentImage"
+     [@changeImage] = "image === currentImage ? 'secondAction' : 'firstAction'">
+
+  <div class="arrow">
+    <span class="arrowLeft"
+          [class.arrowEnd] = "image === imageList[0]"
+          (click)="imageSlideLeft()"><
+      </span>
+    <span class="arrowRight"
+          [class.arrowEnd] = "image === imageList[imageLength -1]"
+          (click)="imageSlideRight()">>
+      </span>
+  </div>
+</div>
+
+<div class="placer">
+  <div class="dot" *ngFor="let image of imageList"
+       [class.selected] = "image === currentImage"
+  ></div>
+</div>

@@ -15,7 +15,7 @@ import project.avatar.api.repo.UserRepository;
 @Api(tags = {"1. Sign"})
 //@RequiredArgsConstructor
 @RestController
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/user", consumes = "application/json")
 public class SignController {
 
     @Autowired

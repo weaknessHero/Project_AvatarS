@@ -1,0 +1,9 @@
+<!--<img src="assets/logo.jpg" style="width: 10%;">-->
+<div class="searchbar">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="크롭 후드 맨투맨" formControlName="search">
+    </mat-form-field>
+    <button class="submit" >검색</button>
+  </form>
+</div>
