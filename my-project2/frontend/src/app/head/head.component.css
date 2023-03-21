@@ -1,10 +1,22 @@
-*{
-  margin-top: 10px;
+.searchbar{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 5px;
+  display: flex;
+  width: 400px;
+  height: 40px;
+  border: 1px solid lightgray;
+  background: #FFFFFF;
+
 }
 
-.searchbar{
-  display: flex;
-  width: 100%;
+input{
+  font-size: 16px;
+  width: 1900px;
+  padding: 10px;
+  border: 0px;
+  outline: none;
+  float: right;
 }
 
 .example-full-width{
@@ -15,5 +27,20 @@
 
 .submit{
   margin-left: 5px;
-  height: 75px;
+  float: right;
+}
+
+button{
+  width: 80px;
+  height: 100%;
+  border: 0px;
+  background: lightgray;
+  outline: none;
+  float: right;
+  color: #FFFFFF;
+}
+
+button:hover{
+  background: black;
+  color: white;
 }

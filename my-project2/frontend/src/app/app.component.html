@@ -6,6 +6,9 @@
           <mat-icon class="icon">home</mat-icon>
           <span class="label2">홈</span>
         </a>
+        <a mat-list-item [routerLink]="['/']" routerLinkActive="router-link-active">
+          <span class="label2">아바타</span>
+        </a>
         <a mat-list-item [routerLink]="['/signin']" routerLinkActive="router-link-active" *ngIf="!signService.isSignIn()">
           <mat-icon class="icon">input</mat-icon>
           <span class="label2">로그인</span>
@@ -22,7 +25,10 @@
           <mat-icon class="icon">input</mat-icon>
           <span class="label2">로그아웃</span>
         </a>
-        --------------------------------
+        ----------------------------
+        <a mat-list-item>
+          <span class="label2">카테고리 들어갈 자리</span>
+        </a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -40,6 +46,9 @@
         </div>
         <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
           <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+            <a [routerLink]="['/']">
+              <span class="label1">아바타</span>
+            </a>
             <li *ngIf="!signService.isSignIn()">
               <a [routerLink]="['/signin']">
                 <mat-icon class="icon">input</mat-icon>
