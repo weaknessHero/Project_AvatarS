@@ -37,8 +37,8 @@ public class ApiApplication /*implements CommandLineRunner*/ {
 		System.out.println(result);
 	}*/
 
-	@Bean
+	/*@Bean
 	public PasswordEncoder passwordEncoder(){
 		return PasswordEncoderFactories.createDelegatingPasswordEncoder();
-	}
+	}*/
 }

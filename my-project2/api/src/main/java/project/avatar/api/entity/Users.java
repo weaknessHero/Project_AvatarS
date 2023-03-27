@@ -10,6 +10,7 @@ import org.springframework.data.annotation.Id;
 @Document(collection = "users")
 
 public class Users {
+
     public Users() {}
 
     @Id
