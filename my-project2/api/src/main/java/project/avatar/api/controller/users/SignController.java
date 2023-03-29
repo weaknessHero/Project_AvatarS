@@ -2,11 +2,22 @@ package project.avatar.api.controller.users;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.Response;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import project.avatar.api.entity.Users;
 import project.avatar.api.repo.UserRepository;
+import project.avatar.api.config.security.*;
+
+import java.util.List;
+import java.util.Optional;
 //import project.avatar.api.entity.Users;
 
 //import project.avatar.api.repo.UserJpaRepo;
@@ -15,19 +26,44 @@ import project.avatar.api.repo.UserRepository;
 @Api(tags = {"1. Sign"})
 //@RequiredArgsConstructor
 @RestController
-@RequestMapping(value = "/user", consumes = "application/json")
+@RequestMapping(value = "/users", consumes = "application/json")
 public class SignController {
 
     @Autowired
     UserRepository userRepository;
+
+    private PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody Users users){
         if (userRepository.existsById(users.getUid(users))){
             return ResponseEntity.badRequest().body("Id가 이미 사용중입니다.");
         }
-        users.setPassword(String.valueOf(users.getPassword().hashCode()));
+        PasswordEncoder encoder = passwordEncoder;
+        if (encoder != null) {
+            String password = users.getPassword() != null ? String.valueOf(users.getPassword()) : "";
+            String encodedPassword = passwordEncoder.encode(password);
+            users.setPassword(encodedPassword);
+        }
         return ResponseEntity.ok(userRepository.save(users));
+    }
+
+    @PostMapping(value = "/signin")
+    public ResponseEntity<?> signin(@RequestBody Users users){
+        List<Users> user = userRepository.findByUid(users.getUid());
+
+        if(user == null){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
+        }
+
+        if(!users.getPassword().equals(users.getPassword())){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
+        }
+
+        return ResponseEntity.ok(true);
+        //String jwt = generateJwtToken(user);
+
+        //return ResponseEntity.ok(new JwtResponse(jwt));
     }
 
     /*@ApiOperation(value = "로그인", notes = "이메일 회원 로그인을 한다.")
@@ -74,39 +110,6 @@ public class SignController {
                 .name(name)
                 .roles(Collections.singletonList("ROLE_USER"))
                 .build());
-        return responseService.getSuccessResult();
-    }*/
-
-    /*    @ApiOperation(value = "소셜 로그인", notes = "소셜 회원 로그인을 한다.")
-    @PostMapping(value = "/signin/{provider}")
-    public SingleResult<String> signinByProvider(
-            @ApiParam(value = "서비스 제공자 provider", required = true, defaultValue = "kakao") @PathVariable String provider,
-            @ApiParam(value = "소셜 access_token", required = true) @RequestParam String accessToken) {
-
-        KakaoProfile profile = kakaoService.getKakaoProfile(accessToken);
-        User user = userJpaRepo.findByUidAndProvider(String.valueOf(profile.getId()), provider).orElseThrow(CUserNotFoundException::new);
-        return responseService.getSingleResult(jwtTokenProvider.createToken(String.valueOf(user.getMsrl()), user.getRoles()));
-    }*/
-
-    /*@ApiOperation(value = "소셜 계정 가입", notes = "소셜 계정 회원가입을 한다.")
-    @PostMapping(value = "/signup/{provider}")
-    public CommonResult signupProvider(@ApiParam(value = "서비스 제공자 provider", required = true, defaultValue = "kakao") @PathVariable String provider,
-                                       @ApiParam(value = "소셜 access_token", required = true) @RequestParam String accessToken,
-                                       @ApiParam(value = "이름", required = true) @RequestParam String name) {
-
-        KakaoProfile profile = kakaoService.getKakaoProfile(accessToken);
-        Optional<User> user = userJpaRepo.findByUidAndProvider(String.valueOf(profile.getId()), provider);
-        if (user.isPresent())
-            throw new CUserExistException();
-
-        User inUser = User.builder()
-                .uid(String.valueOf(profile.getId()))
-                .provider(provider)
-                .name(name)
-                .roles(Collections.singletonList("ROLE_USER"))
-                .build();
-
-        userJpaRepo.save(inUser);
         return responseService.getSuccessResult();
     }*/
 }
