@@ -1,43 +1,48 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 21 03:40:49 2023
-
-@author: user
-"""
-
-
+import os
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from PIL import Image
 import numpy as np
-import imutils
-import cv2
+from rembg import remove
 
 
-def RemoveIMG(Contour) :
-    #조건이 맞는지 확인하고 맞을경우 True
-
-    return Contour==-1
-
-
-
-image = cv2.imread("../Resource/RemoveBGIMG/니트/1778905_1_220.jpg")
-gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-edged = cv2.Canny(gray, 20, 100)
-cv2.imshow("Original", image)
-
-c, h = cv2.findContours(edged.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+def remove_background(image_path, save_path):
+    """
+    이미지 경로에서 배경을 제거하고 새로운 파일로 저장하는 함수
+    """
+    if os.path.exists(save_path):
+        return
+    with Image.open(image_path) as img:
+        img_array = np.array(img)
+        alpha = remove(img_array)
+        result = Image.fromarray(alpha)
+        result.save(save_path)
 
 
-mask = np.ones(image.shape[:2], dtype="uint8") * 255
+def process_images_in_folder(folder_path):
+    """
+    지정된 폴더 내의 모든 이미지에 대해 백그라운드 제거 작업을 수행하는 함수
+    """
+    images = [f for f in os.listdir(folder_path) if f.lower().endswith(('.jpg', '.jpeg', '.png'))]
+    for image in images:
+        image_path = os.path.join(folder_path, image)
+        save_path = os.path.join('output', os.path.basename(folder_path), os.path.splitext(image)[0] + '.png')
+        remove_background(image_path, save_path)
 
-# loop over the contours
 
-for i in range(len(c)) :
-    #if the contour is bad, draw it on the mask
-    if RemoveIMG(h[0,i,3]):
-        cv2.drawContours(mask, [c[i]], -1, 0, -1)
-        
-# remove the contours from the image and show the resulting images
-image = cv2.bitwise_and(image, image, mask=mask)
-cv2.imshow("Mask", mask)
-cv2.imshow("After", image)
-cv2.waitKey(0)
+def process_folders_in_directory(root_directory):
+    """
+    지정된 디렉토리 내의 모든 폴더에 대해 이미지 처리 작업을 수행하는 함수
+    """
+    with ThreadPoolExecutor(max_workers=4) as executor:
+        futures = [executor.submit(process_images_in_folder, os.path.join(root_directory, folder))
+                   for folder in os.listdir(root_directory) if os.path.isdir(os.path.join(root_directory, folder))]
+        for future in as_completed(futures):
+            future.result()
 
+
+if __name__ == '__main__':
+    data_dir = 'data'
+    if not os.path.exists('output'):
+        os.makedirs('output')
+
+    process_folders_in_directory(data_dir)

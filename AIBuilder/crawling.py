@@ -87,7 +87,7 @@ if __name__=='__main__':
         createFolder(pathA+keyword)
         createFolder(pathB+keyword)
         
-  
+"""  
     #시간측정용
     start_time = time.time()
     
@@ -103,7 +103,7 @@ if __name__=='__main__':
     print("--- %s seconds ---" % (time.time() - start_time))
     
     
-    
+  """  
     
     
     
