@@ -127,3 +127,30 @@ footer{
 .arrowEnd{
   visibility: hidden;
 }
+
+
+.container {
+  display: flex;
+  #flex-wrap: wrap;
+  overflow: auto;
+}
+
+.box {
+  width: 280px;
+  height: 300px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.box:hover{
+  border: 1px solid darkgray;
+  cursor: pointer;
+}
+
+.brandName{
+  font-weight: bold;
+}
+
+.name{
+  font-size: small;
+}

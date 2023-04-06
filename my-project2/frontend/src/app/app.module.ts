@@ -19,6 +19,10 @@ import {MyinfoService} from "./service/rest-api/myinfo.service";
 import {MatInputModule} from "@angular/material/input";
 import {IonicStorageModule} from "@ionic/storage-angular";
 import { HeadComponent } from './head/head.component';
+import { RegistComponent } from './component/product/regist/regist.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {DataService} from "./service/data.service";
+import { DetailComponent } from './component/product/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,9 @@ import { HeadComponent } from './head/head.component';
     SignupComponent,
     LogoutComponent,
     MyinfoComponent,
-    HeadComponent
+    HeadComponent,
+    RegistComponent,
+    DetailComponent
   ],
     imports: [
         BrowserModule,
@@ -40,7 +46,8 @@ import { HeadComponent } from './head/head.component';
         ReactiveFormsModule,
         HttpClientModule,
         MatInputModule,
-        IonicStorageModule
+        IonicStorageModule,
+        MatSidenavModule
     ],
   exports: [
     ReactiveFormsModule
@@ -51,6 +58,7 @@ import { HeadComponent } from './head/head.component';
       useClass: HttpRequestInterceptorService,
       multi: true,
     },
+    DataService,
     SignService,
     MyinfoService
   ],
