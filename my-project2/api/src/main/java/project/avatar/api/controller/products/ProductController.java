@@ -3,6 +3,7 @@ package project.avatar.api.controller.products;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,10 @@ import project.avatar.api.entity.Products;
 import project.avatar.api.model.response.ListResult;
 import project.avatar.api.repo.ProductsRepository;
 import project.avatar.api.service.ResponseService;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.UUID;
 
 @Api(tags = {"3. Product"})
 @RestController
@@ -20,15 +25,20 @@ public class ProductController {
     private ProductsRepository productsRepository;
     private ResponseService responseService;
 
+    @Value("${image.storage.path}")
+    private String imageStoragePath;
+
     @ApiOperation(value = "상품 등록", notes = "상품을 등록한다")
     @PostMapping("/create")
     public ResponseEntity<?> createProduct(@RequestBody Products products){
-        //ProductsService productsService = new ProductsService();
-        //productsService.save(products);
         if(products.getPrice()<=0){
             return ResponseEntity.badRequest().body("가격은 0원보다 높게 설정해주세요");
         }else {
-            return ResponseEntity.ok(productsRepository.save(products));
+            Path imageUrl = Paths.get(imageStoragePath, UUID.randomUUID().toString());
+            products.setImageUrl(imageUrl);
+
+            Products savedProduct = productsRepository.save(products);
+            return ResponseEntity.ok(savedProduct);
         }
     }
 
@@ -56,23 +66,4 @@ public class ProductController {
     private Products deleteById(@PathVariable String id){
         return productsRepository.findById(id).get();
     }
-
-    /*@Service
-    public class ProductsService{
-        @Autowired
-        private ProductsRepository productsRepository;
-
-        public void save(Products products){
-            validateProducts(products);
-            if(productsRepository != null){
-                productsRepository.save(products);
-            }
-        }
-
-        private void validateProducts(Products products){
-            if(products.getPrice() < 0){
-                throw new IllegalArgumentException("가격은 0원이 넘어야합니다.");
-            }
-        }
-    }*/
 }
