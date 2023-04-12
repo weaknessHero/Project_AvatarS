@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="home.component.css">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 <div class="imagelist"
      *ngFor="let image of imageList"
      [ngStyle] = "{ 'background-image' : 'url(' + image + ')'}"
@@ -22,11 +24,22 @@
   ></div>
 </div>
 <br>
-<h3></h3>
-
+<h3 style="margin-left: 5px;">회원들의 아바타</h3>
+<div class="container">
+  <div class="box_avatar" routerLink="/avatarpage">
+    <img src="assets/avatar1.jpg" style="width: 280px; height: 450px;">
+    <div class="uid">
+      황세동
+    </div>
+    <div class="title">
+      캐주얼한 맥코트는 이렇게
+    </div>
+  </div>
+</div>
+<h3 style="margin-left: 5px">추천하는 상품목록</h3>
 <div class="container">
   <div class="box" routerLink="/detail">
-    <img src="assets/1.jpg" style="width: 280px; height: 250px;">
+    <img src="assets/1.jpg" style="width: 280px; height: 260px;">
     <div class="brandName">
       1993STUDIO
     </div>

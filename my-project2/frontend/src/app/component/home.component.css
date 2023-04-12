@@ -129,7 +129,7 @@ footer{
 }
 
 
-.container {
+.container{
   display: flex;
   #flex-wrap: wrap;
   overflow: auto;
@@ -142,7 +142,19 @@ footer{
   margin-bottom: 5px;
 }
 
+.box_avatar{
+  width: 280px;
+  height: 500px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
 .box:hover{
+  border: 1px solid darkgray;
+  cursor: pointer;
+}
+
+.box_avatar:hover{
   border: 1px solid darkgray;
   cursor: pointer;
 }
@@ -151,6 +163,18 @@ footer{
   font-weight: bold;
 }
 
+.uid{
+  font-weight: bold;
+}
+
 .name{
   font-size: small;
+}
+
+.title{
+  font-size: small;
+}
+
+h3{
+  font: 20px/40px Arial, sans-serif;
 }

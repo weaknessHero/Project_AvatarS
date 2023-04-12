@@ -23,6 +23,8 @@ import { RegistComponent } from './component/product/regist/regist.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {DataService} from "./service/data.service";
 import { DetailComponent } from './component/product/detail/detail.component';
+import { AvatarpageComponent } from './component/avatar/avatarpage/avatarpage.component';
+import { MyavatarComponent } from './component/avatar/myavatar/myavatar.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { DetailComponent } from './component/product/detail/detail.component';
     MyinfoComponent,
     HeadComponent,
     RegistComponent,
-    DetailComponent
+    DetailComponent,
+    AvatarpageComponent,
+    MyavatarComponent
   ],
     imports: [
         BrowserModule,
