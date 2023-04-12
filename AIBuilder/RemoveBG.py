@@ -8,17 +8,11 @@
 
 import os
 import cv2
-
-
-
 import numpy as np
 import onnxruntime as ort
-
 from multiprocessing import Pool, freeze_support
 from functools import partial
 from PIL import Image
-
-
 import onnx
 from rembg import remove
 from PIL import Image
@@ -26,6 +20,16 @@ from PIL import Image
 
 data_dir="../Resource/AIInputIMG"
 save_dir="../Resource/RemoveBGIMG"
+
+
+from roboflow import Roboflow
+rf = Roboflow(api_key="wC0gtUyDXlHo0hhgcdRq")
+project = rf.workspace().project("clothes-detection-1kl0o")
+model = project.version(4).model
+
+# infer on a local image
+print(model.predict("your_image.jpg", confidence=40, overlap=30).json())
+"""
 
     
 #배경 제거 과정
@@ -80,3 +84,4 @@ if __name__=='__main__':
     pool.join()
 
 
+"""
