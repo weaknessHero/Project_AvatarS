@@ -60,7 +60,7 @@ import { MyavatarComponent } from './component/avatar/myavatar/myavatar.componen
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpRequestInterceptorService,
-      multi: true,
+      multi: true
     },
     DataService,
     SignService,

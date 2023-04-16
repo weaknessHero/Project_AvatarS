@@ -28,3 +28,14 @@
 .button button{
   margin-right: 8px;
 }
+
+.kakaoLogin{
+  width: 80%;
+  display: block;
+  margin:auto;
+  margin-bottom: 10px;
+}
+.kakaoLogin:hover{
+  border: 1px solid darkgray;
+  cursor: pointer;
+}
