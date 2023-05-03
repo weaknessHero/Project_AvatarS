@@ -22,17 +22,7 @@ data_dir="../Resource/AIInputIMG"
 save_dir="../Resource/RemoveBGIMG"
 
 
-from roboflow import Roboflow
-rf = Roboflow(api_key="wC0gtUyDXlHo0hhgcdRq")
-project = rf.workspace().project("clothes-detection-1kl0o")
-model = project.version(4).model
-
-# infer on a local image
-print(model.predict("your_image.jpg", confidence=40, overlap=30).json())
-"""
-
-    
-#배경 제거 과정
+#배경 제거 과정 
 def RemoveBackground(img_path):
    
     
@@ -46,10 +36,13 @@ def RemoveBackground(img_path):
     save_path= save_dir + '/'+DirName+'/'+file_Name+'.png'
     
     if not os.path.exists(save_path) :
-        input = Image.open(file_path)
-        output = remove(input)
-        output.save(save_path)
-
+        try :
+            input = Image.open(file_path)
+            output = remove(input)
+            output.save(save_path)
+        except:
+            print(save_path)
+            
 
 
 if __name__=='__main__':
@@ -79,9 +72,6 @@ if __name__=='__main__':
 
     #재귀탐색 폴더 내부의 폴더와 이미지 색인 
     pool.map(RemoveBackground, image_paths)
-
+ 
     pool.close()
     pool.join()
-
-
-"""
