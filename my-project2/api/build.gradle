@@ -10,6 +10,10 @@ sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
+	maven {
+		url "https://repo.tensorflow.org/maven"
+	}
+	google()
 }
 
 dependencies {
@@ -42,8 +46,10 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 	implementation 'net.rakugakibox.util:yaml-resource-bundle:1.1'
-	//implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
 	//implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'com.google.cloud:google-cloud-vision:3.10.0'
+	implementation 'com.google.cloud:google-cloud-storage:2.9.0'
 }
 
 tasks.named('test') {
