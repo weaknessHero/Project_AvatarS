@@ -25,6 +25,8 @@ import {DataService} from "./service/data.service";
 import { DetailComponent } from './component/product/detail/detail.component';
 import { AvatarpageComponent } from './component/avatar/avatarpage/avatarpage.component';
 import { MyavatarComponent } from './component/avatar/myavatar/myavatar.component';
+import { FitMainComponent } from './component/fit/fit-main/fit-main.component';
+import { ImageSearchComponent } from './component/fit/image-search/image-search.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { MyavatarComponent } from './component/avatar/myavatar/myavatar.componen
     RegistComponent,
     DetailComponent,
     AvatarpageComponent,
-    MyavatarComponent
+    MyavatarComponent,
+    FitMainComponent,
+    ImageSearchComponent
   ],
     imports: [
         BrowserModule,

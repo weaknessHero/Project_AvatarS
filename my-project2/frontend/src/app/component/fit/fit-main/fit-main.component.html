@@ -1,0 +1,13 @@
+<div class="grid-container">
+    <div class="grid-item item1">
+        <div class="image">
+            <button (click)="openImageInput()">불러오기</button>
+            <!--<img src="../../../../assets/fit_1.jpeg" alt="fit_1">-->
+            <input type="file" id="image-input" style="display: none;" (change)="handleImageChange($event)">
+            <img id="preview-image" [src]="''" alt="미리보기 이미지" style="display: none;">
+        </div>
+    </div>
+    <div class="grid-item item2">속성</div>
+    <div class="grid-item item3">섹션 3</div>
+  </div>
+  
