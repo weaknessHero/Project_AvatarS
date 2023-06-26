@@ -1,13 +1,69 @@
-<div class="grid-container">
-    <div class="grid-item item1">
-        <div class="image">
-            <button (click)="openImageInput()">불러오기</button>
-            <!--<img src="../../../../assets/fit_1.jpeg" alt="fit_1">-->
-            <input type="file" id="image-input" style="display: none;" (change)="handleImageChange($event)">
-            <img id="preview-image" [src]="''" alt="미리보기 이미지" style="display: none;">
-        </div>
+<div class="grid-container" style="margin-left: 10px; margin-right: 10px;">
+  <div class="grid-item item1">
+    <div class="image">
+      <button (click)="openImageInput()">샘플 로드</button>
+      <input type="file" id="image-input" style="display: none;" (change)="handleImageChange($event)"><br>
+      <img #previewImage id="preview-image" src="" alt="미리보기 이미지" style="display: none;">
+      <button (click)="handleManImage()">남자 아바타 불러오기</button>
+      <img *ngIf="!imagePath" src="/assets/avatar_man.png" alt="이미지" (click)="zoomIn($event)"><br>
+      <button (click)="handleWomanImage()">여자 아바타 불러오기</button>
+      <img *ngIf="!imagePath" src="/assets/avatar_man.png" alt="이미지" (click)="zoomIn($event)">
     </div>
-    <div class="grid-item item2">속성</div>
-    <div class="grid-item item3">섹션 3</div>
+
   </div>
-  
+  <div class="grid-item item2" style="margin-right: 20px">
+    <div class="grid-item item4" style="height: 50px;">
+      상의 종류<br>
+      <select (change)="handleCategoryChange($event)">
+        <option value="top1">반팔티</option>
+        <option value="top2">긴팔티</option>
+        <option value="top3">후드티</option>
+        <option value="top4">셔츠</option>
+        <!-- 추가적인 카테고리 옵션들 -->
+      </select>
+    </div>
+    <div class="grid-item item5" style="height: 40px;"></div>
+      상의 색상<br>
+      <select [(ngModel)]="selectedColor" (change)="handleCategoryChange($event)">
+    <!--<select (change)="handleCategoryChange($event)" style="color: red">-->
+        <option value="top_color1">빨간색</option>
+        <option value="top_color2">파란색</option>
+        <option value="top_color3">초록색</option>
+        <option value="top_color4">검정색</option>
+        <option value="top_color5">흰색</option>
+        <!-- 추가적인 카테고리 옵션들 -->
+      </select>
+    <div class="grid-item item6" style="height: 40px;"></div>
+      하의 종류<br>
+      <select (change)="handleCategoryChange($event)">
+        <option value="bottom1">반바지</option>
+        <option value="bottom2">긴바지</option>
+        <option value="bottom3">치마</option>
+      </select>
+    <div class="grid-item item7" style="height: 40px;"></div>
+      하의 색상<br>
+      <select (change)="handleCategoryChange($event)">
+        <option value="bottom_color1">빨간색</option>
+        <option value="bottom_color2">파란색</option>
+        <option value="bottom_color3">초록색</option>
+        <option value="bottom_color4">검정색</option>
+        <option value="bottom_color5">흰색</option>
+      </select>
+    <div class="grid-item item8" style="height: 100px;">
+      <br><br><br>신발 종류<br>
+      <select (change)="handleCategoryChange($event)">
+        <option value="shoes1">운동화</option>
+        <option value="shoes2">슬리퍼</option>
+        <option value="shoes3">구두</option>
+      </select>
+    </div>
+    <div class="grid-item item9" style="height: 120px;">
+      <br><br><br>성별<br>
+      <select (change)="handleCategoryChange($event)">
+        <option value="sex1">남성</option>
+        <option value="sex2">여성</option>
+      </select>
+    </div>
+  </div>
+  <div class="grid-item item3">내 코디와 비슷한 아이템 추천</div>
+</div>
