@@ -2,62 +2,56 @@ package project.avatar.api.service.Detect;
 
 import com.google.cloud.vision.v1.*;
 import com.google.protobuf.ByteString;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DetectLabels {
 
     public static void main(String[] args) throws IOException {
-        // TODO: Replace with your image InputStream
-        InputStream imageStream = getImageInputStream();
+        // TODO(developer): Replace these variables before running the sample.
+        String filePath = "avatar_1.png";
+        //Resource resource = new ClassPathResource(filePath);
+        //File file = resource.getFile();
 
-        String result = detectLabels(imageStream);
-        System.out.println(result);
+        //detectLabels(file.getPath());
     }
 
-    // Detects labels in the specified image InputStream and returns the result as a String.
-    public static String detectLabels(InputStream imageStream) throws IOException {
+    // Detects objects in the specified image.
+    public static List<ObjectAnnotation> detectObjects(MultipartFile image) throws IOException {
         List<AnnotateImageRequest> requests = new ArrayList<>();
 
-        ByteString imgBytes = ByteString.readFrom(imageStream);
+        ByteString imgBytes = ByteString.copyFrom(image.getBytes());
 
         Image img = Image.newBuilder().setContent(imgBytes).build();
-        Feature feat = Feature.newBuilder().setType(Feature.Type.LABEL_DETECTION).build();
+        Feature feat = Feature.newBuilder().setType(Feature.Type.OBJECT_LOCALIZATION).build();
         AnnotateImageRequest request =
                 AnnotateImageRequest.newBuilder().addFeatures(feat).setImage(img).build();
         requests.add(request);
 
-        // Initialize client that will be used to send requests.
+        // Initialize client that will be used to send requests. This client only needs to be created
+        // once, and can be reused for multiple requests. After completing all of your requests, call
+        // the "close" method on the client to safely clean up any remaining background resources.
         try (ImageAnnotatorClient client = ImageAnnotatorClient.create()) {
             BatchAnnotateImagesResponse response = client.batchAnnotateImages(requests);
             List<AnnotateImageResponse> responses = response.getResponsesList();
 
-            StringBuilder resultBuilder = new StringBuilder();
+            List<ObjectAnnotation> objectAnnotations = new ArrayList<>();
 
             for (AnnotateImageResponse res : responses) {
                 if (res.hasError()) {
-                    resultBuilder.append("Error: ").append(res.getError().getMessage()).append("\n");
-                    return resultBuilder.toString();
+                    System.err.println("Error: " + res.getError().getMessage());
+                    return objectAnnotations;
                 }
 
-                // For full list of available annotations, see http://g.co/cloud/vision/docs
-                for (EntityAnnotation annotation : res.getLabelAnnotationsList()) {
-                    annotation
-                            .getAllFields()
-                            .forEach((k, v) -> resultBuilder.append(k).append(" : ").append(v.toString()).append("\n"));
+                for (LocalizedObjectAnnotation annotation : res.getLocalizedObjectAnnotationsList()) {
+                    objectAnnotations.add(new ObjectAnnotation(annotation.getName(), annotation.getScore()));
                 }
             }
 
-            return resultBuilder.toString();
+            return objectAnnotations;
         }
-    }
-
-    // TODO: Implement a method to get the image InputStream
-    private static InputStream getImageInputStream() {
-        // Replace with your logic to get the image InputStream
-        return null;
     }
 }

@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DetectLabelsComponent {
   imageFile: File;
-  labels: any[];
+  objectAnnotations: any[];
 
   constructor(private http: HttpClient) { }
 
@@ -16,24 +16,18 @@ export class DetectLabelsComponent {
     this.imageFile = event.target.files[0];
   }
 
-  detectLabels() {
+  detectObjects() {
     const formData = new FormData();
     formData.append('image', this.imageFile);
 
     this.http.post<any[]>('http://localhost:8080/api/image', formData)
       .subscribe(
         response => {
-          this.labels = response.map(entity => {
-            return {
-              description: entity['google.cloud.vision.v1.EntityAnnotation.description'],
-              score: entity['google.cloud.vision.v1.EntityAnnotation.score']
-            };
-          });
+          this.objectAnnotations = response;
         },
         error => {
           console.log(error);
         }
       );
   }
-
 }

@@ -12,7 +12,7 @@
 }
 
 .item1 {
-    height: 600px;
+    height: 400px;
     grid-column: 1 / 2; /* 섹션 1이 1열에 표시되도록 설정 */
     grid-row: 1 / 2; /* 섹션 1이 1행에 표시되도록 설정 */
 }
