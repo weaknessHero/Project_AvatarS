@@ -200,4 +200,8 @@ export class FitMainComponent {
         }
       );
   }
+
+  API_KEY = 'AIzaSyBG8PUN32srAPwFdhgyjYGyL6hsGZh9ISw';
+  SEARCH_ENGINE_ID =
+
 }

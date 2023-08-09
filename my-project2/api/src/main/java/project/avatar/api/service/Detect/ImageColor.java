@@ -34,4 +34,5 @@ public class ImageColor {
     public void setBlue(int blue) {
         this.blue = blue;
     }
+
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { ObjectAnnotation } from "../../../model/object-annotation.model";
 
 @Component({
   selector: 'app-image-search',
@@ -9,12 +10,23 @@ import { HttpClient } from "@angular/common/http";
 export class ImageSearchComponent {
 
   imageFile: File;     // 이미지 파일 저장할 변수
-  objectAnnotations: any[];   // 객체 주석(바운딩 박스 등) 저장할 변수
+  objectAnnotations: ObjectAnnotation[];   // 객체 주석(바운딩 박스 등) 저장할 변수
+  imageUrl: string;
+  colors: string[] = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF'];
   constructor(private http: HttpClient) { }
 
   // 파일 변경 이벤트에 대한 처리
+  /*onFileChange(event: any) {
+    this.imageFile = event.target.files[0];
+  }*/
+
   onFileChange(event: any) {
     this.imageFile = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      this.imageUrl = e.target.result;
+    };
+    reader.readAsDataURL(this.imageFile);
   }
 
   // 이미지 업로드 전 이미지를 나타내는 이벤트 핸들러
@@ -54,7 +66,7 @@ export class ImageSearchComponent {
   }
 
   //서버에서 이미지를 처리한 결과값을 가져와 주석 처리되 객체를 화면에 표시함
-  detectObjects() {
+  /*detectObjects() {
     const formData = new FormData();
     formData.append('image', this.imageFile);
     this.http.post<any[]>('http://localhost:8080/api/image', formData)
@@ -70,10 +82,29 @@ export class ImageSearchComponent {
           console.log(error);
         }
       );
+  }*/
+
+  detectObjects() {
+    const formData = new FormData();
+    formData.append('image', this.imageFile);
+    this.http.post<ObjectAnnotation[]>('http://localhost:8080/api/image', formData)
+      .subscribe(
+        response => {
+          console.log('Response', response);
+          this.objectAnnotations = response;
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+
+  getColor(index: number): string{
+    return this.colors[index % this.colors.length];
   }
 
   // 바운딩 박스에서 이미지의 가장 일반적인 색상을 추출
-  private extractMostCommonColorsFromBoundingBoxes() {
+  /*private extractMostCommonColorsFromBoundingBoxes() {
     const boundingBoxes = document.querySelectorAll('.bounding-box');
 
     boundingBoxes.forEach(boundingBox => {
@@ -92,7 +123,8 @@ export class ImageSearchComponent {
       colorDiv.style.margin = '5px';
       boundingBox.appendChild(colorDiv);
     });
-  }
+  }*/
+
 }
 
 

@@ -23,6 +23,7 @@ package project.avatar.api.service.Detect;
 import com.google.cloud.vision.v1.BoundingPoly;
 import com.google.cloud.vision.v1.Vertex;
 
+import java.awt.*;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
@@ -30,6 +31,51 @@ public class ObjectAnnotation {
     private String name;
     private float score;
     private BoundingPoly boundingPoly; // Add BoundingPoly field
+    private int x;
+    private int y;
+    private int width;
+    private int height;
+    private Color color;
+
+    public Color getColor(){
+        return color;
+    }
+
+    public void setColor(Color color){
+        this.color = color;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
 
     public String getName() {
         return name;
@@ -56,6 +102,7 @@ public class ObjectAnnotation {
     }
 
     // Calculate the most dominant color from the bounding box
+    /*
     public ImageColor calculateDominantColor() {
         // Initialize a HashMap to store color frequencies
         Map<ImageColor, Integer> colorFrequencies = new HashMap<>();
@@ -87,5 +134,5 @@ public class ObjectAnnotation {
         }
 
         return dominantColor;
-    }
+    }*/
 }

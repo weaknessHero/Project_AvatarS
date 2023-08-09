@@ -88,6 +88,11 @@
         </li>
       </ul>
     </div>
-    내 코디와 비슷한 아이템 추천
+    <button (click)="performSearch()">내 선택에 대한 결과 출력</button>
+    <ul>
+      <li *ngFor="let item of searchResults">
+        <a [href]="item.link" target="_blank">{{item.title}}</a>
+      </li>
+    </ul>
   </div>
 </div>
