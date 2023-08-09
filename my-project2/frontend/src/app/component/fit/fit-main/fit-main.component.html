@@ -88,11 +88,23 @@
         </li>
       </ul>
     </div>
-    <button (click)="performSearch()">내 선택에 대한 결과 출력</button>
-    <ul>
-      <li *ngFor="let item of searchResults">
-        <a [href]="item.link" target="_blank">{{item.title}}</a>
-      </li>
-    </ul>
+    내 코디와 비슷한 아이템 추천
+
+    <div class="search-container">
+      <form (submit)="searchProducts(searchValue.value)">
+        <input type="text" #searchValue placeholder="검색어 입력" />
+        <button type="submit">검색</button>
+      </form>
+    </div>
+
+    <div class="results-container">
+      <div *ngFor="let product of productResults" class="product-card">
+        <img [src]="product.imageUrl" />
+        <div class="product-title">{{ product.name }}</div>  <!-- 'name'으로 변경 -->
+        <div class="product-price">{{ product.price }}</div>
+      </div>
+    </div>
+
+
   </div>
 </div>

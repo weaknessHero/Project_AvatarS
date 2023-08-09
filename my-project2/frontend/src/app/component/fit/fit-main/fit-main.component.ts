@@ -1,5 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {ProductService} from "../../../service/product.service";
+import {ProductDTO} from "../../../model/product-dto.model";
 
 @Component({
   selector: 'app-fit-main',
@@ -16,7 +18,9 @@ export class FitMainComponent {
   imageFile: File;
   labels: any[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private productService: ProductService) { }
+
   overlayImg: HTMLImageElement = new Image();
   @ViewChild('imageElement') imageElement: ElementRef;
   @ViewChild('previewImage', { static: false }) previewImage: ElementRef;
@@ -142,7 +146,6 @@ export class FitMainComponent {
   }
 
 
-
   handleTopCategoryChange(event: any) {
     // 선택된 상의 종류 변경 처리
     this.selectedTopCategory = event.target.value;
@@ -201,7 +204,12 @@ export class FitMainComponent {
       );
   }
 
-  API_KEY = 'AIzaSyBG8PUN32srAPwFdhgyjYGyL6hsGZh9ISw';
-  SEARCH_ENGINE_ID =
+  productResults: ProductDTO[] = [];
+
+  searchProducts(query: string): void {
+    this.productService.searchProducts(query).subscribe((results) => {
+      this.productResults = results;
+    });
+  }
 
 }
