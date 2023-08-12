@@ -25,7 +25,7 @@ mat-sidenav{
 /*메뉴 author 태그 스타일 지정, 최초: 화이트, 클릭: 회색*/
 a{
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 a:hover, a:active{
@@ -55,13 +55,13 @@ footer{
   padding: 10px 0 10px 0;
   font-size: 12px;
   line-height: 20px;
-  background: lightgray;
-  color: black;
+  background: black;
+  color: white;
   text-align: center;
 }
 
 .mat-toolbar.mat-primary {
-  background: lightgray;
+  background: black;
   color: #fff;
 }
 
