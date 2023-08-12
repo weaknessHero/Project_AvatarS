@@ -49,12 +49,12 @@
             <a [routerLink]="['/myavatar']">
               <span class="label1">아바타</span>
             </a>
-            <li *ngIf="!signService.isSignIn()">
+            <!--<li *ngIf="!signService.isSignIn()">
               <a [routerLink]="['/signin']">
                 <mat-icon class="icon">input</mat-icon>
                 <span class="label1">로그인</span>
               </a>
-            </li>
+            </li>-->
             <li *ngIf="signService.isSignIn()">
               <a [routerLink]="['/myinfo']">
                 <mat-icon class="icon">person</mat-icon>
