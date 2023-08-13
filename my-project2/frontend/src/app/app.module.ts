@@ -30,6 +30,7 @@ import { ImageSearchComponent } from './component/fit/image-search/image-search.
 import { DetectLabelsComponent } from './component/fit/detect/detect-labels/detect-labels.component';
 import { FittingComponent } from './component/fitting/fitting/fitting.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,7 @@ import { FittingComponent } from './component/fitting/fitting/fitting.component'
         HttpClientModule,
         MatInputModule,
         IonicStorageModule,
-        MatSidenavModule
+        MatSidenavModule,
     ],
   exports: [
     ReactiveFormsModule

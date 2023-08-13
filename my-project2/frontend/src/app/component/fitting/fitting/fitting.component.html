@@ -1,14 +1,29 @@
 <div class="container">
   <div class="avatar">
-    <h2>옷 입히기</h2>
+    <h2>모델 선택</h2>
     <div id="btn_group">
-      <button id="btn1" (click)="openImageInput()">이미지 불러오기</button>
-      <button id="btn2" (click)="openImageInput()">이미지 원래대로</button>
+      <button id="btn1" (click)="imageInput('modelInput')">이미지 불러오기</button>
+      <button id="btn2" (click)="imageInput('modelInput')">이미지 원래대로</button>
     </div>
     <br>
     <div class="image">
-      <input type="file" id="image-input" style="display: none;" (change)="handleImageChange($event)">
-      <img id="preview-image" [src]="''" alt="미리보기 이미지" style="display: none;">
+      <input type="file" id="modelInput" style="display: none;" (change)="handleImageChange($event, 'modelPreview', 'modelImg')">
+      <img id="modelPreview" [src]="''" alt="미리보기 이미지" style="display: none;">
+    </div>
+  </div>
+  <div class="avatar">
+    <h2>옷 선택</h2>
+    <div id="btn_group">
+      <button id="btn1" (click)="imageInput('clothesInput')">이미지 불러오기</button>
+      <button id="btn2" (click)="imageInput('clothesInput')">이미지 원래대로</button>
+    </div>
+    <br>
+    <div class="image">
+      <input type="file" id="clothesInput" style="display: none;" (change)="handleImageChange($event, 'clothesPreview', 'clothesImg')">
+      <img id="clothesPreview" [src]="''" alt="미리보기 이미지" style="display: none;">
+    </div>
+    <div id="send_button">
+      <button id="btn1" (click)="sendImageInput()">가상 피팅하기</button>
     </div>
   </div>
   <br>
