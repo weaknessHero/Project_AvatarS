@@ -142,7 +142,7 @@ footer{
 
 
 .avatar-img{
-  max-width: 100%;
+  width: 100%;
 }
 
 .avatar{
@@ -159,7 +159,7 @@ footer{
 }
 
 .avatar .image img{
-  max-width: 100%;
+  max-width: 70%;
   height: auto;
 }
 

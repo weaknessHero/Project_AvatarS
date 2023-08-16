@@ -32,6 +32,7 @@ import { FittingComponent } from './component/fitting/fitting/fitting.component'
 import { ImageSliderComponent } from './component/image-slider/image-slider.component';
 import { OverlayComponent } from './component/overlay/overlay.component';
 import { ResultComponent } from './component/result/result.component';
+import { ItemsComponent } from './component/items/items.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { ResultComponent } from './component/result/result.component';
     FittingComponent,
     ImageSliderComponent,
     OverlayComponent,
-    ResultComponent
+    ResultComponent,
+    ItemsComponent
   ],
     imports: [
         BrowserModule,
