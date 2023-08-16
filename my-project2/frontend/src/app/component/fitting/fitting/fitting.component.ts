@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient  } from '@angular/common/http';
+import { ResultComponent } from "../../result/result.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-fitting',
@@ -16,8 +18,9 @@ export class FittingComponent {
   clothesImg;
   modelPreview;
   clothesPreview;
-
-  constructor(private http: HttpClient) { }
+  responseImage1 = 'assests/image1.jpg';
+  constructor(private http: HttpClient,
+              private dialog: MatDialog) { }
 
   handleManImage(){
     /*if (this.imageElement && this.imageElement.nativeElement) {
@@ -64,6 +67,13 @@ export class FittingComponent {
         console.error(formData);
       });
     }
+  }
+
+  openImageDialog(): void{
+    const dialogRef = this.dialog.open(ResultComponent,{
+      width: '80%',
+      data: { combinedImage: this.responseImage1 }
+    });
   }
 
 }

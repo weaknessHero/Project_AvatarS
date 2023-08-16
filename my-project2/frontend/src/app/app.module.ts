@@ -31,6 +31,7 @@ import { DetectLabelsComponent } from './component/fit/detect/detect-labels/dete
 import { FittingComponent } from './component/fitting/fitting/fitting.component';
 import { ImageSliderComponent } from './component/image-slider/image-slider.component';
 import { OverlayComponent } from './component/overlay/overlay.component';
+import { ResultComponent } from './component/result/result.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { OverlayComponent } from './component/overlay/overlay.component';
     DetectLabelsComponent,
     FittingComponent,
     ImageSliderComponent,
-    OverlayComponent
+    OverlayComponent,
+    ResultComponent
   ],
     imports: [
         BrowserModule,
