@@ -86,15 +86,33 @@ footer{
   line-height: 50px;
   z-index: 3;
 }
-.imagelist{
-  height: 300px;
-  width: 100vw;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #777;
-  background-position: center;
+
+.slider img{
+  position: absolute;
+  /*max-width: 30%;*/
+  width: auto;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.slider{
+  margin-top: 10px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
   display: flex;
+  justify-content: center;
   align-items: center;
+}
+
+.slider img.active{
+  opacity: 1;
+}
+
+.shadow-img{
+  filter: url(#shadow-filter);
 }
 
 .unselect{
@@ -130,9 +148,62 @@ footer{
 
 
 .container{
+  position: relative;
+}
+
+.center-text{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+
+
+  color: white;
+  font-size: 60px;
+  font-family: ONEMobile;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
+
+  white-space: nowrap;
+  overflow-wrap: normal;
+
+  cursor: pointer;
+
+  /*BackgroundSetting
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);*/
+}
+
+.overlay{
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 1000;
+}
+
+.section {
   display: flex;
-  #flex-wrap: wrap;
-  overflow: auto;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  font-size: 24px;
+}
+
+.top a,
+.bottom a {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body{
+  font-family: ONEMobile;
 }
 
 .box {
@@ -177,4 +248,22 @@ footer{
 
 h3{
   font: 20px/40px Arial, sans-serif;
+}
+
+@font-face {
+  font-family: 'ONEMobile';
+  src: url('/assets/fonts/ONEMobileBold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'ONEMobile';
+  src: url('/assets/fonts/ONEMobileLight.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'ONEMobile';
+  src: url('/assets/fonts/ONEMobileRegular.ttf') format('truetype');
+  font-weight: 300;
 }

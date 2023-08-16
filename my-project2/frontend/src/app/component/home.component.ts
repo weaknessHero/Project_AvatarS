@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {Router} from "@angular/router";
 import {Observable, of} from "rxjs";
+import {OverlayComponent} from "./overlay/overlay.component";
 
 @Component({
   selector: 'app-home',
@@ -25,31 +26,44 @@ import {Observable, of} from "rxjs";
   ]
 })
 
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit, OnDestroy{
 
+  @ViewChild('overlayComponent') overlayComponent: OverlayComponent;
   currentImageId: number = 0;
-  imageRoot: String = "/assets/"
+  imageRoot: String = "assets/sliderImage/"
   imageList: Array<String> = [
-    this.imageRoot + "image1.jpg",
-    this.imageRoot + "image2.jpg",
-    this.imageRoot + "image3.jpg"
+    this.imageRoot + "IMG_4124.PNG",
+    this.imageRoot + "IMG_4125.PNG",
+    this.imageRoot + "IMG_4126.PNG",
+    this.imageRoot + "제목 7.png"
   ]
   imageLength: number = this.imageList.length;
   currentImage: String;
+
+  private slideInterval: any;
 
   constructor(
     private router: Router
   ) {}
 
   ngOnInit(): void{
-    this.getImage(this.currentImageId)
+    this.getImage(this.currentImageId);
+    this.autoSlide();
   }
 
-  imageSlideRight(){
-    if(this.currentImageId + 1 < this.imageLength){
-      this.currentImageId += 1
-      this.getImage(this.currentImageId)
-    } else { }
+  ngOnDestroy(): void{
+    clearInterval(this.slideInterval);
+  }
+
+  autoSlide(){
+    this.slideInterval = setInterval(()=>{
+      this.imageSlideRight();
+    }, 1500);
+  }
+
+  imageSlideRight() {
+    this.currentImageId = (this.currentImageId + 1) % this.imageList.length;
+    this.getImage(this.currentImageId);
   }
   imageSlideLeft(){
     if(this.currentImageId > 0){
@@ -65,5 +79,13 @@ export class HomeComponent implements OnInit{
   }
   goBack(): void{
     this.router.navigate(["../"])
+  }
+
+  onMouseEnter(){
+    this.overlayComponent.showOverlay();
+  }
+
+  onMouseLeave(){
+    this.overlayComponent.hideOverlay();
   }
 }
