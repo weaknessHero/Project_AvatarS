@@ -1,0 +1,44 @@
+.overlay{
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+  font-family: ONEMobile, bold;
+  width: 100%;
+  height: 100%;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  font-size: 50px;
+  font-family: ONEMobile, bold;
+  font-weight: bold;
+  color: white;
+}
+
+.top a,
+.bottom a {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: black;
+}
+
+.close-button {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}

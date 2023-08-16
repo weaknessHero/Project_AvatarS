@@ -14,6 +14,7 @@ import { FitMainComponent } from './component/fit/fit-main/fit-main.component';
 import { ImageSearchComponent } from './component/fit/image-search/image-search.component';
 import {DetectLabelsComponent} from "./component/fit/detect/detect-labels/detect-labels.component";
 import {FittingComponent} from "./component/fitting/fitting/fitting.component";
+import {ImageSliderComponent} from "./component/image-slider/image-slider.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'fit-main', component:FitMainComponent},
   {path: 'image-search', component:ImageSearchComponent},
   {path: 'detect-labels', component:DetectLabelsComponent},
-  {path: 'fitting', component:FittingComponent}
+  {path: 'fitting', component:FittingComponent},
+  {path: 'image-slider', component:ImageSliderComponent}
 ];
 
 @NgModule({

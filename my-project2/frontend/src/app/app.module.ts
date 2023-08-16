@@ -29,6 +29,8 @@ import { FitMainComponent } from './component/fit/fit-main/fit-main.component';
 import { ImageSearchComponent } from './component/fit/image-search/image-search.component';
 import { DetectLabelsComponent } from './component/fit/detect/detect-labels/detect-labels.component';
 import { FittingComponent } from './component/fitting/fitting/fitting.component';
+import { ImageSliderComponent } from './component/image-slider/image-slider.component';
+import { OverlayComponent } from './component/overlay/overlay.component';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { FittingComponent } from './component/fitting/fitting/fitting.component'
     FitMainComponent,
     ImageSearchComponent,
     DetectLabelsComponent,
-    FittingComponent
+    FittingComponent,
+    ImageSliderComponent,
+    OverlayComponent
   ],
     imports: [
         BrowserModule,

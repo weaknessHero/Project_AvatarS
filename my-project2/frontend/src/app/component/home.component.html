@@ -1,3 +1,20 @@
+<div class="container" (click)="onMouseEnter()">
+  <h1 class="center-text">Avatar Fitting</h1>
+  <div class="slider">
+    <div class="slider">
+      <img
+        *ngFor="let image of imageList; let i = index"
+        [src]="image"
+        [ngStyle]="{'opacity': i === currentImageId ? '1' : '0', 'position': i === currentImageId ? 'static' : 'absolute'}"
+        [ngClass]="{'shadow-img': i === currentImageId }"
+        [alt]="'이미지 ' + (i + 1)"
+      />
+    </div>
+  </div>
+</div>
+<app-overlay #overlayComponent></app-overlay>
+
+<!--
 <link rel="stylesheet" href="home.component.css">
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 <div class="imagelist"
@@ -93,5 +110,5 @@
     </div>
   </div>
 </div>
-
+-->
 
