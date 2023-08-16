@@ -75,5 +75,11 @@ export class FittingComponent {
       data: { combinedImage: this.responseImage1 }
     });
   }
+  applyCloth(imageSrc: string): void {
+    const clothesPreview = document.getElementById('clothesPreview') as HTMLImageElement;
+    clothesPreview.src = imageSrc;
+    clothesPreview.style.display = 'block';
+  }
+
 
 }

@@ -21,15 +21,46 @@
       <input type="file" id="clothesInput" style="display: none;" (change)="handleImageChange($event, 'clothesPreview', 'clothesImg')">
       <img id="clothesPreview" [src]="''" alt="미리보기 이미지" style="display: none;">
     </div>
-    <div id="send_button">
+    <!--<div id="send_button">
       <button id="btn1" (click)="sendImageInput()">가상 피팅하기</button>
-    </div>
+    </div>-->
     <button mat-button (click)="openImageDialog()">결과 보기</button>
   </div>
   <br>
   <div class="cloth">
     <h2>황세동님의 옷장</h2>
     <div class="boxes-wrapper">
+      <div class="box">
+        <div class="overlay">
+          <button class="button button-apply" (click)="applyCloth('assets/1.jpg')">입히기</button>
+          <a href="https://www.musinsa.com/app/goods/3132559" target="_blank">
+            <button class="button button-buy">구매처</button>
+          </a>
+        </div>
+        <img src="assets/1.jpg"/> <!-- 이미지에 있던 고정된 가로 크기를 제거하고 박스 너비에 맞게 사이즈 조절 -->
+        <div class="brandName">1993STUDIO</div>
+        <div class="name">[LG트윈스] 빈티지 바시티 자켓_블랙</div>
+      </div>
+      <div class="box">
+        <div class="overlay">
+          <button class="button button-apply" (click)="applyCloth('assets/test/cloth.jpg')">입히기</button>
+          <a href="https://www.cos.com/ko-kr/men/occasion-wear/product.regular-fit-knitted-cuff-t-shirt-off-white.1084853002.html?slitmCd=40A1547255" target="_blank">
+            <button class="button button-buy">구매처</button>
+          </a>
+        </div>
+        <img src="assets/test/cloth.jpg"/> <!-- 이미지에 있던 고정된 가로 크기를 제거하고 박스 너비에 맞게 사이즈 조절 -->
+        <div class="brandName">COS</div>
+        <div class="name">레귤러 핏 니티드 커프스 티셔츠</div>
+      </div>
+      <div class="box">
+        <div class="overlay">
+          <button class="button button-apply">입히기</button>
+          <button class="button button-buy">구매처</button>
+        </div>
+        <img src="assets/3.jpg"/>
+        <div class="brandName">라퍼지스토어</div>
+        <div class="name">[PACKAGE]시티보이 빅오버 스트라이프 옥스포드 셔츠_6 Color</div>
+      </div>
       <div class="box">
         <div class="overlay">
           <button class="button button-apply" routerLink="/detail">입히기</button>
@@ -61,12 +92,23 @@
       </div>
       <div class="box">
         <div class="overlay">
+          <button class="button button-apply" routerLink="/detail">입히기</button>
+          <a href="https://www.musinsa.com/app/goods/3132559" target="_blank">
+            <button class="button button-buy">구매처</button>
+          </a>
+        </div>
+        <img src="assets/1.jpg"/> <!-- 이미지에 있던 고정된 가로 크기를 제거하고 박스 너비에 맞게 사이즈 조절 -->
+        <div class="brandName">1993STUDIO</div>
+        <div class="name">[LG트윈스] 빈티지 바시티 자켓_블랙</div>
+      </div>
+      <div class="box">
+        <img src="assets/2.jpg"/>
+        <div class="overlay">
           <button class="button button-apply">입히기</button>
           <button class="button button-buy">구매처</button>
         </div>
-        <img src="assets/3.jpg"/>
-        <div class="brandName">라퍼지스토어</div>
-        <div class="name">[PACKAGE]시티보이 빅오버 스트라이프 옥스포드 셔츠_6 Color</div>
+        <div class="brandName">1993STUDIO</div>
+        <div class="name">[LG트윈스] 빈티지 바시티 자켓_네이비</div>
       </div>
       <div class="box">
         <div class="overlay">
@@ -79,12 +121,23 @@
       </div>
       <div class="box">
         <div class="overlay">
+          <button class="button button-apply" routerLink="/detail">입히기</button>
+          <a href="https://www.musinsa.com/app/goods/3132559" target="_blank">
+            <button class="button button-buy">구매처</button>
+          </a>
+        </div>
+        <img src="assets/1.jpg"/> <!-- 이미지에 있던 고정된 가로 크기를 제거하고 박스 너비에 맞게 사이즈 조절 -->
+        <div class="brandName">1993STUDIO</div>
+        <div class="name">[LG트윈스] 빈티지 바시티 자켓_블랙</div>
+      </div>
+      <div class="box">
+        <img src="assets/2.jpg"/>
+        <div class="overlay">
           <button class="button button-apply">입히기</button>
           <button class="button button-buy">구매처</button>
         </div>
-        <img src="assets/3.jpg"/>
-        <div class="brandName">라퍼지스토어</div>
-        <div class="name">[PACKAGE]시티보이 빅오버 스트라이프 옥스포드 셔츠_6 Color</div>
+        <div class="brandName">1993STUDIO</div>
+        <div class="name">[LG트윈스] 빈티지 바시티 자켓_네이비</div>
       </div>
       <div class="box">
         <div class="overlay">
@@ -97,12 +150,14 @@
       </div>
       <div class="box">
         <div class="overlay">
-          <button class="button button-apply">입히기</button>
-          <button class="button button-buy">구매처</button>
+          <button class="button button-apply" routerLink="/detail">입히기</button>
+          <a href="https://www.musinsa.com/app/goods/3132559" target="_blank">
+            <button class="button button-buy">구매처</button>
+          </a>
         </div>
-        <img src="assets/3.jpg"/>
-        <div class="brandName">라퍼지스토어</div>
-        <div class="name">[PACKAGE]시티보이 빅오버 스트라이프 옥스포드 셔츠_6 Color</div>
+        <img src="assets/1.jpg"/> <!-- 이미지에 있던 고정된 가로 크기를 제거하고 박스 너비에 맞게 사이즈 조절 -->
+        <div class="brandName">1993STUDIO</div>
+        <div class="name">[LG트윈스] 빈티지 바시티 자켓_블랙</div>
       </div>
       <div class="box">
         <div class="overlay">
@@ -115,59 +170,15 @@
       </div>
       <div class="box">
         <div class="overlay">
-          <button class="button button-apply">입히기</button>
-          <button class="button button-buy">구매처</button>
+          <button class="button button-apply" routerLink="/detail">입히기</button>
+          <a href="https://www.musinsa.com/app/goods/3132559" target="_blank">
+            <button class="button button-buy">구매처</button>
+          </a>
         </div>
-        <img src="assets/3.jpg"/>
-        <div class="brandName">라퍼지스토어</div>
-        <div class="name">[PACKAGE]시티보이 빅오버 스트라이프 옥스포드 셔츠_6 Color</div>
+        <img src="assets/1.jpg"/> <!-- 이미지에 있던 고정된 가로 크기를 제거하고 박스 너비에 맞게 사이즈 조절 -->
+        <div class="brandName">1993STUDIO</div>
+        <div class="name">[LG트윈스] 빈티지 바시티 자켓_블랙</div>
       </div>
-      <div class="box">
-        <div class="overlay">
-          <button class="button button-apply">입히기</button>
-          <button class="button button-buy">구매처</button>
-        </div>
-        <img src="assets/3.jpg"/>
-        <div class="brandName">라퍼지스토어</div>
-        <div class="name">[PACKAGE]시티보이 빅오버 스트라이프 옥스포드 셔츠_6 Color</div>
-      </div>
-      <div class="box">
-        <div class="overlay">
-          <button class="button button-apply">입히기</button>
-          <button class="button button-buy">구매처</button>
-        </div>
-        <img src="assets/3.jpg"/>
-        <div class="brandName">라퍼지스토어</div>
-        <div class="name">[PACKAGE]시티보이 빅오버 스트라이프 옥스포드 셔츠_6 Color</div>
-      </div>
-      <div class="box">
-        <div class="overlay">
-          <button class="button button-apply">입히기</button>
-          <button class="button button-buy">구매처</button>
-        </div>
-        <img src="assets/3.jpg"/>
-        <div class="brandName">라퍼지스토어</div>
-        <div class="name">[PACKAGE]시티보이 빅오버 스트라이프 옥스포드 셔츠_6 Color</div>
-      </div>
-      <div class="box">
-        <div class="overlay">
-          <button class="button button-apply">입히기</button>
-          <button class="button button-buy">구매처</button>
-        </div>
-        <img src="assets/3.jpg"/>
-        <div class="brandName">라퍼지스토어</div>
-        <div class="name">[PACKAGE]시티보이 빅오버 스트라이프 옥스포드 셔츠_6 Color</div>
-      </div>
-      <div class="box">
-        <div class="overlay">
-          <button class="button button-apply">입히기</button>
-          <button class="button button-buy">구매처</button>
-        </div>
-        <img src="assets/3.jpg"/>
-        <div class="brandName">라퍼지스토어</div>
-        <div class="name">[PACKAGE]시티보이 빅오버 스트라이프 옥스포드 셔츠_6 Color</div>
-      </div>
-
     </div>
   </div>
 </div>
