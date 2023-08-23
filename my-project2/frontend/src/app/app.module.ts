@@ -33,6 +33,7 @@ import { ImageSliderComponent } from './component/image-slider/image-slider.comp
 import { OverlayComponent } from './component/overlay/overlay.component';
 import { ResultComponent } from './component/result/result.component';
 import { ItemsComponent } from './component/items/items.component';
+import { SearchComponent } from './component/search/search.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { ItemsComponent } from './component/items/items.component';
     ImageSliderComponent,
     OverlayComponent,
     ResultComponent,
-    ItemsComponent
+    ItemsComponent,
+    SearchComponent
   ],
     imports: [
         BrowserModule,

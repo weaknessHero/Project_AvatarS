@@ -146,7 +146,7 @@ footer{
 }
 
 .avatar{
-  flex-basis: 70%;
+  flex-basis: 33.3333%;
   flex-grow: 1;
   padding: 0 10px;
 
@@ -164,7 +164,7 @@ footer{
 }
 
 .cloth {
-  width: 100%;
+  width: 33.3333%;
   padding: 0 10px;
   display: flex;
   flex-wrap: wrap;
