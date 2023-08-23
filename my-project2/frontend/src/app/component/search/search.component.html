@@ -1,1 +1,41 @@
-<p>search works!</p>
+<div class="search-container" *ngIf="isSearchVisible">
+  <div class="search-box">
+    <input type="text" placeholder="검색어를 입력하세요..." [(ngModel)]="searchInput" class="searchInput"/>
+    <div class="search">
+      <button (click)="performSearch(searchInput)">확인</button>
+      <button (click)="toggleSearch()">취소</button>
+    </div>
+  </div>
+  <div class="center-container">
+    <select [(ngModel)]="selectedCategory" class="select-box">
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+  </div>
+  <div class="search-results">
+      <div *ngFor="let item of searchResults">
+        <img [src]="item.imageUrl" alt="{{item.name}}의 이미지" style="width: 300px; height: 300px;">
+        <br>
+        <div style="font-weight: bold">
+          {{ item.name }}
+        </div>
+        <div>
+          {{ item.brand }}
+        </div>
+        <div>
+          {{ item.price | number }}
+        </div>
+        <div class="move">
+          <a mat-button [href]="item.buyUrl" target="_blank" rel="noopener noreferrer">구매처 이동</a>
+          <a mat-button [href]="item.buyUrl" target="_blank" rel="noopener noreferrer">옷장에 추가</a>
+        </div>
+      </div>
+  </div>
+  <div style="margin-top: 20px;">
+    <h1>
+      쇼핑 검색 결과
+    </h1>
+    <h3>
+      Search API Result Section
+    </h3>
+  </div>
+</div>

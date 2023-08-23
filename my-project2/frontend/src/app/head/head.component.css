@@ -6,7 +6,7 @@
   width: 400px;
   height: 40px;
   border: 1px solid black;
-  background: #FFFFFF;
+  background: white;
 
 }
 
@@ -30,6 +30,10 @@ input{
   float: right;
 }
 
+.submit:hover{
+  color: white;
+}
+
 button{
   width: 80px;
   height: 100%;
@@ -41,6 +45,6 @@ button{
 }
 
 button:hover{
-  background: black;
-  color: white;
+  background: white;
+  color: black;
 }

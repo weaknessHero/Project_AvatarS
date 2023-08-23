@@ -23,7 +23,6 @@ import { RegistComponent } from './component/product/regist/regist.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {DataService} from "./service/data.service";
 import { DetailComponent } from './component/product/detail/detail.component';
-import { AvatarpageComponent } from './component/avatar/avatarpage/avatarpage.component';
 import { MyavatarComponent } from './component/avatar/myavatar/myavatar.component';
 import { FitMainComponent } from './component/fit/fit-main/fit-main.component';
 import { ImageSearchComponent } from './component/fit/image-search/image-search.component';
@@ -47,7 +46,6 @@ import { SearchComponent } from './component/search/search.component';
     HeadComponent,
     RegistComponent,
     DetailComponent,
-    AvatarpageComponent,
     MyavatarComponent,
     FitMainComponent,
     ImageSearchComponent,
