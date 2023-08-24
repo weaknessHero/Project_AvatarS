@@ -8,27 +8,35 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent {
+  imagePath;
   constructor(
     public dialogRef: MatDialogRef<ResultComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: {generatedImage: string},
+    @Inject(MAT_DIALOG_DATA) public data: {generatedIMG: string},
     private ngZone: NgZone,
     private http: HttpClient
-  ) {}
+  ) 
+  {
+    this.imagePath = "assets/generateIMG/" + data.generatedIMG;
+  }
 
   async downloadImage() {
-    const timeStampText = this.getTimeStampText();
-    const imageName = `AvatarS_${timeStampText}.jpg`;
-    const link = document.createElement('a');
-    const imageUrl = 'assets/test/result.jpg'; // 임시 이미지 사용
 
-    this.ngZone.runOutsideAngular(async () => {
-      const blob = await this.imageToBlob(imageUrl);
-
-      link.href = URL.createObjectURL(blob);
-      link.download = imageName;
-      link.click();
-      link.remove();
+    this.http.get(this.imagePath, { responseType: 'blob' }).subscribe((response) => {
+      this.saveImageLocally(response);
     });
+  }
+
+  saveImageLocally(imageBlob: Blob) {
+    const file = new File([imageBlob], 'imageFileName.jpg', {
+      type: 'image/jpeg', // 이미지 타입에 맞게 설정
+    });
+
+    // 파일 저장 로직
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(file);
+    a.download = file.name;
+    a.click();
+    URL.revokeObjectURL(a.href);
   }
 
   private getTimeStampText(): string {

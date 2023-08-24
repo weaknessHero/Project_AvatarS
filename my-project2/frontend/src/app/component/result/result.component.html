@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>결과 이미지</h1>
 <div mat-dialog-content style="height: calc(70vh - 200px); overflow-y: auto; display: flex; justify-content: center; align-items: center;">
 <!--  <img [src]="data.combinedImage" alt="결과 이미지" style="width: 100%; max-height: 100%; object-fit: contain;">-->
-  <img src="assets/test/result.jpg" alt="결과 이미지" style="height: calc(50vh); width: 100%; object-fit: contain;">
+  <img [src]="imagePath" alt="결과 이미지" style="height: calc(50vh); width: 100%; object-fit: contain;">
 </div>
 <div mat-dialog-actions style="display: flex; justify-content: space-between;">
   <div style="display: flex;">

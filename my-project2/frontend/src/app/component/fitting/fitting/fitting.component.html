@@ -21,9 +21,9 @@
       <input type="file" id="clothesInput" style="display: none;" (change)="handleImageChange($event, 'clothesPreview', 'clothesImg')">
       <img id="clothesPreview" [src]="''" alt="미리보기 이미지" style="display: none;">
     </div>
-    <!--<div id="send_button">
+    <div id="send_button">
       <button id="btn1" (click)="sendImageInput()">가상 피팅하기</button>
-    </div>-->
+    </div>
     <button mat-button (click)="openImageDialog()">결과 보기</button>
   </div>
   <br>

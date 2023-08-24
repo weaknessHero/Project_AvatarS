@@ -18,7 +18,7 @@ export class FittingComponent {
   clothesImg;
   modelPreview;
   clothesPreview;
-  responseImage1 = 'assests/image1.jpg';
+  responseImage;
   constructor(private http: HttpClient,
               private dialog: MatDialog) { }
 
@@ -70,9 +70,10 @@ export class FittingComponent {
   }
 
   openImageDialog(): void{
+    let imagePath = this.modelImg.name +"_"+ this.clothesImg.name
     const dialogRef = this.dialog.open(ResultComponent,{
       width: '80%',
-      data: { combinedImage: this.responseImage1 }
+      data: { generatedIMG : imagePath }
     });
   }
   applyCloth(imageSrc: string): void {
@@ -80,6 +81,4 @@ export class FittingComponent {
     clothesPreview.src = imageSrc;
     clothesPreview.style.display = 'block';
   }
-
-
 }
