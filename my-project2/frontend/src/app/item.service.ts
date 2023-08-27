@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../app/component/items/item.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +17,15 @@ export class ItemService {
       'https://www.musinsa.com/app/goods/3261311?loc=goods_rank', ['패딩', '검정색', '재킷', '자켓', '남자', '노스페이스', '더노스페이스'])
   ];
 
-  constructor() { }
+  constructor( private http: HttpClient) { }
 
   searchItems(searchInput: string): Item[] {
     return this.items.filter(item => {
       return item.tags.some(tag => tag.toLowerCase().includes(searchInput.toLowerCase()));
     });
+  }
+
+  apiSearch(query: string){
+    return this.http.get(`http://localhost:8080/api/search?query=${query}`);
   }
 }

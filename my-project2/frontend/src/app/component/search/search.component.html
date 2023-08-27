@@ -12,7 +12,7 @@
     </select>
   </div>
   <div class="search-results">
-      <div *ngFor="let item of searchResults">
+      <div *ngFor="let item of localResults">
         <img [src]="item.imageUrl" alt="{{item.name}}의 이미지" style="width: 300px; height: 300px;">
         <br>
         <div style="font-weight: bold">
@@ -30,12 +30,26 @@
         </div>
       </div>
   </div>
-  <div style="margin-top: 20px;">
-    <h1>
-      쇼핑 검색 결과
-    </h1>
-    <h3>
-      Search API Result Section
-    </h3>
+  <h1 style="margin-top: 30px;">
+    쇼핑 검색 결과.
+  </h1>
+  <div class="api-result" style="margin-top: 20px;">
+    <div *ngFor="let item of apiResults">
+      <img [src]="item.image" alt="{{item.name}}의 이미지" style="width: 300px; height: 300px;">
+      <br>
+      <div style="font-weight: bold">
+        {{ item.title }}
+      </div>
+      <div>
+        {{ item.mallname }}
+      </div>
+      <div>
+        {{ item.lprice | number }}
+      </div>
+      <div class="move">
+        <a mat-button [href]="item.link" target="_blank" rel="noopener noreferrer">구매처 이동</a>
+        <a mat-button [href]="item.link" target="_blank" rel="noopener noreferrer">옷장에 추가</a>
+      </div>
+    </div>
   </div>
 </div>

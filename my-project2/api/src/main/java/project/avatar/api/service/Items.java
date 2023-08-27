@@ -1,6 +1,6 @@
 package project.avatar.api.service;
 
-public class Item {
+public class Items {
     private String title;
     private String link;
 

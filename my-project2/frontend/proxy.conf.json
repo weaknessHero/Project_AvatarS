@@ -15,5 +15,10 @@
     "pathRewrite": {
       "^/fitting/upload": "/submit"
     }
+  },
+  "/v1/*": {
+    "target": "https://openapi.naver.com",
+    "secure": false,
+    "changeOrigin": true
   }
 }

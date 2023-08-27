@@ -3,13 +3,13 @@ package project.avatar.api.service;
 import java.util.List;
 
 public class CustomSearchResponse {
-    private List<Item> items;
+    private List<Items> items;
 
-    public List<Item> getItems() {
+    public List<Items> getItems() {
         return items;
     }
 
-    public void setItems(List<Item> items) {
+    public void setItems(List<Items> items) {
         this.items = items;
     }
 }

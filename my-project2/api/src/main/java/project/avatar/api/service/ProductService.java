@@ -80,8 +80,8 @@ public class ProductService {
         if (response.getStatusCode() == HttpStatus.OK) {
             CustomSearchResponse searchResponse = response.getBody();
             if (searchResponse != null) {
-                for (Item item : searchResponse.getItems()) {
-                    searchResultUrls.add(item.getLink());
+                for (Items items : searchResponse.getItems()) {
+                    searchResultUrls.add(items.getLink());
                 }
             }
         } else {

@@ -16,6 +16,11 @@ export class Item {
     this.price = price;
     this.imageUrl = imageUrl;
     this.buyUrl = buyUrl;
-    this.tags = tags || [];
+    if (tags && tags.length > 0) {
+      this.tags = tags; // 실제 태그 값
+    } else {
+      // 기본 태그 값
+      this.tags = ['기본 태그1', '기본 태그2'];
+    }
   }
 }
