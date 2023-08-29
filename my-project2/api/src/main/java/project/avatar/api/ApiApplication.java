@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import project.avatar.api.entity.Users;
-import project.avatar.api.repo.UserRepository;
+//import project.avatar.api.entity.Users;
+//import project.avatar.api.repo.UserRepository;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.List;
 public class ApiApplication /*implements CommandLineRunner*/ {
 
 	@Autowired
-	UserRepository userRepository;
+	//UserRepository userRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ApiApplication.class, args);

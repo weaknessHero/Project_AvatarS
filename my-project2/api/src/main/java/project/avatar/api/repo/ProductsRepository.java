@@ -1,10 +1,13 @@
 package project.avatar.api.repo;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 import project.avatar.api.entity.Products;
 
 import java.util.List;
 
-public interface ProductsRepository extends MongoRepository<Products, String> {
-    public List<Products> findByName(String name);
+@Repository
+public interface ProductsRepository extends MongoRepository<Products, Long> {
+    List<Products> findByTagsContaining(String tag);
 }

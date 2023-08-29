@@ -7,6 +7,17 @@ import java.util.List;
 
 @Getter
 @Setter
-public class ListResult<T> extends CommonResult{
-    private List<T> list;
+public class ListResult<T> {
+    private boolean success;
+    private String message;
+    private List<T> data;
+
+    public ListResult(boolean success, String message, List<T> data) {
+        this.success = success;
+        this.message = message;
+        this.data = data;
+    }
+
+    // Getter and Setter methods...
 }
+

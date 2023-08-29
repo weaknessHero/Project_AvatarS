@@ -1,4 +1,4 @@
-package project.avatar.api.config;
+/*package project.avatar.api.config;
 
 //import net.rakugakibox.util.YamlResourceBundle;
 import net.rakugakibox.util.YamlResourceBundle;
@@ -59,4 +59,4 @@ public class MessageConfiguration implements WebMvcConfigurer {
             return ResourceBundle.getBundle(basename, locale, YamlResourceBundle.Control.INSTANCE);
         }
     }
-}
+}*/

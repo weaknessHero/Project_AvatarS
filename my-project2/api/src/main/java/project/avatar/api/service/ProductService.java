@@ -1,7 +1,10 @@
 package project.avatar.api.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import project.avatar.api.dto.ProductDTO;
@@ -16,97 +19,84 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.http.HttpStatus;
+import project.avatar.api.entity.Products;
+import project.avatar.api.repo.ProductsRepository;
 
 
 @Service
 public class ProductService {
 
-    public List<ProductDTO> searchProducts(String query) {
-        // 검색 결과와 웹 스크래핑을 위한 List 생성
-        List<ProductDTO> products = new ArrayList<>();
 
-        // 1. Google Custom Search API를 사용하여 검색 결과 가져오기
-        List<String> searchResultUrls = callGoogleCustomSearchAPI(query);
+    @Autowired
+    private ProductsRepository productsRepository;
 
-        // 2. JSoup를 사용하여 웹 스크래핑 수행
-        for (String url : searchResultUrls) {
-            try {
-                int timeout = (int) TimeUnit.SECONDS.toMillis(200); //타임아웃 값 20초로 연장
-                // 페이지 접속 및 HTML 문서 파싱
-                Document document = Jsoup.connect(url)
-                        .timeout(timeout)
-                        .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36")
-                        .get();
+    public Products createProduct(Products products) {
+        return productsRepository.save(products);
+    }
 
-                // 웹 페이지에서 상품 정보 추출하는 코드 작성 (예: CSS 셀렉터를 사용하여 제목, 이미지, 가격 등 추출)
-                String title = extractTitle(document);
-                String imageUrl = extractImageUrl(document);
-                String price = extractPrice(document);
+    public Products getProductById(Long id) {
+        return productsRepository.findById(id).orElse(null);
+    }
 
-                // 3. 추출한 상품 정보를 ProductDTO 형식으로 변환
-                ProductDTO product = new ProductDTO(title, imageUrl, price);
+    public void updateProduct(Products products) {
+        productsRepository.save(products);
+    }
 
-                // 결과 목록에 추가
-                products.add(product);
-            } catch (IOException e) {
-                // 웹 페이지에 접근할 수 없는 경우에 대한 에러 처리
-                System.err.println("Error fetching web page: " + url);
-                e.printStackTrace();
-            }
+    public void deleteProduct(Long id) {
+        productsRepository.deleteById(id);
+    }
+
+    public List<ProductDTO> searchProductsByTags(String tag) {
+        List<ProductDTO> result = new ArrayList<>();
+
+        List<Products> products = productsRepository.findByTagsContaining(tag);
+        for (Products product : products) {
+            ProductDTO productDTO = convertToProductDTO(product);
+            result.add(productDTO);
         }
 
-        // 4. 상품 정보를 포함한 ProductDTO 목록 반환
-        return products;
+        return result;
     }
 
-    // Google Custom Search API를 호출하여 검색 결과 URL 목록 얻기
-    private List<String> callGoogleCustomSearchAPI(String query) {
-        List<String> searchResultUrls = new ArrayList<>();
 
-        // API 키와 검색 엔진 ID 설정 (여기에 실제 값을 사용해야 함)
-        String apiKey = "AIzaSyBG8PUN32srAPwFdhgyjYGyL6hsGZh9ISw";
-        String searchEngineId = "f6162f1854edb462e";
-        String urlTemplate = "https://www.googleapis.com/customsearch/v1?key={0}&cx={1}&q={2}";
+    private ProductDTO convertToProductDTO(Products product) {
+        ProductDTO productDto = new ProductDTO(
+                product.getId(),
+                product.getName(),
+                product.getBrand(),
+                product.getCategory(),
+                product.getPrice(),
+                product.getImageUrl(),
+                product.getBuyUrl(),
+                product.getTags()
+        );
 
-        RestTemplate restTemplate = new RestTemplate();
-
-        // URL 생성
-        String finalUrl = UriComponentsBuilder.fromHttpUrl(urlTemplate)
-                .buildAndExpand(apiKey, searchEngineId, query)
-                .toString();
-
-        ResponseEntity<CustomSearchResponse> response = restTemplate.getForEntity(finalUrl, CustomSearchResponse.class);
-
-        if (response.getStatusCode() == HttpStatus.OK) {
-            CustomSearchResponse searchResponse = response.getBody();
-            if (searchResponse != null) {
-                for (Items items : searchResponse.getItems()) {
-                    searchResultUrls.add(items.getLink());
-                }
-            }
-        } else {
-            // 에러 처리
-            System.err.println("Error fetching search results from Google API. Response status: " + response.getStatusCodeValue());
-        }
-
-        return searchResultUrls;
+        return productDto;
     }
 
-    // 각 웹 페이지에서 상품 정보를 추출하는 메서드들
-    // 웹 페이지의 구조에 따라 이 메서드들을 구현하여 제목, 이미지 URL 및 가격을 추출
 
-    private String extractTitle(Document document) {
-        Element titleElement = document.selectFirst(".product-title"); // 예: CSS 셀렉터를 사용하여 제목 추출
-        return titleElement != null ? titleElement.text() : "";
+
+    /* SQLite
+    @Autowired
+    private ProductsRepository productsRepository;
+
+    @Transactional(isolation = Isolation.SERIALIZABLE)
+    public Products createProduct(Products products){
+        return productsRepository.save(products);
     }
 
-    private String extractImageUrl(Document document) {
-        Element imageElement = document.selectFirst(".product-image"); // 예: CSS 셀렉터를 사용하여 이미지 URL 추출
-        return imageElement != null ? imageElement.attr("src") : "";
+    @Transactional
+    public Products getProductById(Long id){
+        return productsRepository.findById(id).orElse(null);
     }
 
-    private String extractPrice(Document document) {
-        Element priceElement = document.selectFirst(".product-price"); // 예: CSS 셀렉터를 사용하여 가격 추출
-        return priceElement != null ? priceElement.text() : "";
+    @Transactional
+    public void updateProduct(Products products){
+        productsRepository.save(products);
     }
+
+    @Transactional
+    public void deleteProduct(Long id){
+        productsRepository.deleteById(id);
+    }*/
 }

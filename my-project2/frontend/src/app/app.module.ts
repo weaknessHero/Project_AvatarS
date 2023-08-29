@@ -33,6 +33,7 @@ import { OverlayComponent } from './component/overlay/overlay.component';
 import { ResultComponent } from './component/result/result.component';
 import { ItemsComponent } from './component/items/items.component';
 import { SearchComponent } from './component/search/search.component';
+import { ManageComponent } from './component/product/manage/manage.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { SearchComponent } from './component/search/search.component';
     OverlayComponent,
     ResultComponent,
     ItemsComponent,
-    SearchComponent
+    SearchComponent,
+    ManageComponent
   ],
     imports: [
         BrowserModule,

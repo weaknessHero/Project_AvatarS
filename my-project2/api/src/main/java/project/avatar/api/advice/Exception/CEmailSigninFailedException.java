@@ -1,4 +1,4 @@
-package project.avatar.api.advice.Exception;
+/*package project.avatar.api.advice.Exception;
 
 public class CEmailSigninFailedException extends RuntimeException{
     public CEmailSigninFailedException(String msg, Throwable t){
@@ -13,3 +13,4 @@ public class CEmailSigninFailedException extends RuntimeException{
         super();
     }
 }
+*/

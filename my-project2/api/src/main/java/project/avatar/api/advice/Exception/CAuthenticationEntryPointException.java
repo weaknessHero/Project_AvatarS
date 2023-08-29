@@ -1,4 +1,4 @@
-package project.avatar.api.advice.Exception;
+/*package project.avatar.api.advice.Exception;
 
 public class CAuthenticationEntryPointException extends RuntimeException{
     public CAuthenticationEntryPointException(String msg, Throwable t){
@@ -11,3 +11,4 @@ public class CAuthenticationEntryPointException extends RuntimeException{
         super();
     }
 }
+*/

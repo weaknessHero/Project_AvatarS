@@ -1,6 +1,6 @@
 package project.avatar.api.service;
 
-import com.fasterxml.jackson.databind.JsonNode;
+/*import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -55,4 +55,4 @@ public class GoogleSearchService {
         }
         return products;
     }
-}
+}*/

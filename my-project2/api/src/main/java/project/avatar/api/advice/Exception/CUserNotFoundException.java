@@ -1,4 +1,4 @@
-package project.avatar.api.advice.Exception;
+/*package project.avatar.api.advice.Exception;
 
 public class CUserNotFoundException extends RuntimeException {
     public CUserNotFoundException(String msg, Throwable t) {
@@ -12,4 +12,4 @@ public class CUserNotFoundException extends RuntimeException {
     public CUserNotFoundException() {
         super();
     }
-}
+}*/

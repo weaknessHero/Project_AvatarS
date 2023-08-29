@@ -1,4 +1,4 @@
-package project.avatar.api.advice;
+/*package project.avatar.api.advice;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
@@ -51,7 +51,7 @@ public class ExceptionAdvice {
         protected CommonResult emailSigninFailed(HttpServletRequest request, CEmailSigninFailedException e){
             return responseService.getFailResult(Integer.valueOf(getMessage("emailSigninFailed.code")), getMessage("emailSigninFailed.msg"));
     }
-}
+}*/
 
 /*import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;

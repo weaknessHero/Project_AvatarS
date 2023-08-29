@@ -15,6 +15,7 @@ import {DetectLabelsComponent} from "./component/fit/detect/detect-labels/detect
 import {FittingComponent} from "./component/fitting/fitting/fitting.component";
 import {ImageSliderComponent} from "./component/image-slider/image-slider.component";
 import {SearchComponent} from "./component/search/search.component";
+import {ManageComponent} from "./component/product/manage/manage.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path: 'detect-labels', component:DetectLabelsComponent},
   {path: 'fitting', component:FittingComponent},
   {path: 'image-slider', component:ImageSliderComponent},
-  {path: 'search', component:SearchComponent}
+  {path: 'search', component:SearchComponent},
+  {path: 'manage', component:ManageComponent}
 ];
 
 @NgModule({

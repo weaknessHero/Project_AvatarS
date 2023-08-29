@@ -1,4 +1,4 @@
-/*package project.avatar.api.config;
+package project.avatar.api.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -18,4 +18,3 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable();
     }
 }
-*/

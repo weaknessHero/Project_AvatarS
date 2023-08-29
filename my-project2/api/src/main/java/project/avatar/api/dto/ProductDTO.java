@@ -1,61 +1,38 @@
 package project.avatar.api.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.Arrays;
+import java.util.List;
+
+@Getter
+@Setter
 public class ProductDTO {
-    private String id;
+    private Long id;
     private String name;
+    private String category;
+    private String brand;
+    private int price; // 가격은 일반적으로 정수로 처리합니다.
     private String imageUrl;
-    private String price; // Number 대신 String을 사용하셨다면 이 부분을 유지하세요.
-    private float rating;
+    private String buyUrl;
+    private List<String> tags; // 태그 정보는 리스트로 관리합니다.
 
-    public ProductDTO(String name, String imageUrl, String price) {
-        this.name = name;
-        this.imageUrl = imageUrl;
-        this.price = price;
-    }
-    // Getter, Setter 메서드들...
-
-
-    // getter 메서드
-    public String getId() {
-        return id;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public float getRating() {
-        return rating;
-    }
-
-    // setter 메서드
-    public void setId(String id) {
+    public ProductDTO(Long id, String name, String brand,
+                      String category, int price, String imageUrl, String buyUrl, List tags) {
         this.id = id;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
-    public void setName(String name) {
         this.name = name;
-    }
-
-    public void setPrice(String price) {
+        this.brand = brand;
+        this.category = category;
         this.price = price;
-    }
+        this.imageUrl = imageUrl;
+        this.buyUrl = buyUrl;
+        if (tags != null && !tags.isEmpty()) {
+            this.tags = tags; // 실제 태그 값
+        } else {
+            // 기본 태그 값
+            this.tags = Arrays.asList("기본 태그1", "기본 태그2");
+        }
 
-    public void setRating(float rating) {
-        this.rating = rating;
     }
-
-    // hashCode, equals, toString 등 추가적인 메서드가 필요하면 여기 구현
 }

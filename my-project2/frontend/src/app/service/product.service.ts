@@ -16,4 +16,8 @@ export class ProductService {
       params: { query: query },
     });
   }
+
+  createProduct(productData: { price: number; imageUrl: string; name: string; buyUrl: string; category: string; brand: string; tags: any[] }): Observable<any> {
+    return this.http.post(this.apiUrl, productData);
+  }
 }

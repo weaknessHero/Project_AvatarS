@@ -10,9 +10,9 @@ sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
-	/*maven {
-		url "https://repo.tensorflow.org/maven"
-	}*/
+	maven {
+		url 'https://jitpack.io'
+	}
 	google()
 }
 
@@ -37,16 +37,18 @@ dependencies {
 	implementation 'org.projectlombok:lombok:1.18.20'
 	implementation 'org.seleniumhq.selenium:selenium-java:4.1.2'
 	implementation 'io.github.bonigarcia:webdrivermanager:5.0.3'
-
 	implementation 'org.bytedeco:javacv-platform:1.5.7'
 
 	implementation 'org.jsoup:jsoup:1.14.3'
 	implementation 'com.googlecode.json-simple:json-simple:1.1.1'
 	implementation 'com.google.code.gson:gson:2.8.7'
+	implementation 'org.xerial:sqlite-jdbc:3.42.0.0'
+	implementation 'com.zaxxer:HikariCP:4.0.3'
 
 	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'com.h2database:h2'
-	runtimeOnly 'com.mysql:mysql-connector-j'
+	//runtimeOnly 'com.h2database:h2'
+	//runtimeOnly 'com.mysql:mysql-connector-j'
+	runtimeOnly 'org.xerial:sqlite-jdbc:3.34.0'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
