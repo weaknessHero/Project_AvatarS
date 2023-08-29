@@ -9,6 +9,10 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 })
 export class ResultComponent {
   imagePath;
+  public imageExists = false;
+  checkingImage;
+  loadingImage;
+
   constructor(
     public dialogRef: MatDialogRef<ResultComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {generatedIMG: string},
@@ -16,11 +20,45 @@ export class ResultComponent {
     private http: HttpClient
   ) 
   {
+    //위치 설정
     this.imagePath = "assets/generateIMG/" + data.generatedIMG;
+    this.checkImage();
+  }
+  
+  checkImage() {
+    this.checkingImage = true;
+    
+    const img = new Image();
+
+    const checkInterval = setInterval(() => {
+      
+      try {
+        img.src = this.imagePath;
+
+
+        img.onload = () => {
+          this.imageExists = true;
+          clearInterval(checkInterval); // 파일이 존재하는 경우 setInterval 종료
+        };
+        
+      } catch (error) {
+        // 예외가 발생했을 때 실행되는 코드
+        console.error('An error occurred:', error);
+      }
+
+
+      img.onerror = () => {
+        this.imageExists = false; // 이미지가 없을 경우 false로 설정
+      };
+    }, 500); // 0.5초마다 파일 존재 여부 확인
+
+    setTimeout(() => {
+      clearInterval(checkInterval);
+    }, 30000); // 30초 후에 setInterval 종료
+
   }
 
   async downloadImage() {
-
     this.http.get(this.imagePath, { responseType: 'blob' }).subscribe((response) => {
       this.saveImageLocally(response);
     });
