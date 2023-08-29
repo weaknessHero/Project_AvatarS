@@ -37,9 +37,9 @@ export class OverlayComponent implements OnInit {
     this.isSearchVisible = false;
   }
 
-  performSearch(query: string) {
+  /*performSearch(query: string) {
     this.searchResults = this.itemService.searchItems(query);
-  }
+  }*/
 
   toggleSearch(){
     console.log('toggle called');

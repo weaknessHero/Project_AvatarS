@@ -17,7 +17,8 @@ export class ItemService {
   createItems(){
     return this.http.get<Item[]>(this.backendUrl);
   }
-  /*
+
+  //기존 코드 - 하드 코딩 방식
   private items: Item[] = [
     new Item(1, '남성 나슬란 와트로 다운 패딩 재킷' ,'스톤아일랜드', '아우터', 790000,  '../../../assets/items/1.jpg',
       'https://www.musinsa.com/app/goods/3261311?loc=goods_rank', ['패딩', '검정색','검정', '재킷', '자켓', '남자','스톤아일랜드']),
@@ -29,13 +30,11 @@ export class ItemService {
       'https://www.musinsa.com/app/goods/3261311?loc=goods_rank', ['패딩', '검정색', '재킷', '자켓', '남자', '노스페이스', '더노스페이스'])
   ];
 
-  constructor( private http: HttpClient) { }
-
   searchItems(searchInput: string): Item[] {
     return this.items.filter(item => {
       return item.tags.some(tag => tag.toLowerCase().includes(searchInput.toLowerCase()));
     });
-  }*/
+  }
 
   apiSearch(query: string){
     return this.http.get(`http://localhost:8080/api/search?query=${query}`);
