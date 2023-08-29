@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../app/component/items/item.model';
 import { HttpClient } from '@angular/common/http';
+import {getRepository} from "typeorm";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
+
+  async itemSearch(){
+    const itemRepository = getRepository(Item);
+    return await itemRepository.find();
+  }
   private items: Item[] = [
     new Item(1, '남성 나슬란 와트로 다운 패딩 재킷1' ,'스톤아일랜드', '아우터', 790000,  '../../../assets/items/1.jpg',
       'https://www.musinsa.com/app/goods/3261311?loc=goods_rank', ['패딩', '검정색','검정', '재킷', '자켓', '남자','스톤아일랜드']),

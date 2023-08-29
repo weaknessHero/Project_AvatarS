@@ -1,11 +1,22 @@
+import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+
+@Entity()
 export class Item {
+  @PrimaryGeneratedColumn()
   id: number;
+  @Column()
   name: string;
+  @Column()
   category: string;
+  @Column()
   brand: string;
+  @Column()
   price: number;
+  @Column()
   imageUrl: string;
+  @Column()
   buyUrl: string;
+  @Column()
   tags: string[];
 
   constructor(id: number, name: string, brand:string, category: string, price: number, imageUrl: string, buyUrl: string, tags: string[]) {
