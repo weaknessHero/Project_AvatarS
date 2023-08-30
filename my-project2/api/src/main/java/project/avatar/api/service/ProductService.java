@@ -34,7 +34,7 @@ public class ProductService {
         return productsRepository.save(products);
     }
 
-    public Products getProductById(Long id) {
+    public Products getProductById(String id) {
         return productsRepository.findById(id).orElse(null);
     }
 
@@ -42,7 +42,7 @@ public class ProductService {
         productsRepository.save(products);
     }
 
-    public void deleteProduct(Long id) {
+    public void deleteProduct(String id) {
         productsRepository.deleteById(id);
     }
 
@@ -57,7 +57,6 @@ public class ProductService {
 
         return result;
     }
-
 
     private ProductDTO convertToProductDTO(Products product) {
         ProductDTO productDto = new ProductDTO(

@@ -36,6 +36,10 @@ export class ItemService {
     });
   }
 
+  searchByTag(tag: string){
+    return this.http.get<Item[]>(`${this.backendUrl}/search?tag=${tag}`);
+  }
+
   apiSearch(query: string){
     return this.http.get(`http://localhost:8080/api/search?query=${query}`);
   }

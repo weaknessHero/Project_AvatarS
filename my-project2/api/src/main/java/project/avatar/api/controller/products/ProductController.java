@@ -27,7 +27,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Products> getProductById(@PathVariable Long id) {
+    public ResponseEntity<Products> getProductById(@PathVariable String id) {
         Products product = productService.getProductById(id);
         if (product != null) {
             return new ResponseEntity<>(product, HttpStatus.OK);
@@ -37,7 +37,7 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateProduct(@PathVariable Long id, @RequestBody Products product) {
+    public ResponseEntity<Void> updateProduct(@PathVariable String id, @RequestBody Products product) {
         Products existingProduct = productService.getProductById(id);
         if (existingProduct != null) {
             product.setId(id); // Set the ID of the updated product
@@ -49,7 +49,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteProduct(@PathVariable String id) {
         Products existingProduct = productService.getProductById(id);
         if (existingProduct != null) {
             productService.deleteProduct(id);

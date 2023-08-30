@@ -16,7 +16,7 @@ public class Products {
 
     @Id
     @GeneratedValue
-    private Long id; // Changed from String to Long for better handling of ID.
+    private String id; // Changed from String to Long for better handling of ID.
 
     @Column(name = "name")
     private String name;
@@ -40,7 +40,7 @@ public class Products {
     @Field("tags")
     private List<String> tags;
 
-    public Products(Long id, String name,
+    public Products(String id, String name,
                     String category,
                     String brand,
                     Integer price,

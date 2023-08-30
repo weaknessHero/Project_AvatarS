@@ -8,7 +8,6 @@ import { ProductService} from "../../../service/product.service";
 })
 export class ManageComponent {
   product = {
-    id: '',
     name: '',
     category: '',
     brand: '',
@@ -35,7 +34,6 @@ export class ManageComponent {
         this.errorMessage = '';
         // 폼 초기화
         this.product = {
-          id: '',
           name: '',
           category: '',
           brand: '',

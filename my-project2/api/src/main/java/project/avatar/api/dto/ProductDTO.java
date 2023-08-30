@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 public class ProductDTO {
-    private Long id;
+    private String id;
     private String name;
     private String category;
     private String brand;
@@ -18,7 +18,7 @@ public class ProductDTO {
     private String buyUrl;
     private List<String> tags; // 태그 정보는 리스트로 관리합니다.
 
-    public ProductDTO(Long id, String name, String brand,
+    public ProductDTO(String id, String name, String brand,
                       String category, int price, String imageUrl, String buyUrl, List tags) {
         this.id = id;
         this.name = name;

@@ -23,9 +23,17 @@ export class SearchComponent {
   ) {}
 
   performSearch(query: string) {
-    // 로컬 이미지 검색
+    // 태그 검색(MongoDB)
+    this.itemService.searchByTag(query).subscribe((result:any)=>{
+      console.log(result);
+      this.localResults = Array.isArray(result.data) ? result.data : [result.data];
+    });
+    /*this.itemService.searchByTag(query).subscribe((localResults:Item[]) => {
+      this.localResults = localResults;
+    });
+
     this.localResults = this.itemService.searchItems(query)
-      .filter(item => !this.selectedCategory || item.category === this.selectedCategory);
+      .filter(item => !this.selectedCategory || item.category === this.selectedCategory);*/
 
     // API 검색
     this.itemService.apiSearch(query).subscribe((apiResults:any[]) => {

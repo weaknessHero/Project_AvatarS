@@ -8,6 +8,6 @@ import project.avatar.api.entity.Products;
 import java.util.List;
 
 @Repository
-public interface ProductsRepository extends MongoRepository<Products, Long> {
+public interface ProductsRepository extends MongoRepository<Products, String> {
     List<Products> findByTagsContaining(String tag);
 }
