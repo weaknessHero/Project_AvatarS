@@ -54,7 +54,7 @@ export class ResultComponent {
 
     setTimeout(() => {
       clearInterval(checkInterval);
-    }, 30000); // 30초 후에 setInterval 종료
+    }, 60000); // 30초 후에 setInterval 종료
 
   }
 
