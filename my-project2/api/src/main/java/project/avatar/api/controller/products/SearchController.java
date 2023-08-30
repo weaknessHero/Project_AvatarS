@@ -6,18 +6,15 @@ import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.List;
-import java.util.Map;
-
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api")
-public class SearchConroller {
+public class SearchController {
 
     private final String clientId = "pyKxHNJQD2r5QL18dwff";
     private final String clientSecret = "Is26TZ2Tes";
 
-    @GetMapping("/search")
+    @GetMapping("/naverSearch")
     public Object search(@RequestParam String query){
         RestTemplate restTemplate = new RestTemplate();
 
@@ -31,8 +28,9 @@ public class SearchConroller {
                 "https://openapi.naver.com/v1/search/shop.json?query=" + query,
                 HttpMethod.GET,
                 entity,
-                ItemResponse.class
+                Object.class
         ).getBody();
+
         return apiResults;
     }
 }

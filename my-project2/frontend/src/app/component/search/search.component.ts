@@ -23,23 +23,35 @@ export class SearchComponent {
   ) {}
 
   performSearch(query: string) {
+    this.localResults = [];
+    this.apiResults = [];
+
     // 태그 검색(MongoDB)
-    this.itemService.searchByTag(query).subscribe((result:any)=>{
+    this.itemService.searchByTag(query).subscribe((result: any) => {
       console.log(result);
       this.localResults = Array.isArray(result.data) ? result.data : [result.data];
     });
-    /*this.itemService.searchByTag(query).subscribe((localResults:Item[]) => {
-      this.localResults = localResults;
-    });
 
-    this.localResults = this.itemService.searchItems(query)
-      .filter(item => !this.selectedCategory || item.category === this.selectedCategory);*/
 
-    // API 검색
-    this.itemService.apiSearch(query).subscribe((apiResults:any[]) => {
-      this.apiResults = apiResults;
+    // Naver 검색
+    this.itemService.naverSearch(query).subscribe((naverResults: any) => {
+      console.log(naverResults); // 로그에 결과 출력 (또는 다른 처리)
+      // 원하는 형태로 데이터 변환 후 apiResults에 추가 또는 별도의 변수에 저장
+      const transformedNaverItems = naverResults.items.map(item => ({
+        ...item,
+        image: item.image,
+        title: item.title.replace(/<b>|<\/b>/g, ''),
+        lprice: item.lprice,
+        link: item.link,
+        category1: item.category1,
+        productId: item.productId.toString(),
+        mallname:item.mallname
+      }));
+
+      Array.prototype.push.apply(this.apiResults, transformedNaverItems);
     });
   }
+
 
   toggleSearch(): void {
     this.localResults = []; // 로컬 결과 초기화
