@@ -4,7 +4,12 @@
     <form [formGroup]="signUpForm" (ngSubmit)="submit()">
       <p>
         <mat-form-field>
-          <input type="text" matInput placeholder="Email" formControlName="uid">
+          <input type="text" matInput placeholder="Name" formControlName="name">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Id" formControlName="uid">
         </mat-form-field>
       </p>
       <p>
@@ -15,11 +20,6 @@
       <p>
         <mat-form-field>
           <input type="password" matInput placeholder="Confirm Password" formControlName="password_re">
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field>
-          <input type="text" matInput placeholder="Name" formControlName="name">
         </mat-form-field>
       </p>
       <p *ngIf="f.uid.invalid && (f.uid.touched || f.uid.dirty)" class="error">

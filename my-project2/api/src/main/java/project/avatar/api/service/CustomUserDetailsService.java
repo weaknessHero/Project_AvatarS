@@ -10,6 +10,7 @@ import project.avatar.api.repo.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -19,12 +20,12 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String uid) throws UsernameNotFoundException {
-        List<Users> users = userRepository.findByUid(uid);
+        Optional<Users> users = userRepository.findByUid(uid);
         if (users.isEmpty()) {
             throw new UsernameNotFoundException("No user found with username: " + uid);
         }
 
-        Users user = users.get(0);
+        Users user = users.get();
 
         return new org.springframework.security.core.userdetails.User(user.getUid(), user.getPassword(), new ArrayList<>());
     }
