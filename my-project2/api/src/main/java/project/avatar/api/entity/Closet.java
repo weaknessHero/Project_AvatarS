@@ -5,14 +5,14 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
 @Data
 @NoArgsConstructor
-@Document(collection = "clothes")
-public class Clothes {
+@Document(collection = "closet")
+public class Closet {
 
     @Id
     private String id; // 아이템의 고유 식별자
@@ -20,13 +20,12 @@ public class Clothes {
     @DBRef(lazy = true)
     private Users user; // 사용자 정보
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
-    private Products product; // 저장된 상품 정보
+    @DBRef(lazy = true)
+    private List<Products> products; // 저장된 상품 정보들
 
-    public Clothes(Users user, Products product) {
+    public Closet(Users user, List<Products> products) {
         this.user = user;
-        this.product = product;
+        this.products = products;
     }
 
 }

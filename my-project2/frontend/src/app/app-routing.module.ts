@@ -16,6 +16,7 @@ import {FittingComponent} from "./component/fitting/fitting/fitting.component";
 import {ImageSliderComponent} from "./component/image-slider/image-slider.component";
 import {SearchComponent} from "./component/search/search.component";
 import {ManageComponent} from "./component/product/manage/manage.component";
+import {ClosetComponent} from "./component/member/closet/closet.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -32,7 +33,8 @@ const routes: Routes = [
   {path: 'fitting', component:FittingComponent},
   {path: 'image-slider', component:ImageSliderComponent},
   {path: 'search', component:SearchComponent},
-  {path: 'manage', component:ManageComponent}
+  {path: 'manage', component:ManageComponent},
+  {path: 'closet', component:ClosetComponent}
 ];
 
 @NgModule({

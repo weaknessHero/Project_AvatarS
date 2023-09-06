@@ -35,6 +35,7 @@ import { ItemsComponent } from './component/items/items.component';
 import { SearchComponent } from './component/search/search.component';
 import { ManageComponent } from './component/product/manage/manage.component';
 import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
+import { ClosetComponent } from './component/member/closet/closet.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
     ResultComponent,
     ItemsComponent,
     SearchComponent,
-    ManageComponent
+    ManageComponent,
+    ClosetComponent
   ],
     imports: [
         BrowserModule,
