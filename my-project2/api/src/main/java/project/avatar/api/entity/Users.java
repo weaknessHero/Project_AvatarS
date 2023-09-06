@@ -1,21 +1,18 @@
 package project.avatar.api.entity;
 
 import lombok.*;
-
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
 @Setter
 @Data
-@Entity
-@Table(name = "users")
+@NoArgsConstructor
+@Document(collection = "users")
 public class Users {
 
-    public Users() {}
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
 
     private String uid;
 
@@ -29,7 +26,4 @@ public class Users {
         this.name = name;
     }
 
-    public String toString() {
-        return String.format("User[id=%d, uid=%s, password=%s, name=%s]", id, uid, password, name);
-    }
 }
