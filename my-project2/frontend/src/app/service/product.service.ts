@@ -20,4 +20,8 @@ export class ProductService {
   createProduct(productData: { price: number; imageUrl: string; name: string; buyUrl: string; category: string; brand: string; tags: any[] }): Observable<any> {
     return this.http.post(this.apiUrl, productData);
   }
+
+  getProduct(id:string): Observable<ProductDTO> {
+    return this.http.get<ProductDTO>(`${this.apiUrl}${id}`);
+  }
 }

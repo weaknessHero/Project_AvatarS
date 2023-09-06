@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Item } from "../items/item.model";
 import { ItemService } from "../../item.service";
 import { HttpClient } from "@angular/common/http";
+import {ClosetService} from "../../service/closet.service";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-search',
@@ -19,7 +21,8 @@ export class SearchComponent {
 
   constructor(
     private itemService: ItemService,
-    private http: HttpClient
+    private http: HttpClient,
+    private closetService: ClosetService
   ) {}
 
   performSearch(query: string) {
@@ -50,6 +53,17 @@ export class SearchComponent {
 
       Array.prototype.push.apply(this.apiResults, transformedNaverItems);
     });
+  }
+
+  addToCloset(item){
+    const username = localStorage.getItem('username');
+    if(username){
+      this.closetService.addToCloset(username, item.id)
+        .subscribe(
+          response=> console.log(response),
+          error => console.error(error)
+        );
+    }
   }
 
 

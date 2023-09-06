@@ -30,7 +30,7 @@
         </div>
         <div class="move">
           <a mat-button [href]="item.buyUrl" target="_blank" rel="noopener noreferrer">구매처 이동</a>
-          <a mat-button [href]="item.buyUrl" target="_blank" rel="noopener noreferrer">옷장에 추가</a>
+          <a mat-button (click)="addToCloset(item)">옷장에 추가</a>
         </div>
       </div>
       <div *ngIf="localResults.length === 0">

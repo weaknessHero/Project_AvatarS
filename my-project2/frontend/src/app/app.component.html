@@ -56,7 +56,7 @@
               <span class="label1">상품 등록</span>
             </a>
             <li *ngIf="(signService.username | async) as username" class="label1">
-              <a [routerLink]="['/myinfo']">
+              <a [routerLink]="['/closet']">
                 {{ username || '사용자' }}의 옷장
               </a>
             </li>

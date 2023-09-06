@@ -17,15 +17,13 @@ public class Closet {
     @Id
     private String id; // 아이템의 고유 식별자
 
-    @DBRef(lazy = true)
-    private Users user; // 사용자 정보
+    private String username; // 사용자 이름
 
-    @DBRef(lazy = true)
-    private List<Products> products; // 저장된 상품 정보들
+    private List<String> productIds; // 저장된 상품 ID들
 
-    public Closet(Users user, List<Products> products) {
-        this.user = user;
-        this.products = products;
+    public Closet(String username, List<String> productIds) {
+        this.username = username;
+        this.productIds = productIds;
     }
 
 }

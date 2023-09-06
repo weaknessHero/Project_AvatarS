@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { HttpClient  } from '@angular/common/http';
 import { ResultComponent } from "../../result/result.component";
 import {MatDialog} from "@angular/material/dialog";
+import {ClosetService} from "../../../service/closet.service";
+import {ProductService} from "../../../service/product.service";
+import {forkJoin} from "rxjs";
 
 @Component({
   selector: 'app-fitting',
   templateUrl: './fitting.component.html',
   styleUrls: ['./fitting.component.css']
 })
-export class FittingComponent {
+export class FittingComponent implements OnInit{
 
   localserver: string = '';
   imagePath: string = '/assets/avatar_woman.png';
@@ -19,9 +22,31 @@ export class FittingComponent {
   modelPreview;
   clothesPreview;
   responseImage;
-  constructor(private http: HttpClient,
-              private dialog: MatDialog) { }
 
+  closetItems = [];
+
+  username = localStorage.getItem('username');
+  constructor(private http: HttpClient,
+              private dialog: MatDialog,
+              private closetService: ClosetService,
+              private productService: ProductService) { }
+
+  ngOnInit() {
+    const username = localStorage.getItem('username');
+
+    if (username) {
+      this.closetService.getCloset(username).subscribe(closet => {
+        const requests = closet.productIds.map(productId =>
+          this.productService.getProduct(productId)
+        );
+
+        forkJoin(requests).subscribe(
+          products => this.closetItems = products,
+          error => console.error(error)
+        );
+      });
+    }
+  }
   handleManImage(){
     /*if (this.imageElement && this.imageElement.nativeElement) {
       this.imageElement.nativeElement.remove();
