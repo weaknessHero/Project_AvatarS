@@ -3,7 +3,7 @@
 </div>
 <div class="wrapper" *ngIf="!isHomeComponent">
   <mat-sidenav-container>
-    <<mat-sidenav #sidenav role="navigation" >
+    <mat-sidenav #sidenav role="navigation" >
       <mat-nav-list>
         <a mat-list-item [routerLink]="['/']">
           <mat-icon class="icon">home</mat-icon>
@@ -86,7 +86,9 @@
       </mat-toolbar>
       <main>
         <app-head></app-head>
+        <div class = "description" >
         <router-outlet (activate)="onActivate($event)" (deactivate)="onDeactivate($event)"></router-outlet>
+        </div>
       </main>
     </mat-sidenav-content>
   </mat-sidenav-container>

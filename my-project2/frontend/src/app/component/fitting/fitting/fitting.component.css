@@ -5,27 +5,12 @@
   height: 100%;
 }
 
-/*메뉴 반응형 처리*/
-mat-sidenav-container{
-  display: flex;
-  flex: 1;
-}
-
-/*상단 메뉴 꽉 차게*/
-mat-sidenav-content{
-  width: 100%
-}
-
-/*왼쪽 메뉴 가로 사이즈 지정*/
-mat-sidenav{
-  min-width: 200px;
-}
 h2{
   font-family: 'ONEMobile', sans-serif;
   font-weight: bold;
 }
 
-.cloth .h2{
+.h2{
   width: 50%;
 }
 /*메뉴 author 태그 스타일 지정, 최초: 화이트, 클릭: 회색*/
@@ -33,6 +18,11 @@ a{
   text-decoration: none;
   color: white;
 }
+
+.closet-container{
+  width: 100%;
+}
+
 
 a:hover, a:active{
   color: lightgray;
@@ -138,18 +128,12 @@ footer{
 .container{
   display: flex;
   justify-content: space-between;
+  min-height: 560px;
 }
-
-
-.avatar-img{
-  width: 100%;
-}
-
-.avatar{
-  flex-basis: 33.3333%;
-  flex-grow: 1;
-  padding: 0 10px;
-
+.result-button-container{
+  display:block;
+  text-align : right;
+  margin: 20px;
 }
 
 .avatar .image{
@@ -164,7 +148,7 @@ footer{
 }
 
 .cloth {
-  width: 33.3333%;
+  width: 100%;
   padding: 0 10px;
   display: flex;
   flex-wrap: wrap;
@@ -194,6 +178,11 @@ footer{
   position: relative;
 }
 
+
+.image-box {
+  text-align: center;
+  width: 100%;
+}
 /* 기존 .box, .box_avatar, .brandName, .name 클래스는 동일하게 유지 */
 
 .box, .box_avatar {
@@ -333,12 +322,6 @@ h3{
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   margin-left:3px;
-}
-#btn_group button{
-  border: 1px solid black;
-  background-color: rgba(0,0,0,0);
-  color: black;
-  padding: 5px;
 }
 
 #btn_group button:hover{

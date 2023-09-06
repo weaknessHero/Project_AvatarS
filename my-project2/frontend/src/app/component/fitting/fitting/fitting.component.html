@@ -1,34 +1,36 @@
 <div class="container">
-  <div class="avatar">
-    <h2>모델 선택</h2>
+  <div class="image-box">
+    <div class="Guide">모델 선택</div>
+    <div class="image" class="preview">
+      <input type="file" id="modelInput" style="display: none;" (change)="handleImageChange($event, 'modelPreview', 'modelImg','modelInput')">
+      <img id="modelPreview" *ngIf="modelInput" [src]="''" alt="Image 1" style="height: 600px; width:500px;" />
+      <img *ngIf="modelInput==null" src='/assets/ModelGuide.png' alt="Image 2" style="height: 600px; width:500px;" />
+    </div>
     <div id="btn_group">
-      <button id="btn1" (click)="imageInput('modelInput')">이미지 불러오기</button>
-      <button id="btn2" (click)="imageInput('modelInput')">이미지 원래대로</button>
+      <button class="btn" (click)="imageInput('modelInput')">이미지 불러오기</button>
+    </div>
+
+  </div>
+  <div class="image-box">
+    <div class="Guide">옷 선택</div>
+    <div class="image" class="preview">
+      <input type="file" id="clothesInput" style="display: none;" (change)="handleImageChange($event, 'clothesPreview', 'clothesImg','clothesInput')">
+      <img id="clothesPreview" *ngIf="clothesInput"  [src]="''" alt="미리보기 이미지" style="height: 500px; width:500px;">
+      <img *ngIf="!clothesInput" src='/assets/ClothesGuide.png' alt="Image 2"  style="height: 500px; width:500px;"/>
+    </div>
+    <div id="btn_group">
+      <button class="btn" (click)="imageInput('clothesInput')">이미지 불러오기</button>
     </div>
     <br>
-    <div class="image">
-      <input type="file" id="modelInput" style="display: none;" (change)="handleImageChange($event, 'modelPreview', 'modelImg')">
-      <img id="modelPreview" [src]="''" alt="미리보기 이미지" style="display: none;">
-    </div>
   </div>
-  <div class="avatar">
-    <h2>옷 선택</h2>
-    <div id="btn_group">
-      <button id="btn" (click)="imageInput('clothesInput')">이미지 불러오기</button>
-    </div>
-    <br>
-    <div class="image">
-      <input type="file" id="clothesInput" style="display: none;" (change)="handleImageChange($event, 'clothesPreview', 'clothesImg')">
-      <img id="clothesPreview" [src]="''" alt="미리보기 이미지" style="display: none;">
-    </div>
-    <div id="send_button">
-      <button id="btn1" (click)="sendImageInput()">가상 피팅하기</button>
-    </div>
-    <button mat-button (click)="openImageDialog()">결과 보기</button>
-  </div>
-  <br>
+</div>
+<div class="result-button-container">
+  <button class="btn" (click)="sendImageInput()">가상 피팅하기</button>
+  <button class="btn" (click)="openImageDialog()">결과 보기</button>
+</div>
+<div class="closet-container">
   <div class="cloth">
-    <h2>황세동님의 옷장</h2>
+    <div class="Guide">황세동님의 옷장</div>
     <div class="boxes-wrapper">
       <div class="box">
         <div class="overlay">

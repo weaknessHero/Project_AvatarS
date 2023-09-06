@@ -36,7 +36,7 @@ export class FittingComponent {
     this[imageId].click();
   }
 
-  handleImageChange(event: Event, previewId: string, imgId:string) {
+  handleImageChange(event: Event, previewId: string, imgId:string, imageInput:string) {
     const fileInput = (event.target as HTMLInputElement);
     if (fileInput.files && fileInput.files.length > 0) {
       this[imgId] = fileInput.files[0];
@@ -48,12 +48,12 @@ export class FittingComponent {
       const reader = new FileReader();
       reader.onload = (e) => {
         this[previewId].src = e.target.result as string;
-        this[previewId].style.display = 'block';
+        this[imageInput]=true;
       }
       reader.readAsDataURL(file);
     } else {
       this[previewId].src = '';
-      this[previewId].style.display = 'none';
+      this[imageInput]=false;
     }
   }
 
