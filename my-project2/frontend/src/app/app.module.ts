@@ -34,6 +34,7 @@ import { ResultComponent } from './component/result/result.component';
 import { ItemsComponent } from './component/items/items.component';
 import { SearchComponent } from './component/search/search.component';
 import { ManageComponent } from './component/product/manage/manage.component';
+import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -71,6 +72,7 @@ import { ManageComponent } from './component/product/manage/manage.component';
         MatInputModule,
         IonicStorageModule,
         MatSidenavModule,
+        MatSnackBarModule
     ],
   exports: [
     ReactiveFormsModule
