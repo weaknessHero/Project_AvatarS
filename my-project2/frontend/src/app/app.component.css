@@ -6,29 +6,6 @@
 
 }
 
-/*메뉴 반응형 처리*/
-mat-sidenav-container{
-  display: flex;
-  flex: 1;
-}
-
-/*상단 메뉴 꽉 차게*/
-mat-sidenav-content{
-  width: 100%
-}
-
-/*왼쪽 메뉴 가로 사이즈 지정*/
-mat-sidenav{
-  min-width: 200px;
-}
-
-/*모든 틀에서 고정적으로 사용할 가이드 글자 컨셉*/
-.Guide{
-  text-align: left;
-  font-size: 24px;
-  
-}
-
 
 /*메뉴 author 태그 스타일 지정, 최초: 화이트, 클릭: 회색*/
 a{
@@ -89,5 +66,6 @@ footer{
   margin-left: auto;
   margin-right: auto;
   max-width: 1200px;
+  min-width: 1000px;
 }
 
