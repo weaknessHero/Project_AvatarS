@@ -23,6 +23,14 @@ a{
   width: 100%;
 }
 
+.image{
+  min-height: 600px;
+}
+
+
+.boxes-wrapper{
+  min-height: 600px;
+}
 
 a:hover, a:active{
   color: lightgray;
@@ -129,6 +137,8 @@ footer{
   display: flex;
   justify-content: space-between;
   min-height: 560px;
+  min-height: 560px;
+  
 }
 .result-button-container{
   display:block;
