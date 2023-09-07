@@ -30,16 +30,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-/*모든 틀에서 고정적으로 사용할 가이드 글자 컨셉*/
-.Guide{
-
-  height: 48px;
-  text-align: left;
+.title {
+  height: auto;
   font-size: 36px;
-  margin: 24px;
-  vertical-align:middle;
-  font-weight: bold;
+  margin: 36px;
   font-family: Arial, Helvetica, sans-serif;
+  display: block;
+  line-height: 1;
+  text-align: left;
 }
 
 .btn{
