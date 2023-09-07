@@ -24,7 +24,7 @@ a{
 }
 
 .image{
-  min-height: 600px;
+  height: 610px;
 }
 
 
@@ -35,6 +35,7 @@ a{
 a:hover, a:active{
   color: lightgray;
 }
+
 
 /*상단 메뉴 스타일 지정*/
 .navigation-items{

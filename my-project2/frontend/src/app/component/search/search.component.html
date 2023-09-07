@@ -12,9 +12,8 @@
         <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
       </select>
     </div>
-    <h1 style="margin-top: 30px;">
-      상품 검색 결과
-    </h1>
+    <div class="title">상품 검색 결과</div>
+
     <div class="search-results">
       <div *ngFor="let item of localResults" class="item-container">
         <img [src]="item.imageUrl" alt="{{item.name}}의 이미지" style="width: 300px; height: 300px;" class="item-image">
@@ -37,9 +36,8 @@
         검색 결과가 없습니다.
       </div>
     </div>
-    <h1 style="margin-top: 30px;">
-      상품 추천
-    </h1>
+    <div class="title">상품 추천</div>
+
     <div class="api-result" style="margin-top: 20px;">
       <div *ngFor="let item of apiResults" class="item-container">
         <img [src]="item.image" alt="{{item.name}}의 이미지" style="width: 300px; height: 300px;" class="item-image">

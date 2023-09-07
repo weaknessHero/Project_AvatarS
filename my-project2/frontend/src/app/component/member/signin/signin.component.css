@@ -4,8 +4,9 @@
 
 .wrapper{
   display: flex;
+  min-height: 605px;
   justify-content: center;
-  margin: 100px 0px;
+  align-items: center;
 }
 
 .mat-form-field{

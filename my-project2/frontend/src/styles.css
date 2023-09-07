@@ -66,3 +66,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   border-radius: 11%;
 }
 
+hr {
+
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+}
