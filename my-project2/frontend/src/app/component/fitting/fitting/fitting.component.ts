@@ -16,7 +16,7 @@ export class FittingComponent implements OnInit{
   localserver: string = '';
   imagePath: string = '/assets/avatar_woman.png';
   modelInput;
-  clothesInput;
+  clothesInput = true;
   modelImg;
   clothesImg;
   modelPreview;
