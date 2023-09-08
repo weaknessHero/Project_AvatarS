@@ -45,7 +45,6 @@ export class SignupComponent {
 
   submit() {
     const signUpData = this.signUpForm.value;
-
     if (this.signUpForm.valid && !this.signUpForm.hasError('notSame')) {
       this.signService.signup(signUpData).subscribe(
         (response) => {

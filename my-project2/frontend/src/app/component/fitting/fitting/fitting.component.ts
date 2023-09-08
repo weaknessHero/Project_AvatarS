@@ -97,6 +97,6 @@ export class FittingComponent implements OnInit{
   applyCloth(imageSrc: string): void {
     const clothesPreview = document.getElementById('clothesPreview') as HTMLImageElement;
     clothesPreview.src = imageSrc;
-    clothesPreview.style.display = 'block';
+    this.clothesInput = true;
   }
 }
