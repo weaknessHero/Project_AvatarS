@@ -62,7 +62,6 @@ export class FittingComponent implements OnInit{
       this[imgId] = fileInput.files[0];
       var file = fileInput.files[0];
     }
-
     this[previewId] = document.getElementById(previewId) as HTMLImageElement;
     if (fileInput.files && fileInput.files.length > 0) {
       const reader = new FileReader();
