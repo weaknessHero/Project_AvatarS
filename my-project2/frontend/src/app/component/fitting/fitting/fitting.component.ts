@@ -47,17 +47,10 @@ export class FittingComponent implements OnInit{
       });
     }
   }
-  handleManImage(){
-    /*if (this.imageElement && this.imageElement.nativeElement) {
-      this.imageElement.nativeElement.remove();
-    }*/
-    this.imagePath = '/assets/avatar_man.png'
-  }
 
   //this[imageId]  저건 this의 imageId 외부에서 임력한것과 동일한 변수명에다가 저장하라는뜻
   imageInput(imageId:string) {
     this[imageId] = document.getElementById(imageId) as HTMLInputElement;
-
     this[imageId].click();
   }
 

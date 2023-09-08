@@ -19,7 +19,7 @@ const mongoose = require('mongoose');
 
 //mongoDB 주소 mongodb://localhost:27017/mangol은
 //로컬주소임 malgol은 데이터베이스명으로 마음대로 지을 수 있음
-const db_url = 'mongodb+srv://my_atlas_user:tpehd13@@cluster0.3ksxfgo.mongodb.net/test';
+const db_url = 'mongodb+srv://xleex9800:1234@cluster0.uzbnijw.mongodb.net/';
 //서버포트
 const port = 3000;
 
