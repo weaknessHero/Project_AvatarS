@@ -4,7 +4,7 @@
 
 .wrapper{
   display: flex;
-  min-height: 605px;
+  min-height: 600px;
   justify-content: center;
   align-items: center;
 }

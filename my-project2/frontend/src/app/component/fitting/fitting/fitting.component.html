@@ -1,32 +1,32 @@
 <div class="container">
-  <div class="image-box">
-    <div class="title">모델 선택</div>
-    <div class="image">
-      <input type="file" id="modelInput" style="display: none;" (change)="handleImageChange($event, 'modelPreview', 'modelImg','modelInput')">
-      <img class="preview" id="modelPreview" *ngIf="modelInput" [src]="''" alt="모델 이미지">
-      <img class="preview" *ngIf="modelInput==null" src='/assets/modelSample.png' alt="모델 예시 이미지 ">
+  <div class="row">
+    <div class="image-box col-sm-12 col-lg-6">
+      <div class="title">모델 선택</div>
+      <div class="image">
+        <input type="file" id="modelInput" style="display: none;" (change)="handleImageChange($event, 'modelPreview', 'modelImg','modelInput')">
+        <img class="preview" id="modelPreview" *ngIf="modelInput" [src]="''" alt="모델 이미지">
+        <img class="preview" *ngIf="modelInput==null" src='/assets/modelSample.png' alt="모델 예시 이미지 ">
+      </div>
+      <div id="btn_group">
+        <button class="buttonSet" (click)="imageInput('modelInput')">이미지 불러오기</button>
+      </div>
     </div>
-    <div id="btn_group">
-      <button class="btn" (click)="imageInput('modelInput')">이미지 불러오기</button>
+    <div class="image-box col-sm-12 col-lg-6">
+      <div class="title">옷 선택</div>
+      <div class="image">
+        <input type="file" id="clothesInput" style="display: none;" (change)="handleImageChange($event, 'clothesPreview', 'clothesImg','clothesInput')">
+        <img class="preview" id="clothesPreview" *ngIf="clothesInput"  [src]="''" alt="의상 이미지">
+        <img class="preview" *ngIf="!clothesInput" src='/assets/clothesSample.png' alt="의상 미리보기 이미지">
+      </div>
+      <div id="btn_group">
+        <button class="buttonSet" (click)="imageInput('clothesInput')">이미지 불러오기</button>
+      </div>
     </div>
-
-  </div>
-  <div class="image-box">
-    <div class="title">옷 선택</div>
-    <div class="image">
-      <input type="file" id="clothesInput" style="display: none;" (change)="handleImageChange($event, 'clothesPreview', 'clothesImg','clothesInput')">
-      <img class="preview" id="clothesPreview" *ngIf="clothesInput"  [src]="''" alt="의상 이미지">
-      <img class="preview" *ngIf="!clothesInput" src='/assets/clothesSample.png' alt="의상 미리보기 이미지">
-    </div>
-    <div id="btn_group">
-      <button class="btn" (click)="imageInput('clothesInput')">이미지 불러오기</button>
-    </div>
-    <br>
   </div>
 </div>
 <div class="result-button-container">
-  <button class="btn" (click)="sendImageInput()">가상 피팅하기</button>
-  <button class="btn" (click)="openImageDialog()">결과 보기</button>
+  <button class="buttonSet" (click)="sendImageInput()">가상 피팅하기</button>
+  <button class="buttonSet" (click)="openImageDialog()">결과 보기</button>
 </div>
 <hr>
 <div class="title">{{ username }}님의 옷장</div>

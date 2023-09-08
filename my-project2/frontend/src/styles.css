@@ -44,7 +44,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   text-align: left;
 }
 
-.btn{
+.buttonSet{
   position: relative;
   border: none;
   display: inline-block;
@@ -62,8 +62,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .preview{
   height: 600px;
-  width:500px;
+  width:450px;
+  padding: 5px;
   border-radius: 11%;
+
 }
 
 hr {

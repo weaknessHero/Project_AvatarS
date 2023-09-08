@@ -23,9 +23,6 @@ a{
   width: 100%;
 }
 
-.image{
-  height: 610px;
-}
 
 
 .boxes-wrapper{
@@ -135,11 +132,8 @@ footer{
 }
 
 .container{
-  display: flex;
   justify-content: space-between;
-  min-height: 560px;
-  min-height: 560px;
-  
+
 }
 .result-button-container{
   display:block;
@@ -192,7 +186,6 @@ footer{
 
 .image-box {
   text-align: center;
-  width: 100%;
 }
 /* 기존 .box, .box_avatar, .brandName, .name 클래스는 동일하게 유지 */
 
@@ -330,9 +323,16 @@ h3{
   margin-left:3px;
 }
 
+
+#btn_group{
+  margin:10px;
+}
+
+
 #btn_group button:hover{
   color: white;
   background-color: black;
+
 }
 
 @font-face {
