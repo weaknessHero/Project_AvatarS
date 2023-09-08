@@ -23,6 +23,8 @@ export class FittingComponent implements OnInit{
   clothesPreview;
   responseImage;
 
+  clothesSrc: string = "";
+
   closetItems = [];
 
   username = localStorage.getItem('username');
@@ -94,9 +96,9 @@ export class FittingComponent implements OnInit{
       data: { generatedIMG : imagePath }
     });
   }
+
   applyCloth(imageSrc: string): void {
     const clothesPreview = document.getElementById('clothesPreview') as HTMLImageElement;
     clothesPreview.src = imageSrc;
-    this.clothesInput = true;
   }
 }
