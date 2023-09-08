@@ -1,0 +1,2 @@
+실행 이전 설치
+npm install bootstrap@5.3.1

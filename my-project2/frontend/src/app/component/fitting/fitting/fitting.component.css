@@ -23,7 +23,10 @@ a{
   width: 100%;
 }
 
-
+.input-div{
+  display: flex;
+  justify-content: center; 
+}
 
 .boxes-wrapper{
   min-height: 600px;
@@ -186,6 +189,7 @@ footer{
 
 .image-box {
   text-align: center;
+  width :570px;
 }
 /* 기존 .box, .box_avatar, .brandName, .name 클래스는 동일하게 유지 */
 
