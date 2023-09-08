@@ -5,6 +5,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ClosetService} from "../../../service/closet.service";
 import {ProductService} from "../../../service/product.service";
 import {forkJoin} from "rxjs";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-fitting',
@@ -95,8 +96,9 @@ export class FittingComponent implements OnInit{
     });
   }
   applyCloth(imageSrc: string): void {
-    this.clothesInput = true;
     const clothesPreview = document.getElementById('clothesPreview') as HTMLImageElement;
     clothesPreview.src = imageSrc;
+    this.clothesInput = true;
+
   }
 }
