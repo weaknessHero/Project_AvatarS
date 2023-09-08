@@ -4,8 +4,7 @@
       <div class="title">모델 선택</div>
       <div class="image">
         <input type="file" id="modelInput" style="display: none;" (change)="handleImageChange($event, 'modelPreview', 'modelImg','modelInput')">
-        <img class="preview" id="modelPreview" *ngIf="modelInput" [src]="''" alt="모델 이미지">
-        <img class="preview" *ngIf="modelInput==null" src='/assets/modelSample.png' alt="모델 예시 이미지 ">
+        <img class="preview" id="modelPreview" src='/assets/modelSample.png' alt="모델 예시 이미지 ">
       </div>
       <div id="btn_group">
         <button class="buttonSet" (click)="imageInput('modelInput')">이미지 불러오기</button>
