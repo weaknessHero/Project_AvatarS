@@ -1,0 +1,18 @@
+.container{
+  margin-top: 20px;
+}
+
+.h1{
+  text-align: center;
+}
+
+.image_preview{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image{
+  margin-right: 3px;
+  display: flex;
+  flex-direction: column;
+}

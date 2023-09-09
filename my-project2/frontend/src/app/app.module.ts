@@ -36,6 +36,8 @@ import { SearchComponent } from './component/search/search.component';
 import { ManageComponent } from './component/product/manage/manage.component';
 import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
 import { ClosetComponent } from './component/member/closet/closet.component';
+import { CommunityComponent } from './component/community/community.component';
+import { PostComponent } from './component/community/post/post.component';
 
 
 @NgModule({
@@ -60,7 +62,9 @@ import { ClosetComponent } from './component/member/closet/closet.component';
     ItemsComponent,
     SearchComponent,
     ManageComponent,
-    ClosetComponent
+    ClosetComponent,
+    CommunityComponent,
+    PostComponent
   ],
     imports: [
         BrowserModule,
