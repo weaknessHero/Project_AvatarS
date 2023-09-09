@@ -11,6 +11,7 @@ export class PostComponent {
     title: '',
     gender: '',
     style: '',
+    body: '',
     imageFiles: [],
   };
 

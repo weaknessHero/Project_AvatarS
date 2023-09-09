@@ -39,6 +39,12 @@
       <input type ='radio' id ='modernRadio' [(ngModel)]= 'post.style' name =' style' value ='modern'/>
       <label for='modernRadio'>모던</label><br>
     </div>
+    <!--체형 정보 -->
+    <div class="form-group" class="content_body">
+      <br><label>체형 정보</label><br>
+      <input type="radio" id="thin" [(ngModel)]="post.body" name='body' value='thin'>
+      <label for='thin'> 마른 체형</label>
+    </div>
     <!-- 등록 버튼 -->
     <br><button type= "submit">등록하기</button>
   </form>
