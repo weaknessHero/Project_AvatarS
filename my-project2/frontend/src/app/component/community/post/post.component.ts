@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-post',
@@ -18,7 +21,9 @@ export class PostComponent {
     //postIds: []
   };
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private router: Router,
+              private snackBar: MatSnackBar) {
     this.post.username = localStorage.getItem('username');
   }
 
@@ -36,15 +41,24 @@ export class PostComponent {
       formData.append('imageFiles', imageFile.file);
     }
 
-    this.http.post('http://localhost:8080/posts', formData)
+
+    this.http.post('http://localhost:8080/posts', formData, { observe: 'response', responseType: 'text' })
       .subscribe(
         response => {
-          console.log('게시물이 등록되었습니다.');
+          if (response.status === 201) {
+            console.log('게시물이 등록되었습니다.');
+            this.router.navigate(['/community']);
+            this.snackBar.open('게시물 등록에 성공했습니다!', '',
+              { duration: 2000, horizontalPosition: 'center', verticalPosition: 'top'});
+          } else {
+            console.error('Unexpected status code', response.status);
+          }
         },
         error => {
-          console.error('게시물 등록 실패', error);
+          console.error('An error occurred:', error);
         }
       );
+
   }
 
   onImageChange(event){

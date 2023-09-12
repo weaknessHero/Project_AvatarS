@@ -1,6 +1,7 @@
+<h1 style="margin-top: 10px;">Style</h1>
 <div class="container">
   <div class="addContents">
-    <button type="button" (click)="navigateToPost()" class="addButton">게시물 추가하기</button>
+    <button type="button" (click)="navigateToPost()" class="addButton">내 스타일 추가하기</button>
   </div>
   <div class="cards">
     <div class="content">
@@ -14,4 +15,17 @@
       </div>
     </div>
   </div>
+</div>
+<div class="boxes-wrapper">
+  <ng-container *ngFor="let post of posts; let postIndex = index">
+    <div class="box">
+      <img [src]="'http://localhost:8080/posts/images/' + post.imagePaths[currentIndices[postIndex]]" class="d-block w-100"/>
+      <!-- Previous and Next Buttons -->
+      <button (click)="previous(postIndex)"><</button>
+      <button (click)="next(postIndex, post.imagePaths.length)">></button>
+      <h2>{{ post.username }}</h2>
+      <!-- Post title -->
+      <h3>{{ post.title }}</h3>
+    </div>
+  </ng-container>
 </div>

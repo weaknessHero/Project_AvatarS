@@ -5,9 +5,12 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -81,7 +84,7 @@ public class PostController {
     private GridFsTemplate gridFsTemplate;
 
     @GetMapping("/images/{id}")
-public void serveImage(@PathVariable("id") String id, HttpServletResponse response) throws IOException {
+    public void serveImage(@PathVariable("id") String id, HttpServletResponse response) throws IOException {
     GridFSFile file = gridFsTemplate.findOne(new Query(Criteria.where("_id").is(id)));
 
     if (file != null) {
@@ -113,4 +116,57 @@ public void serveImage(@PathVariable("id") String id, HttpServletResponse respon
           throw new RuntimeException("Could not store the file " + e.getMessage());
         }
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deletePost(@PathVariable String id) {
+        try {
+            // Find the post
+            Posts post = postService.getPostById(id);
+            if (post == null) {
+                return new ResponseEntity<>("No post found with id: " + id, HttpStatus.NOT_FOUND);
+            }
+
+            // Delete images from GridFS
+            for (String imagePath : post.getImagePaths()) {
+                gridFsTemplate.delete(new Query(Criteria.where("_id").is(imagePath)));
+            }
+
+            // Delete the post
+            postService.deletePost(post);
+
+            return new ResponseEntity<>("Successfully deleted", HttpStatus.OK);
+        } catch (Exception e) {
+        return new ResponseEntity<>("Failed to delete", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    
+    @GetMapping("/all")
+    public ResponseEntity<List<Posts>> getAllPosts() {
+        List<Posts> posts = postService.getAllPosts();
+        return new ResponseEntity<>(posts, HttpStatus.OK);
+    }
+
+    @PutMapping("update/{id}")
+    public ResponseEntity<String> updatePost(@PathVariable("id") String id, @RequestBody Posts updatedPost) {
+        try {
+            // Find the post
+            Posts existingPost = postService.getPostById(id);
+            if (existingPost == null) {
+                return new ResponseEntity<>("No post found with id: " + id, HttpStatus.NOT_FOUND);
+            }
+
+            // Update the post
+            existingPost.setTitle(updatedPost.getTitle());
+            existingPost.setGender(updatedPost.getGender());
+            existingPost.setStyle(updatedPost.getStyle());
+
+            // Save the updated post
+            postService.save(existingPost);
+
+        return new ResponseEntity<>("Successfully updated", HttpStatus.OK);
+        } catch (Exception e) {
+        return new ResponseEntity<>("Failed to update", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }
