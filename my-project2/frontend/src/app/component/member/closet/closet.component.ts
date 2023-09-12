@@ -3,6 +3,7 @@ import {ClosetService} from "../../../service/closet.service";
 import {forkJoin} from "rxjs";
 import {ProductService} from "../../../service/product.service";
 import {ClosetResponse} from "src/app/component/member/closet/closet-response.model";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-closet',
@@ -12,12 +13,20 @@ import {ClosetResponse} from "src/app/component/member/closet/closet-response.mo
 export class ClosetComponent implements OnInit{
 
   closetItems = [];
+  posts = [];
 
   constructor(private closetService: ClosetService,
-              private productService: ProductService) {}
+              private productService: ProductService,
+              private http: HttpClient) {}
 
   ngOnInit() {
     this.loadClosetItems();
+
+    const username = localStorage.getItem('username');
+    this.http.get(`http://localhost:8080/posts/${username}`)
+      .subscribe(data =>{
+        this.posts = data as any[];
+      });
   }
 
   removeItem(itemId: string) {

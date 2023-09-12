@@ -60,7 +60,7 @@
             </a>
             <li *ngIf="(signService.username | async) as username" class="label1">
               <a [routerLink]="['/closet']">
-                {{ username || '사용자' }}의 옷장
+                {{ username || '사용자' }}
               </a>
             </li>
             <li *ngIf="(signService.username | async)" class="label1">

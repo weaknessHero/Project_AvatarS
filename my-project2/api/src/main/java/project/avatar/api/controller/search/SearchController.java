@@ -1,4 +1,4 @@
-package project.avatar.api.controller.products;
+package project.avatar.api.controller.search;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
