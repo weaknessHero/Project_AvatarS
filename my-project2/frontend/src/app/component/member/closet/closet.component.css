@@ -351,6 +351,17 @@ h1{
   text-align: center;
 }
 
+.title1{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: x-small;
+}
+
+.box{
+  position: relative;
+}
+
 @font-face {
   font-family: 'ONEMobile';
   src: url('/assets/fonts/ONEMobileBold.ttf') format('truetype');
