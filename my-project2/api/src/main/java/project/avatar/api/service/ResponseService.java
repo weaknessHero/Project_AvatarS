@@ -2,10 +2,8 @@ package project.avatar.api.service;
 
 import org.springframework.stereotype.Service;
 import project.avatar.api.model.response.CommonResult;
-import project.avatar.api.model.response.ListResult;
 import project.avatar.api.model.response.SingleResult;
 
-import java.util.List;
 
 @Service
 public class ResponseService {

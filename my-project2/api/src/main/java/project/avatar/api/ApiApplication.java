@@ -1,18 +1,12 @@
 package project.avatar.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.crypto.password.PasswordEncoder;
 //import project.avatar.api.entity.Users;
 //import project.avatar.api.repo.UserRepository;
 
-import java.util.Arrays;
-import java.util.List;
 //import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 

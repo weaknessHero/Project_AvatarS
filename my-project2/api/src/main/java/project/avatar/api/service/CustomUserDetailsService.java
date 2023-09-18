@@ -9,7 +9,6 @@ import project.avatar.api.entity.Users;
 import project.avatar.api.repo.UserRepository;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Service

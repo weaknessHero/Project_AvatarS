@@ -1,6 +1,5 @@
 package project.avatar.api.config;
 
-import org.openqa.selenium.Platform;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.jpa.JpaTransactionManager;

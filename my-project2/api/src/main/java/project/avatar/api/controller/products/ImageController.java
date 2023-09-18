@@ -98,7 +98,6 @@ import project.avatar.api.service.Detect.ColorExtractionService;
 import project.avatar.api.service.Detect.DetectLabels;
 import project.avatar.api.service.Detect.ImageColor;
 import project.avatar.api.service.Detect.ObjectAnnotation;
-import project.avatar.api.controller.products.ImageColorExtractor;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.awt.*;

@@ -21,12 +21,9 @@ public class ObjectAnnotation {
 package project.avatar.api.service.Detect;
 
 import com.google.cloud.vision.v1.BoundingPoly;
-import com.google.cloud.vision.v1.Vertex;
 
 import java.awt.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.List;
+
 public class ObjectAnnotation {
     private String name;
     private float score;
