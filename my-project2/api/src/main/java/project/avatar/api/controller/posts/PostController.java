@@ -81,6 +81,7 @@ public class PostController {
 
     @Autowired 
     private GridFsTemplate gridFsTemplate;
+    //
 
     @GetMapping("/images/{id}")
     public void serveImage(@PathVariable("id") String id, HttpServletResponse response) throws IOException {
