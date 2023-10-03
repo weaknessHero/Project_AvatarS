@@ -83,7 +83,7 @@ public class PostController {
     private GridFsTemplate gridFsTemplate;
     //
 
-    @GetMapping("/images/{id}")
+    /*@GetMapping("/images/{id}")
     public void serveImage(@PathVariable("id") String id, HttpServletResponse response) throws IOException {
     GridFSFile file = gridFsTemplate.findOne(new Query(Criteria.where("_id").is(id)));
 
@@ -99,9 +99,28 @@ public class PostController {
         }
     } else {
         throw new FileNotFoundException("No file with id: " + id);
-    }
-}
+    }*/
+    @GetMapping("/images/{id}")
+    public void serveImage(@PathVariable("id") String id, HttpServletResponse response) throws IOException {
+        GridFSFile file = gridFsTemplate.findOne(new Query(Criteria.where("_id").is(id)));
 
+        if (file != null) {
+            GridFsResource resource = null;
+            try {
+                resource = gridFsTemplate.getResource(file);
+                // 바이트 배열로 데이터를 모두 읽어옵니다.
+                byte[] imageBytes = IOUtils.toByteArray(resource.getInputStream());
+                // 바이트 배열을 HTTP 응답에 씁니다.
+                IOUtils.write(imageBytes, response.getOutputStream());
+            } finally {
+                if (resource != null && resource.getInputStream() != null) {
+                    resource.getInputStream().close();
+                }
+            }
+        } else {
+            throw new FileNotFoundException("No file with id: " + id);
+        }
+    }
 
     //@Autowired GridFsOperations gridFsOperations;
     public String saveImageFile(MultipartFile file){
