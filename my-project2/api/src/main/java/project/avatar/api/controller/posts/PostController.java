@@ -108,9 +108,9 @@ public class PostController {
             GridFsResource resource = null;
             try {
                 resource = gridFsTemplate.getResource(file);
-                // 바이트 배열로 데이터를 모두 읽어옵니다.
+                // 바이트 배열로 데이터를 모두 읽어오기
                 byte[] imageBytes = IOUtils.toByteArray(resource.getInputStream());
-                // 바이트 배열을 HTTP 응답에 씁니다.
+                // 바이트 배열을 HTTP 응답에 쓰기
                 IOUtils.write(imageBytes, response.getOutputStream());
             } finally {
                 if (resource != null && resource.getInputStream() != null) {
