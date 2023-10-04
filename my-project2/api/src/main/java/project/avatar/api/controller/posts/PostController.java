@@ -30,6 +30,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+
 import project.avatar.api.entity.Posts;
 import project.avatar.api.service.PostService;
 
@@ -81,37 +83,15 @@ public class PostController {
 
     @Autowired 
     private GridFsTemplate gridFsTemplate;
-    //
 
     /*@GetMapping("/images/{id}")
     public void serveImage(@PathVariable("id") String id, HttpServletResponse response) throws IOException {
-    GridFSFile file = gridFsTemplate.findOne(new Query(Criteria.where("_id").is(id)));
-
-    if (file != null) {
-        GridFsResource resource = null;
-        try {
-            resource = gridFsTemplate.getResource(file);
-            IOUtils.copy(resource.getInputStream(), response.getOutputStream());
-        } finally {
-            if (resource != null && resource.getInputStream() != null) {
-                resource.getInputStream().close();
-            }
-        }
-    } else {
-        throw new FileNotFoundException("No file with id: " + id);
-    }*/
-    @GetMapping("/images/{id}")
-    public void serveImage(@PathVariable("id") String id, HttpServletResponse response) throws IOException {
         GridFSFile file = gridFsTemplate.findOne(new Query(Criteria.where("_id").is(id)));
-
         if (file != null) {
             GridFsResource resource = null;
             try {
                 resource = gridFsTemplate.getResource(file);
-                // 바이트 배열로 데이터를 모두 읽어오기
-                byte[] imageBytes = IOUtils.toByteArray(resource.getInputStream());
-                // 바이트 배열을 HTTP 응답에 쓰기
-                IOUtils.write(imageBytes, response.getOutputStream());
+                IOUtils.copy(resource.getInputStream(), response.getOutputStream());
             } finally {
                 if (resource != null && resource.getInputStream() != null) {
                     resource.getInputStream().close();
@@ -120,7 +100,34 @@ public class PostController {
         } else {
             throw new FileNotFoundException("No file with id: " + id);
         }
+    }*/
+
+    @GetMapping("/images/{id}")
+    public void serveImage(@PathVariable("id") String id, HttpServletResponse response) throws IOException {
+        GridFSFile file = gridFsTemplate.findOne(new Query(Criteria.where("_id").is(id)));
+
+        if (file != null) {
+            GridFsResource resource = gridFsTemplate.getResource(file);
+            InputStream inputStream = null;
+            try {
+                // 바이트 배열로 데이터를 모두 읽어오기
+                inputStream = resource.getInputStream();
+                byte[] imageBytes = IOUtils.toByteArray(inputStream);
+                // 바이트 배열을 HTTP 응답에 쓰기
+                IOUtils.write(imageBytes, response.getOutputStream());
+            } catch (IOException e) {
+                throw new RuntimeException("Error while reading file from GridFS", e);
+            } finally {
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+            }
+        } else {
+            throw new FileNotFoundException("No file with id: " + id);
+        }
     }
+
+
 
     //@Autowired GridFsOperations gridFsOperations;
     public String saveImageFile(MultipartFile file){

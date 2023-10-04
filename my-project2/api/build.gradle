@@ -58,7 +58,7 @@ dependencies {
 	implementation 'com.google.cloud:google-cloud-vision:3.10.0'
 	implementation 'com.google.cloud:google-cloud-storage:2.9.0'
 
-	implementation 'org.mongodb:mongodb-driver-sync:4.2.3'
+	implementation 'org.mongodb:mongodb-driver-sync:4.6.1'
 }
 
 tasks.named('test') {
