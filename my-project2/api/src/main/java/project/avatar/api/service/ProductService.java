@@ -2,6 +2,9 @@ package project.avatar.api.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.google.cloud.vision.v1.Product;
+
 import project.avatar.api.dto.ProductDTO;
 
 import java.util.ArrayList;
@@ -45,6 +48,19 @@ public class ProductService {
 
         return result;
     }
+
+    public List<ProductDTO> getAllProducts(){
+        List<Products> products = productsRepository.findAll();
+        List<ProductDTO> productDTOs = new ArrayList<>();
+        
+        for (Products product : products) {
+            ProductDTO productDto = convertToProductDTO(product);
+            productDTOs.add(productDto);
+        }
+        
+        return productDTOs;
+    }
+    
 
     private ProductDTO convertToProductDTO(Products product) {
         ProductDTO productDto = new ProductDTO(

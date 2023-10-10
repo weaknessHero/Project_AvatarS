@@ -23,8 +23,9 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.gridfs.GridFsResource;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 
-
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -32,7 +33,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
+import project.avatar.api.entity.Comment;
 import project.avatar.api.entity.Posts;
+import project.avatar.api.repo.CommentRepository;
+import project.avatar.api.repo.PostRepository;
+import project.avatar.api.service.CommentService;
 import project.avatar.api.service.PostService;
 
 @RestController
@@ -40,10 +45,14 @@ import project.avatar.api.service.PostService;
 public class PostController {
     
     private final PostService postService;
+    private final CommentService commentService;
+    private final PostRepository postRepository;
 
     @Autowired
-    PostController(PostService postService){
+    PostController(PostService postService, CommentService commentService,PostRepository postRepository){
         this.postService = postService;
+        this.commentService = commentService;
+        this.postRepository = postRepository;
     }
 
     @PostMapping
@@ -60,6 +69,8 @@ public class PostController {
             posts.setGender(gender);
             posts.setUsername(username);
             posts.setStyle(style);
+            posts.setLikes(new ArrayList<>());
+            posts.setComments(new ArrayList<>());
             //posts.setPostIds(null);
             for(MultipartFile imageFile : imageFiles){
                 if(imageFile != null && !imageFile.isEmpty()){
@@ -84,23 +95,6 @@ public class PostController {
     @Autowired 
     private GridFsTemplate gridFsTemplate;
 
-    /*@GetMapping("/images/{id}")
-    public void serveImage(@PathVariable("id") String id, HttpServletResponse response) throws IOException {
-        GridFSFile file = gridFsTemplate.findOne(new Query(Criteria.where("_id").is(id)));
-        if (file != null) {
-            GridFsResource resource = null;
-            try {
-                resource = gridFsTemplate.getResource(file);
-                IOUtils.copy(resource.getInputStream(), response.getOutputStream());
-            } finally {
-                if (resource != null && resource.getInputStream() != null) {
-                    resource.getInputStream().close();
-                }
-            }
-        } else {
-            throw new FileNotFoundException("No file with id: " + id);
-        }
-    }*/
 
     @GetMapping("/images/{id}")
     public void serveImage(@PathVariable("id") String id, HttpServletResponse response) throws IOException {
@@ -143,6 +137,16 @@ public class PostController {
         }
     }
 
+    @GetMapping("/postId/{id}")
+    public ResponseEntity<Posts> getPost(@PathVariable String id){
+        Posts post = postService.getPostById(id);
+        if (post != null) {
+            return new ResponseEntity<>(post, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+    
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deletePost(@PathVariable String id) {
         try {
@@ -195,4 +199,68 @@ public class PostController {
         }
     }
 
+    @PostMapping("/{postId}/like")
+    public ResponseEntity<?> toggleLike(@PathVariable("postId") String postId, @RequestBody Map<String, Object> payload) {
+        try {
+            Posts post = postService.getPostById(postId);
+            if (post == null) {
+                return ResponseEntity.notFound().build();
+            }
+
+            String username = (String) payload.get("username");
+            
+            if (post.getLikes().contains(username)) {
+                // 이미 좋아요한 경우, 좋아요 취소
+                post.getLikes().remove(username);
+            } else {
+                // 아직 좋아요하지 않은 경우, 좋아요 추가
+                post.getLikes().add(username);
+            }
+            
+            postService.save(post);
+
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @PostMapping("/{postId}/comments")
+    public ResponseEntity<?> addComment(@PathVariable("postId") String postId, @RequestBody Comment commentRequest) {
+        try {
+          Posts post = postService.getPostById(postId);
+          if (post == null) {
+              return ResponseEntity.notFound().build();
+          }
+          
+          Comment newComment = new Comment(commentRequest.getUsername(), commentRequest.getContent());
+          commentService.save(newComment);
+
+          // 게시물에 댓글 추가
+          post.getComments().add(newComment);
+          
+          // 게시물 저장 및 업데이트 등의 로직 수행
+          postRepository.save(post);
+
+          return ResponseEntity.ok().build();
+      } catch (Exception e) {
+          return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+      }
+  }
+
+  @GetMapping("/{postId}/comments")
+    public ResponseEntity<List<Comment>> getComments(@PathVariable("postId") String postId) {
+        try {
+            Posts post = postService.getPostById(postId);
+            if (post == null) {
+                return ResponseEntity.notFound().build();
+            }
+
+            List<Comment> comments = post.getComments();
+
+            return ResponseEntity.ok(comments);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
 }

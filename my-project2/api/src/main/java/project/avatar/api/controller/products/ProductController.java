@@ -67,5 +67,11 @@ public class ProductController {
         ListResult<ProductDTO> result = new ListResult<>(true, "Success", products);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<ProductDTO>> getAllProducts() {
+        List<ProductDTO> products = productService.getAllProducts();
+        return new ResponseEntity<>(products, HttpStatus.OK);
+    }
 }
 
