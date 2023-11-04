@@ -38,32 +38,4 @@ public class SearchController {
 
         return apiResults;
     }
-    /*@GetMapping("/naverSearch")
-    public List<Object> search(@RequestParam String query){
-        RestTemplate restTemplate = new RestTemplate();
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("X-Naver-Client-Id", clientId);
-        headers.add("X-Naver-Client-Secret", clientSecret);
-
-        HttpEntity<String> entity = new HttpEntity<>(headers);
-
-        ResponseEntity<Map> responseEntity = restTemplate.exchange(
-                "https://openapi.naver.com/v1/search/shop.json?query=" + query + "&display=100",
-                HttpMethod.GET,
-                entity,
-                Map.class
-            );
-
-        Map<String,Object> apiResults = responseEntity.getBody();
-
-        // Get items from the result
-        List<Map<String,Object>> items = (List<Map<String,Object>>)apiResults.get("items");
-
-        // Filter the items where category1 is 패션의류 and limit the results to 12
-        return items.stream()
-            .filter(item -> "패션의류".equals(item.get("category1")))
-            .limit(12)
-            .collect(Collectors.toList());
-    }*/
 }
